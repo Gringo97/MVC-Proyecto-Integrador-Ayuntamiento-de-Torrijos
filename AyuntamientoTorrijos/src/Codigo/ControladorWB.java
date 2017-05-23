@@ -1,6 +1,7 @@
 package Codigo;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.lang.reflect.Array;
@@ -10,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class ControladorWB extends JFrame implements Controlador {
-	private Modelo modelo;
+	private ModeloWB modelo;
 	private ModeloBBDD modelo2;
 	private ModeloFicheroIni modeloFicheroIni;
 	private VistaFicheroIni vistaFicheroIni;
@@ -20,7 +21,7 @@ public class ControladorWB extends JFrame implements Controlador {
 	private JPanel ArrVistas[];
 
 	public void setModelo(Modelo modelo) {
-		this.modelo = modelo;
+		this.modelo = (ModeloWB) modelo;
 	}
 
 	public void setModelo2(Modelo modelo) {
@@ -104,5 +105,14 @@ public class ControladorWB extends JFrame implements Controlador {
 
 	}
 
+	public void ActivarRepre(Container container, boolean enable) {
+            Component[] components = container.getComponents();
+            for (Component component : components) {
+                   component.setEnabled(enable);
+                   if (component instanceof Container) {
+                	   ActivarRepre((Container) component, enable);
+                   }
+            }
+      }
 
 }

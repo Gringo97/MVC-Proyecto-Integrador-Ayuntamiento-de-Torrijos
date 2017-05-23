@@ -34,6 +34,12 @@ public class ModeloWB extends JFrame implements Modelo {
 	}
 
 
+	public void ActivarRepresentante() {
+		
+		
+	}
+
+
 
 
 }

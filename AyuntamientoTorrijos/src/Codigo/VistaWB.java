@@ -106,6 +106,7 @@ public class VistaWB extends JFrame implements Vista {
 	private JTextField txtfFaxI;
 	private JTextField txtfMovilI;
 	private JTextField txtfFijoI;
+	private JCheckBox checkRepresentante;
 
 	public void setControlador(Controlador controlador) {
 
@@ -147,7 +148,7 @@ public class VistaWB extends JFrame implements Vista {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setToolTipText("");
 
-		tabbedPane.setVisible(false);
+		tabbedPane.setVisible(true);
 		
 				JPanel panel_3 = new JPanel();
 				tabbedPane.addTab("Personas", null, panel_3, null);//BUSCAR PERSONA
@@ -310,22 +311,20 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																								
 																																																																																										JButton btnAceptarInsPers = new JButton("Aceptar");
 																																																																																										
-																																																																																												btnAceptarInsPers.setBounds(0, 605, 89, 23);
+																																																																																												btnAceptarInsPers.setBounds(10, 605, 89, 23);
 																																																																																												inscActvPers.add(btnAceptarInsPers);
 																																																																																												
 																																																																																														JButton btnCancelarInsPers = new JButton("Cancelar");
 																																																																																														
-																																																																																																btnCancelarInsPers.setBounds(576, 605, 89, 23);
+																																																																																																btnCancelarInsPers.setBounds(566, 605, 89, 23);
 																																																																																																inscActvPers.add(btnCancelarInsPers);
 																																																																																																										
 																																																																																																										JPanel Panelrepresentante = new JPanel();
-																																																																																																										Panelrepresentante.setBounds(314, 0, 351, 581);
+																																																																																																										Panelrepresentante.setBounds(314, 0, 351, 594);
 																																																																																																										inscActvPers.add(Panelrepresentante);
 																																																																																																										
 																																																																																																										JLabel label_1 = new JLabel("Representante");
 																																																																																																										label_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-																																																																																																										
-																																																																																																										JCheckBox checkRepresentante = new JCheckBox("");
 																																																																																																										
 																																																																																																										JLabel label_3 = new JLabel("Nombre");
 																																																																																																										label_3.setEnabled(false);
@@ -398,15 +397,13 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																																										label_13.setEnabled(false);
 																																																																																																										GroupLayout gl_Panelrepresentante = new GroupLayout(Panelrepresentante);
 																																																																																																										gl_Panelrepresentante.setHorizontalGroup(
-																																																																																																											gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
-																																																																																																												.addGroup(Alignment.TRAILING, gl_Panelrepresentante.createSequentialGroup()
-																																																																																																													.addContainerGap(101, Short.MAX_VALUE)
+																																																																																																											gl_Panelrepresentante.createParallelGroup(Alignment.TRAILING)
+																																																																																																												.addGroup(gl_Panelrepresentante.createSequentialGroup()
+																																																																																																													.addContainerGap(70, Short.MAX_VALUE)
 																																																																																																													.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
 																																																																																																														.addGroup(gl_Panelrepresentante.createSequentialGroup()
 																																																																																																															.addGap(41)
-																																																																																																															.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-																																																																																																															.addGap(6)
-																																																																																																															.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+																																																																																																															.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE))
 																																																																																																														.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
 																																																																																																														.addComponent(txtfNombreR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
 																																																																																																														.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
@@ -437,11 +434,7 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																																											gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
 																																																																																																												.addGroup(gl_Panelrepresentante.createSequentialGroup()
 																																																																																																													.addContainerGap()
-																																																																																																													.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
-																																																																																																														.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-																																																																																																														.addGroup(gl_Panelrepresentante.createSequentialGroup()
-																																																																																																															.addGap(1)
-																																																																																																															.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)))
+																																																																																																													.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
 																																																																																																													.addGap(9)
 																																																																																																													.addComponent(label_3)
 																																																																																																													.addGap(11)
@@ -482,12 +475,12 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																																													.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
 																																																																																																														.addComponent(txtfMovilR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 																																																																																																														.addComponent(txtfFijo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-																																																																																																													.addContainerGap(52, Short.MAX_VALUE))
+																																																																																																													.addContainerGap(65, Short.MAX_VALUE))
 																																																																																																										);
 																																																																																																										Panelrepresentante.setLayout(gl_Panelrepresentante);
 																																																																																																										
 																																																																																																										JPanel PanelInteresado = new JPanel();
-																																																																																																										PanelInteresado.setBounds(0, 0, 316, 581);
+																																																																																																										PanelInteresado.setBounds(0, 0, 316, 594);
 																																																																																																										inscActvPers.add(PanelInteresado);
 																																																																																																										
 																																																																																																										JLabel label_2 = new JLabel("Interesado");
@@ -543,14 +536,22 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																																										txtfFijoI = new JTextField();
 																																																																																																										txtfFijoI.setColumns(10);
 																																																																																																										
-																																																																																																										JRadioButton radioButton = new JRadioButton("Persona Fisica");
-																																																																																																										
-																																																																																																										JRadioButton radioButton_1 = new JRadioButton("Persona Juridica");
+																																																																																																										checkRepresentante = new JCheckBox("");
+																																																																																																										checkRepresentante.addActionListener(new ActionListener() {
+																																																																																																											public void actionPerformed(ActionEvent e) {
+
+																																																																																																												if (checkRepresentante.isSelected()) {
+                    controlador.ActivarRepre(Panelrepresentante, true);
+             } else {
+                    controlador.ActivarRepre(Panelrepresentante, false);
+             }
+																																																																																																											}
+																																																																																																											});
 																																																																																																										GroupLayout gl_PanelInteresado = new GroupLayout(PanelInteresado);
 																																																																																																										gl_PanelInteresado.setHorizontalGroup(
-																																																																																																											gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-																																																																																																												.addGroup(Alignment.TRAILING, gl_PanelInteresado.createSequentialGroup()
-																																																																																																													.addContainerGap(51, Short.MAX_VALUE)
+																																																																																																											gl_PanelInteresado.createParallelGroup(Alignment.TRAILING)
+																																																																																																												.addGroup(gl_PanelInteresado.createSequentialGroup()
+																																																																																																													.addContainerGap(67, Short.MAX_VALUE)
 																																																																																																													.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
 																																																																																																														.addGroup(gl_PanelInteresado.createSequentialGroup()
 																																																																																																															.addGap(48)
@@ -608,14 +609,13 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																																															.addComponent(label_23, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
 																																																																																																														.addGroup(gl_PanelInteresado.createSequentialGroup()
 																																																																																																															.addGap(2)
-																																																																																																															.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-																																																																																																															.addGap(8)
-																																																																																																															.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
-																																																																																																														.addGroup(gl_PanelInteresado.createSequentialGroup()
-																																																																																																															.addComponent(radioButton)
-																																																																																																															.addGap(2)
-																																																																																																															.addComponent(radioButton_1, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)))
-																																																																																																													.addGap(29))
+																																																																																																															.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+																																																																																																																.addComponent(checkRepresentante)
+																																																																																																																.addGroup(gl_PanelInteresado.createSequentialGroup()
+																																																																																																																	.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+																																																																																																																	.addGap(8)
+																																																																																																																	.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))))
+																																																																																																													.addGap(65))
 																																																																																																										);
 																																																																																																										gl_PanelInteresado.setVerticalGroup(
 																																																																																																											gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
@@ -663,16 +663,15 @@ public class VistaWB extends JFrame implements Vista {
 																																																																																																														.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 																																																																																																														.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 																																																																																																													.addGap(18)
-																																																																																																													.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-																																																																																																														.addComponent(radioButton)
-																																																																																																														.addComponent(radioButton_1))
-																																																																																																													.addContainerGap(12, Short.MAX_VALUE))
+																																																																																																													.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+																																																																																																													.addContainerGap(31, Short.MAX_VALUE))
 																																																																																																										);
 																																																																																																										PanelInteresado.setLayout(gl_PanelInteresado);
 																																																																																																										
 																																																																																																												JPanel VisualizarLicencias = new JPanel();
 																																																																																																												Contenedor.add(VisualizarLicencias, "name_30680022169608");
 																																																																																																												ArrVistas[0] = VisualizarLicencias;
+																																																																																																												VisualizarLicencias.setVisible(true);
 																																																																																																												
 																																																																																																														JScrollPane scrollPane_1 = new JScrollPane();
 																																																																																																														GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
@@ -933,30 +932,28 @@ public class VistaWB extends JFrame implements Vista {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
+						.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
-								.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-								.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(32)
-									.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
-								.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE))
-							.addGap(6))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnConfiguracion)
-							.addContainerGap(819, Short.MAX_VALUE))))
+							.addGap(32)
+							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnConfiguracion))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE))
+					.addGap(6))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addGap(17)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 655, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 655, GroupLayout.PREFERRED_SIZE)
+							.addGap(35))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
@@ -964,10 +961,10 @@ public class VistaWB extends JFrame implements Vista {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)))
-					.addGap(1)
-					.addComponent(btnConfiguracion)
-					.addContainerGap())
+							.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(btnConfiguracion)
+							.addGap(56))))
 		);
 
 
@@ -994,7 +991,7 @@ public class VistaWB extends JFrame implements Vista {
 	public String getFechaInicialActBusqueda() {
 
 		// System.out.println(as);
-
+		
 		int str = (Integer) FechaInicialActBusqueda.getDate().getDay();
 		int str2 = (Integer) FechaInicialActBusqueda.getDate().getMonth()+1;
 		int str3 = (Integer) FechaInicialActBusqueda.getDate().getYear() +1900;

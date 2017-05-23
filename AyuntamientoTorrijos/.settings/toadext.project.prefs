@@ -1,0 +1,4 @@
+DATABASE_LANGUAGE=MYSQL
+SQL_SOURCE_PATHS=src
+eclipse.preferences.version=1
+srcSQL_DETECTION=ON

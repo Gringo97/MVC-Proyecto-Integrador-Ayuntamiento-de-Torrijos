@@ -19,23 +19,30 @@ public class ModeloBBDD implements Modelo {
 	private Statement stmt;
 	public String tabla[][] = null;
 	public String tabla2[][] = null;
+	private String bd, login, pwd;
 
 
 
 
 	public void Conexion(String bd,String login,String pwd) {
-		try {
-
-			Class.forName("com.mysql.jdbc.Driver");
-			conexion = DriverManager.getConnection(bd, login, pwd);
-			System.out.println(" - Conexión con MySQL establecida -");
-
-		} catch (Exception e) {
-			System.out.println(" – Error de Conexión con MySQL -");
-			e.printStackTrace();
-		}
+		this.bd = bd;
+		this.login = login;
+		this.pwd = pwd;
+		getConnection();
 	}
-
+	
+	
+	public Connection getConnection() {
+        Connection con;
+        try {
+               Class.forName("com.mysql.jdbc.Driver");
+               con = DriverManager.getConnection(bd, login, pwd);
+               return con;
+        } catch (Exception e) {            
+               return null;
+               // TODO: handle exception
+        }
+  }
 	public void Consulta(String Query) {
 		vista.clear_Table();
 		String query = Query;
@@ -352,6 +359,108 @@ public class ModeloBBDD implements Modelo {
 	@Override
 	public void setVista(Vista vista) {
 		this.vista = (VistaWB) vista;
+	}
+
+	public void insertarRepresentante(String txtfNombreR, String txtfApellidosR, String txtfDocumentoIdentidadR,
+			String txtfDireccionR, String txtfMuncipioR, String txtfCDR, String txtfEmailR, String txtfFaxR,
+			String txtfMovilR, String txtfFijo) {
+		Connection con = getConnection();
+		int r = 0;
+		String query = "INSERT INTO `representante` ( `nombre`, `apellidos`, `documentoIdentidad`, `direccion`, `municipio`, `codigoPostal`, `telefonoFijo`, `telefonoMovil`, `fax`, `Email`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+
+		PreparedStatement pstmt;
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, txtfNombreR);
+			pstmt.setString(2, txtfApellidosR);
+			pstmt.setString(3, txtfDocumentoIdentidadR);
+			pstmt.setString(4, txtfDireccionR);
+			pstmt.setString(5, txtfMuncipioR);
+			pstmt.setString(6, txtfCDR);
+			pstmt.setString(7, txtfFijo );
+			pstmt.setString(8, txtfMovilR);
+			pstmt.setString(9, txtfFaxR);
+			pstmt.setString(10,txtfEmailR);
+			r=pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	
+
+	public void insertarPersona(String txtfNombreI, String txtfApellidosI, String txtfMunicipio, String txtfDireccionI,
+			String txtfCDI, String txtfEmailI, String txtfFaxI, String txtfMovilI, String txtfFijoI, String CP) {
+		Connection con = getConnection();
+		int r = 0;
+		String query = "INSERT INTO `interesado` ( `nombre`, `apellidos`, `cif`, `direccion`, `municipio`, `codigoPostal`, `telefonoFijo`, `telefonoMovil`, `fax`, `email`) VALUES ( ?,?,?,?,?, ?,?, ?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, txtfNombreI);
+			pstmt.setString(2, txtfApellidosI);
+			pstmt.setString(3, txtfCDI);
+			pstmt.setString(4, txtfDireccionI);
+			pstmt.setString(5, txtfMunicipio);
+			pstmt.setString(6, CP);
+			pstmt.setString(7, txtfFijoI );
+			pstmt.setString(8, txtfMovilI);
+			pstmt.setString(9, txtfFaxI);
+			pstmt.setString(10,txtfEmailI);
+			r=pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void insertarActividad(Boolean getchckJustificantePago, Boolean getchckFotocopiaEscritura,
+			Boolean getchckFotocopiaModelo36, Boolean getchckPlanos, Boolean getchckCD, Boolean getchckMemoria,
+			Boolean getchckFotografia, Boolean getchckbxFotocopiaDNI, Boolean getchckbxCertificado1,
+			Boolean getchckbxCertificado2, Boolean getchckCertificadoColegio, String comboBoxTipoSuelo,
+			String dcFechaSolicitud, String dcFechaInicio, String txtfLocal, String txtfTipo, String txtfCuota,
+			String txtfReferenciaCatastral, String txtfEmplazamiento, String gettxtfDescripcion) {
+		
+		Connection con = getConnection();
+		int r = 0;
+		String query = "INSERT INTO `actividad` (`id`, `idIntRep`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`, `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement pstmt;
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setBoolean(1, getchckJustificantePago);
+			pstmt.setBoolean(2, getchckFotocopiaEscritura);
+			pstmt.setBoolean(3, getchckFotocopiaModelo36);
+			pstmt.setBoolean(4, getchckPlanos);
+			pstmt.setBoolean(5, getchckCD);
+			pstmt.setBoolean(6, getchckMemoria);
+			pstmt.setBoolean(7, getchckFotografia );
+			pstmt.setBoolean(8, getchckbxFotocopiaDNI);
+			pstmt.setBoolean(9, getchckbxCertificado1);
+			pstmt.setBoolean(11,getchckbxCertificado2);
+			pstmt.setBoolean(12,getchckCertificadoColegio);
+			pstmt.setString(13,comboBoxTipoSuelo);
+			pstmt.setString(14,dcFechaSolicitud);
+			pstmt.setString(15,dcFechaInicio);
+			pstmt.setString(16,txtfLocal);
+			pstmt.setString(17,txtfTipo);
+			pstmt.setString(18,txtfCuota);
+			pstmt.setString(19,txtfReferenciaCatastral);
+			pstmt.setString(20,txtfEmplazamiento);
+			pstmt.setString(21,gettxtfDescripcion);
+			
+			r=pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }

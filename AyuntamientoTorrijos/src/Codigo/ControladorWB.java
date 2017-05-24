@@ -115,4 +115,19 @@ public class ControladorWB extends JFrame implements Controlador {
             }
       }
 
+	public void insertarRepresentante() {
+		modelo2.insertarRepresentante(vista.getTxtfNombreR(),vista.getTxtfApellidosR(),vista.getTxtfDocumentoIdentidadR(),vista.getTxtfDireccionR(),vista.getTxtfMuncipioR(),vista.getTxtfCDR(),vista.getTxtfEmailR(),vista.getTxtfFaxR(),vista.getTxtfMovilR(),vista.getTxtfFijo());
+		
+	}
+
+	public void insetarPersona() {
+		modelo2.insertarPersona(vista.getTxtfNombreI(),vista.getTxtfApellidosI(),vista.getTxtfMunicipio(),vista.getTxtfDireccionI(),vista.getTxtfCIFI(),vista.getTxtfEmailI(),vista.getTxtfFaxI(),vista.getTxtfMovilI(),vista.getTxtfFijoI(),vista.getTxtfCDI());
+		
+	}
+
+	public void inscribirActividad() {
+		modelo2.insertarActividad(vista.getchckJustificantePago(),vista.getchckFotocopiaEscritura(),vista.getchckFotocopiaModelo36(),vista.getchckPlanos(),vista.getchckCD(),vista.getchckMemoria(),vista.getchckFotografia(),vista.getchckbxFotocopiaDNI(),vista.getchckbxCertificado1(),vista.getchckbxCertificado2(),vista.getchckCertificadoColegio(),vista.getComboBoxTipoSuelo(),vista.getDCFechaSolicitud(),vista.getDCFechaInicio(),vista.getTxtfLocal(),vista.getTxtfTipo(),vista.getTxtfCuota(),vista.getTxtfReferenciaCatastral(),vista.getTxtfEmplazamiento(),vista.gettxtfDescripcion());
+		
+	}
+
 }

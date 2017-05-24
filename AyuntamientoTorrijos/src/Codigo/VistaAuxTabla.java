@@ -66,7 +66,6 @@ public class VistaAuxTabla extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_22;
 	private JTextField textField_23;
-	private JButton btnModificar;
 	private JPanel PanelActividadAux;
 	private JPanel PanelInteresadoAux;
 	private JPanel PanelRepAux;
@@ -90,13 +89,7 @@ public class VistaAuxTabla extends JFrame {
 		btnCancelar.setBounds(850, 499, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		btnModificar = new JButton("Modificar");
-		
-		btnModificar.setBounds(607, 499, 89, 23);
-		contentPane.add(btnModificar);
-		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setEnabled(false);
 		btnAceptar.setBounds(728, 499, 89, 23);
 		contentPane.add(btnAceptar);
 		
@@ -111,61 +104,51 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_2 = new JLabel("Nombre");
 		
 		textField_3 = new JTextField();
-		textField_3.setEditable(false);
 		textField_3.setColumns(10);
 		
 		JLabel label_3 = new JLabel("Apellidos");
 		
 		textField_4 = new JTextField();
-		textField_4.setEditable(false);
 		textField_4.setColumns(10);
 		
 		JLabel label_4 = new JLabel("CIF");
 		
 		textField_5 = new JTextField();
-		textField_5.setEditable(false);
 		textField_5.setColumns(10);
 		
 		JLabel label_5 = new JLabel("Direccion");
 		
 		textField_6 = new JTextField();
-		textField_6.setEditable(false);
 		textField_6.setColumns(10);
 		
 		JLabel label_6 = new JLabel("Municipio");
 		
 		textField_7 = new JTextField();
-		textField_7.setEditable(false);
 		textField_7.setColumns(10);
 		
 		JLabel label_7 = new JLabel("Codigo postal");
 		
 		textField_8 = new JTextField();
-		textField_8.setEditable(false);
 		textField_8.setColumns(10);
 		
 		JLabel label_8 = new JLabel("Tlf Fijo");
 		
 		textField_9 = new JTextField();
-		textField_9.setEditable(false);
 		textField_9.setColumns(10);
 		
 		JLabel label_9 = new JLabel("Tlf Movil");
 		
 		textField_10 = new JTextField();
-		textField_10.setEditable(false);
 		textField_10.setColumns(10);
 		
 		JLabel label_10 = new JLabel("Fax");
 		
 		textField_11 = new JTextField();
-		textField_11.setEditable(false);
 		textField_11.setColumns(10);
 		
 		JLabel label_11 = new JLabel("Email");
 		
 		textField_12 = new JTextField();
-		textField_12.setEditable(false);
 		textField_12.setColumns(10);
 		GroupLayout gl_PanelInteresadoAux = new GroupLayout(PanelInteresadoAux);
 		gl_PanelInteresadoAux.setHorizontalGroup(
@@ -474,80 +457,67 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_35 = new JLabel("Tipo de suelo");
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setEditable(true);
 		
 		JLabel label_27 = new JLabel("Justificante de pago");
 		
 		JCheckBox checkBox_5 = new JCheckBox("");
-		checkBox_5.setEnabled(false);
 		
 		JLabel label_26 = new JLabel("Certificado colegio oficial");
 		
 		JCheckBox checkBox_4 = new JCheckBox("");
-		checkBox_4.setEnabled(false);
 		
 		JLabel label_37 = new JLabel("Referencia catastral");
 		
 		textField = new JTextField();
-		textField.setEditable(false);
 		textField.setColumns(10);
 		
 		JLabel label_34 = new JLabel("Escritura");
 		
 		JCheckBox checkBox_6 = new JCheckBox("");
-		checkBox_6.setEnabled(false);
 		
 		JLabel label_25 = new JLabel("Certificado Modelo 1");
 		
 		JCheckBox checkBox_3 = new JCheckBox("");
-		checkBox_3.setEnabled(false);
 		
 		JLabel label_43 = new JLabel("Local");
 		
 		textField_1 = new JTextField();
-		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		
 		JLabel label_33 = new JLabel("Modelo 36");
 		
 		JCheckBox checkBox_7 = new JCheckBox("");
-		checkBox_7.setEnabled(false);
 		
 		JLabel label_24 = new JLabel("Certificado Modelo 2");
 		
 		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setEnabled(false);
 		
 		JLabel label_42 = new JLabel("Tipo");
 		
 		textField_2 = new JTextField();
-		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		
 		JLabel label_32 = new JLabel("Planos");
 		
 		JCheckBox checkBox_8 = new JCheckBox("");
-		checkBox_8.setEnabled(false);
 		
 		JLabel label_23 = new JLabel("Licencia obra");
 		
 		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setEnabled(false);
 		
 		JLabel label_41 = new JLabel("Emplazamiento");
 		
 		textField_22 = new JTextField();
-		textField_22.setEditable(false);
 		textField_22.setColumns(10);
 		
 		JLabel label_31 = new JLabel("CD");
 		
 		JCheckBox checkBox_9 = new JCheckBox("");
-		checkBox_9.setEnabled(false);
 		
 		JLabel label_22 = new JLabel("Otras autorizaciones");
 		
 		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setEnabled(false);
 		
 		JLabel label_40 = new JLabel("Fecha inicio");
 		
@@ -556,7 +526,6 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_30 = new JLabel("Memoria");
 		
 		JCheckBox checkBox_10 = new JCheckBox("");
-		checkBox_10.setEnabled(false);
 		
 		JLabel label = new JLabel("Descripcion");
 		
@@ -569,18 +538,15 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_29 = new JLabel("Fotografia");
 		
 		JCheckBox checkBox_11 = new JCheckBox("");
-		checkBox_11.setEnabled(false);
 		
 		JLabel label_38 = new JLabel("Cuota");
 		
 		textField_23 = new JTextField();
-		textField_23.setEditable(false);
 		textField_23.setColumns(10);
 		
 		JLabel label_28 = new JLabel("Fotocopia DNI");
 		
 		JCheckBox checkBox_12 = new JCheckBox("");
-		checkBox_12.setEnabled(false);
 		GroupLayout gl_PanelActividadAux_1 = new GroupLayout(PanelActividadAux_1);
 		gl_PanelActividadAux_1.setHorizontalGroup(
 			gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
@@ -799,15 +765,12 @@ public class VistaAuxTabla extends JFrame {
 							.addComponent(checkBox_12))
 						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
 		);
+		
+		JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
 		PanelActividadAux_1.setLayout(gl_PanelActividadAux_1);
 		
-		btnModificar.addMouseListener(new MouseAdapter() {
-
-			public void mouseClicked(MouseEvent arg0) {
-				controlador.ActivarRepre(PanelInteresadoAux, true);
-				controlador.ActivarRepre(PanelActividadAux_1, true);
-			}
-		});
+	
 	}
 
 	public void setControlador(Controlador controlador) {

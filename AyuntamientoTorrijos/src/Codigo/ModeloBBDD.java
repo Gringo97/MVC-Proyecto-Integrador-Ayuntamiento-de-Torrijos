@@ -33,11 +33,11 @@ public class ModeloBBDD implements Modelo {
 	
 	
 	public Connection getConnection() {
-        Connection con;
+
         try {
                Class.forName("com.mysql.jdbc.Driver");
-               con = DriverManager.getConnection(bd, login, pwd);
-               return con;
+               conexion = DriverManager.getConnection(bd, login, pwd);
+               return conexion;
         } catch (Exception e) {            
                return null;
                // TODO: handle exception
@@ -48,7 +48,8 @@ public class ModeloBBDD implements Modelo {
 		String query = Query;
 
 		try {
-			PreparedStatement stmt = conexion.prepareStatement(query);
+			PreparedStatement stmt;
+			stmt =conexion.prepareStatement(query);
 
 			int cont = 0;
 
@@ -333,8 +334,7 @@ public class ModeloBBDD implements Modelo {
 
 	public void refrescar() {
 
-		this.Consulta(
-				"SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id");
+		this.Consulta("SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id join relintrep on interesado.id = relintrep.idInteresado join representante on relintrep.idRepresentante = representante.id");
 	}
 
 	public String[][] getTabla() {
@@ -370,7 +370,7 @@ public class ModeloBBDD implements Modelo {
 
 		PreparedStatement pstmt;
 		try {
-			pstmt = con.prepareStatement(query);
+			pstmt = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, txtfNombreR);
 			pstmt.setString(2, txtfApellidosR);
 			pstmt.setString(3, txtfDocumentoIdentidadR);
@@ -382,6 +382,14 @@ public class ModeloBBDD implements Modelo {
 			pstmt.setString(9, txtfFaxR);
 			pstmt.setString(10,txtfEmailR);
 			r=pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+            if(rs.next())
+            {
+                int last_inserted_id = rs.getInt(1);
+                
+                System.out.println(last_inserted_id);
+                
+            }
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -393,14 +401,17 @@ public class ModeloBBDD implements Modelo {
 
 	
 
-	public void insertarPersona(String txtfNombreI, String txtfApellidosI, String txtfMunicipio, String txtfDireccionI,
+	public int insertarPersona(String txtfNombreI, String txtfApellidosI, String txtfMunicipio, String txtfDireccionI,
 			String txtfCDI, String txtfEmailI, String txtfFaxI, String txtfMovilI, String txtfFijoI, String CP) {
 		Connection con = getConnection();
 		int r = 0;
 		String query = "INSERT INTO `interesado` ( `nombre`, `apellidos`, `cif`, `direccion`, `municipio`, `codigoPostal`, `telefonoFijo`, `telefonoMovil`, `fax`, `email`) VALUES ( ?,?,?,?,?, ?,?, ?,?,?)";
+		int last_inserted_id=-1;
+		
+		  System.out.println("PUTO OSCAR"+r);
 		PreparedStatement pstmt;
 		try {
-			pstmt = con.prepareStatement(query);
+			pstmt = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, txtfNombreI);
 			pstmt.setString(2, txtfApellidosI);
 			pstmt.setString(3, txtfCDI);
@@ -412,55 +423,112 @@ public class ModeloBBDD implements Modelo {
 			pstmt.setString(9, txtfFaxI);
 			pstmt.setString(10,txtfEmailI);
 			r=pstmt.executeUpdate();
+			
+			ResultSet rs = pstmt.getGeneratedKeys();
+            if(rs.next())
+            {
+            	last_inserted_id = rs.getInt(1);
+                
+                System.out.println(last_inserted_id);
+                
+            }
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return last_inserted_id;
+		
 	}
 
-	public void insertarActividad(Boolean getchckJustificantePago, Boolean getchckFotocopiaEscritura,
+	public int insertarActividad(Boolean getchckJustificantePago, Boolean getchckFotocopiaEscritura,
 			Boolean getchckFotocopiaModelo36, Boolean getchckPlanos, Boolean getchckCD, Boolean getchckMemoria,
 			Boolean getchckFotografia, Boolean getchckbxFotocopiaDNI, Boolean getchckbxCertificado1,
 			Boolean getchckbxCertificado2, Boolean getchckCertificadoColegio, String comboBoxTipoSuelo,
 			String dcFechaSolicitud, String dcFechaInicio, String txtfLocal, String txtfTipo, String txtfCuota,
-			String txtfReferenciaCatastral, String txtfEmplazamiento, String gettxtfDescripcion) {
+			String txtfReferenciaCatastral, String txtfEmplazamiento, String gettxtfDescripcion, Boolean getchckFotocopiaLicenciaObra, Boolean chckOtrasAuto) {
 		
 		Connection con = getConnection();
 		int r = 0;
-		String query = "INSERT INTO `actividad` (`id`, `idIntRep`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`, `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO `actividad` (`fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`,"
+				+ " `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt;
+		int last_inserted_id=-1;
+		
 		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setBoolean(1, getchckJustificantePago);
-			pstmt.setBoolean(2, getchckFotocopiaEscritura);
-			pstmt.setBoolean(3, getchckFotocopiaModelo36);
-			pstmt.setBoolean(4, getchckPlanos);
-			pstmt.setBoolean(5, getchckCD);
-			pstmt.setBoolean(6, getchckMemoria);
-			pstmt.setBoolean(7, getchckFotografia );
-			pstmt.setBoolean(8, getchckbxFotocopiaDNI);
-			pstmt.setBoolean(9, getchckbxCertificado1);
-			pstmt.setBoolean(11,getchckbxCertificado2);
-			pstmt.setBoolean(12,getchckCertificadoColegio);
-			pstmt.setString(13,comboBoxTipoSuelo);
-			pstmt.setString(14,dcFechaSolicitud);
+			pstmt = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+			pstmt.setBoolean(1, getchckFotocopiaLicenciaObra);
+			pstmt.setBoolean(2, chckOtrasAuto);
+			pstmt.setBoolean(3, getchckJustificantePago);
+			pstmt.setBoolean(4, getchckFotocopiaEscritura);
+			pstmt.setBoolean(5, getchckFotocopiaModelo36);
+			pstmt.setBoolean(6, getchckPlanos);
+			pstmt.setBoolean(7, getchckCD );
+			pstmt.setBoolean(8, getchckMemoria);
+			pstmt.setBoolean(9, getchckFotografia);
+			pstmt.setString(10, comboBoxTipoSuelo);
+			pstmt.setString(11,txtfReferenciaCatastral);
+			pstmt.setString(12,txtfLocal);
+			pstmt.setString(13,txtfTipo);
+			pstmt.setString(14,txtfEmplazamiento);
 			pstmt.setString(15,dcFechaInicio);
-			pstmt.setString(16,txtfLocal);
-			pstmt.setString(17,txtfTipo);
-			pstmt.setString(18,txtfCuota);
-			pstmt.setString(19,txtfReferenciaCatastral);
-			pstmt.setString(20,txtfEmplazamiento);
-			pstmt.setString(21,gettxtfDescripcion);
+			pstmt.setString(16,dcFechaSolicitud);
+			pstmt.setString(17,txtfCuota);
+			pstmt.setString(18,gettxtfDescripcion);
+			pstmt.setBoolean(19,getchckCertificadoColegio);
+			pstmt.setBoolean(20,getchckbxCertificado1);
+			pstmt.setBoolean(21,getchckbxCertificado2);
+			pstmt.setBoolean(22,getchckbxFotocopiaDNI);
 			
 			r=pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+			 if(rs.next())
+	            {
+	                last_inserted_id = rs.getInt(1);
+	                System.out.println(r);
+                
+            }
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			//System.exit(-1);
 		}
+		
+		return last_inserted_id;
 		// TODO Auto-generated method stub
 		
 	}
+//INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES (NULL, '3', NULL);
+
+	public void insertarTablaInter(int idPersona, int idActividad) {
+		Connection con = getConnection();
+		int r = 0;
+		String query = "INSERT INTO `relactper` ( `idInt`, `idAct`) VALUES ( ?,? );";
+		PreparedStatement pstmt;
+		int last_inserted_id=-1;
+		
+		try {
+			pstmt = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+			pstmt.setInt(1, idPersona);
+			pstmt.setInt(2, idActividad);
+			
+			r=pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+			 if(rs.next())
+	            {
+	                last_inserted_id = rs.getInt(1);
+	                System.out.println(r);
+                
+            }
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//System.exit(-1);
+		}
+	}
+	
 
 }

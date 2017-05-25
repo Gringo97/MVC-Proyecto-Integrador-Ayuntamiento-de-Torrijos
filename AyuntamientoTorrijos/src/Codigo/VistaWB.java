@@ -123,6 +123,7 @@ public class VistaWB extends JFrame implements Vista {
 	private JComboBox comboBoxTipoSuelo;
 	private JTextPane txtDescripcion;
 	private JCheckBox chckCertificadoColegio;
+	private JCheckBox chckOtrasAuto;
 
 	public void setControlador(Controlador controlador) {
 
@@ -801,10 +802,32 @@ public class VistaWB extends JFrame implements Vista {
 		scrollPane.setBounds(473, 338, 146, 61);
 
 		JButton btnAceptarInsActv = new JButton("Aceptar");
-		btnAceptarInsActv.setBounds(529, 449, 90, 23);
+		btnAceptarInsActv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAceptarInsActv.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (checkRepresentante.isSelected()) {
+					
+					int idPer=controlador.insetarPersona();
+					int idAct=controlador.inscribirActividad();
+					controlador.insertarRepresentante();
+					
+					controlador.inscribirTablaInter(idPer, idAct);
+				} else {
+					int idPer=controlador.insetarPersona();
+					int idAct=controlador.inscribirActividad();
+					controlador.inscribirTablaInter(idPer, idAct);
+				}
+
+			}
+		});
+		btnAceptarInsActv.setBounds(438, 449, 90, 23);
 
 		JButton btnCancelarInsActv = new JButton("Cancelar");
-		btnCancelarInsActv.setBounds(334, 449, 95, 23);
+		btnCancelarInsActv.setBounds(560, 449, 95, 23);
 
 		comboBoxTipoSuelo = new JComboBox();
 		comboBoxTipoSuelo.setBounds(473, 34, 74, 20);
@@ -880,6 +903,14 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(btnAceptarInsActv);
 		inscActv.add(scrollPane);
 		inscActv.add(comboBoxTipoSuelo);
+		
+		JLabel lblOtrasAutorizaciones = new JLabel("Otras autorizaciones");
+		lblOtrasAutorizaciones.setBounds(37, 519, 139, 14);
+		inscActv.add(lblOtrasAutorizaciones);
+		
+		chckOtrasAuto = new JCheckBox("Entregado");
+		chckOtrasAuto.setBounds(209, 515, 98, 23);
+		inscActv.add(chckOtrasAuto);
 		btnAceptarInsPers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lblRutaDeAcceso.setText("Inscribir Actividad");
@@ -891,15 +922,6 @@ public class VistaWB extends JFrame implements Vista {
 		});
 		btnCancelarInsActv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				if (checkRepresentante.isSelected()) {
-					controlador.insertarRepresentante();
-					controlador.insetarPersona();
-					controlador.inscribirActividad();
-				} else {
-					controlador.insetarPersona();
-					controlador.inscribirActividad();
-				}
 
 				controlador.cambioPantalla(inscActvPers);
 				tabbedPane.setVisible(false);
@@ -1036,6 +1058,7 @@ public class VistaWB extends JFrame implements Vista {
 	public void setTxtfDocumentoIdentidadR(JTextField txtfDocumentoIdentidadR) {
 		this.txtfDocumentoIdentidadR = txtfDocumentoIdentidadR;
 	}
+	
 
 	public String getTxtfDireccionR() {
 		return txtfDireccionR.getText();
@@ -1231,99 +1254,127 @@ public class VistaWB extends JFrame implements Vista {
 
 	public Boolean getchckJustificantePago() {
 		if (chckJustificantePago.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	public Boolean getchckFotocopiaEscritura() {
 		if (chckFotocopiaEscritura.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	public Boolean getchckFotocopiaModelo36() {
 		if (chckFotocopiaModelo36.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckPlanos() {
 		if (chckPlanos.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckCD() {
 		if (chckCD.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckMemoria() {
 		if (chckMemoria.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckFotografia() {
 		if (chckFotografia.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckbxFotocopiaDNI() {
 		if (chckbxFotocopiaDNI.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckbxCertificado1() {
 		if (chckbxCertificado1.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	public Boolean getchckbxCertificado2() {
 		if (chckbxCertificado2.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	public String getComboBoxTipoSuelo() {
 		return (String) comboBoxTipoSuelo.getSelectedItem();
 	}
+
 	public Boolean getchckCertificadoColegio() {
 		if (chckCertificadoColegio.isSelected()) {
-			return true;	
-		}else{
+			return true;
+		} else {
 			return false;
 		}
-		
+
 	}
 	
+	public Boolean getchckFotocopiaLicenciaObra(){
+		if (chckFotocopiaLicenciaObra.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	public Boolean getchckOtrasAuto(){
+		if (chckOtrasAuto.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+
+
 	public String getDCFechaSolicitud() {
 
 		// System.out.println(as);
@@ -1334,6 +1385,7 @@ public class VistaWB extends JFrame implements Vista {
 		System.out.println(str + "-" + str2 + "-" + str3);
 		return str + "-" + str2 + "-" + str3;
 	}
+
 	public String getDCFechaInicio() {
 
 		// System.out.println(as);
@@ -1344,10 +1396,8 @@ public class VistaWB extends JFrame implements Vista {
 		System.out.println(str + "-" + str2 + "-" + str3);
 		return str + "-" + str2 + "-" + str3;
 	}
-	public String gettxtfDescripcion(){
+
+	public String gettxtfDescripcion() {
 		return txtDescripcion.getText();
 	}
-	
-	
-	
 }

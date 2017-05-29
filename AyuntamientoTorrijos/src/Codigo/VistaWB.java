@@ -124,6 +124,8 @@ public class VistaWB extends JFrame implements Vista {
 	private JTextPane txtDescripcion;
 	private JCheckBox chckCertificadoColegio;
 	private JCheckBox chckOtrasAuto;
+	private JButton btnCancelarInsActv;
+	private JButton btnActualizar2;
 
 	public void setControlador(Controlador controlador) {
 
@@ -254,46 +256,62 @@ public class VistaWB extends JFrame implements Vista {
 
 		txtfActBusqueda = new JTextField();
 		txtfActBusqueda.setColumns(10);
+		
+		btnActualizar2 = new JButton("Actualizar");
+		btnActualizar2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.refrescar();
+			}
+		});
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(
-				Alignment.TRAILING)
-				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap().addGroup(gl_panel_1
-						.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_1
-								.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_1
-										.createSequentialGroup()
-										.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblTipo, GroupLayout.PREFERRED_SIZE, 81,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216,
-														GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_panel_1.createSequentialGroup()
-														.addComponent(lblDesdeActBusqueda, GroupLayout.PREFERRED_SIZE,
-																103, GroupLayout.PREFERRED_SIZE)
-														.addGap(10).addComponent(lblHastaActBusqueda)))
-										.addGap(10))
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblTipo, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel_1.createSequentialGroup()
-										.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-										.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103,
-												GroupLayout.PREFERRED_SIZE)
-										.addContainerGap()))
-						.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup().addComponent(btnBuscarLicencia)
-								.addContainerGap()))));
-		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup().addGap(11).addComponent(lblTipo).addGap(6)
-						.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(26)
-						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING).addComponent(lblDesdeActBusqueda)
-								.addComponent(lblHastaActBusqueda))
-						.addGap(11)
-						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE,
-										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE,
-										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGap(30).addComponent(btnBuscarLicencia).addContainerGap(58, Short.MAX_VALUE)));
+									.addComponent(lblDesdeActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+									.addGap(10)
+									.addComponent(lblHastaActBusqueda)))
+							.addGap(10))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+							.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addComponent(btnBuscarLicencia, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addComponent(btnActualizar2, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(11)
+					.addComponent(lblTipo)
+					.addGap(6)
+					.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblDesdeActBusqueda)
+						.addComponent(lblHastaActBusqueda))
+					.addGap(11)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(btnBuscarLicencia)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnActualizar2)
+					.addContainerGap(36, Short.MAX_VALUE))
+		);
 		panel_1.setLayout(gl_panel_1);
 
 		btnConfiguracion = new JButton("Configuracion");
@@ -328,6 +346,12 @@ public class VistaWB extends JFrame implements Vista {
 		inscActvPers.add(btnAceptarInsPers);
 
 		JButton btnCancelarInsPers = new JButton("Cancelar");
+		btnCancelarInsPers.addMouseListener(new MouseAdapter() {
+
+			public void mouseClicked(MouseEvent e) {
+				vaciarAct();
+			}
+		});
 
 		btnCancelarInsPers.setBounds(566, 605, 89, 23);
 		inscActvPers.add(btnCancelarInsPers);
@@ -815,6 +839,7 @@ public class VistaWB extends JFrame implements Vista {
 					controlador.cambioPantalla(VisualizarLicencias);
 					tabbedPane.setVisible(true);
 					btnRefresh.setVisible(true);
+					vaciarAct();
 					
 					
 					controlador.refrescar();
@@ -825,15 +850,24 @@ public class VistaWB extends JFrame implements Vista {
 					controlador.cambioPantalla(VisualizarLicencias);
 					tabbedPane.setVisible(true);
 					btnRefresh.setVisible(true);
+					vaciarAct();
 					controlador.refrescar();
 				}
 
 			}
 		});
-		btnAceptarInsActv.setBounds(438, 449, 90, 23);
+		btnAceptarInsActv.setBounds(10, 621, 90, 23);
 
-		JButton btnCancelarInsActv = new JButton("Cancelar");
-		btnCancelarInsActv.setBounds(560, 449, 95, 23);
+		btnCancelarInsActv = new JButton("Cancelar");
+		btnCancelarInsActv.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				vaciarAct();
+				controlador.cambioPantalla(inscActvPers);
+				tabbedPane.setVisible(false);
+				btnRefresh.setVisible(false);
+			}
+		});
+		btnCancelarInsActv.setBounds(560, 621, 95, 23);
 
 		comboBoxTipoSuelo = new JComboBox();
 		comboBoxTipoSuelo.setBounds(473, 34, 74, 20);
@@ -926,60 +960,52 @@ public class VistaWB extends JFrame implements Vista {
 				btnRefresh.setVisible(false);
 			}
 		});
-		btnCancelarInsActv.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				controlador.cambioPantalla(inscActvPers);
-				tabbedPane.setVisible(false);
-				btnRefresh.setVisible(false);
-			}
-		});
+		
 
 		lblRutaDeAcceso = new JLabel("");
 		lblRutaDeAcceso.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRutaDeAcceso.setText("Inscribir Licencia de Actividad");
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
-								.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-								.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createSequentialGroup().addGap(32).addComponent(label_6,
-										GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
-								.addComponent(btnConfiguracion))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 665,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE))
-						.addGap(6)));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(17)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 655,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(35))
-								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 178,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(btnConfiguracion).addGap(56)))));
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
+						.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(32)
+							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnConfiguracion))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE))
+					.addGap(6))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+					.addGap(17)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 655, GroupLayout.PREFERRED_SIZE)
+							.addGap(35))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(btnConfiguracion)
+							.addGap(56))))
+		);
 
 		contentPane.setLayout(gl_contentPane);
 		btnInscribirActividad.addActionListener(new ActionListener() {
@@ -1405,5 +1431,55 @@ public class VistaWB extends JFrame implements Vista {
 
 	public String gettxtfDescripcion() {
 		return txtDescripcion.getText();
+	}
+
+	public void vaciarAct() {
+		//INTERESADO
+		txtfNombreI.setText("");
+		txtfApellidosI.setText("");
+		txtfMunicipio.setText("");
+		txtfCIFI.setText("");
+		txtfDireccionI.setText("");
+		txtfCDI.setText("");
+		txtfEmailI.setText("");
+		txtfFaxI.setText("");
+		txtfMovilI.setText("");
+		txtfFijoI.setText("");
+		checkRepresentante.setSelected(false);
+		//REPRESENTANTE
+		txtfNombreR.setText("");
+		txtfApellidosR.setText("");
+		txtfDocumentoIdentidadR.setText("");
+		txtfDireccionR.setText("");
+		txtfMuncipioR.setText("");
+		txtfCPR.setText("");
+		txtfEmailR.setText("");
+		txtfFaxR.setText("");
+		txtfMovilR.setText("");
+		txtfFijo.setText("");
+		//ACTIVIDAD
+		chckCertificadoColegio.setSelected(false);
+		chckbxFotocopiaDNI.setSelected(false);
+		chckFotocopiaLicenciaObra.setSelected(false);
+		chckJustificantePago.setSelected(false);
+		chckFotocopiaEscritura.setSelected(false);
+		chckPlanos.setSelected(false);
+		chckCD.setSelected(false);
+		chckMemoria.setSelected(false);
+		chckFotocopiaModelo36.setSelected(false);
+		chckFotografia.setSelected(false);
+		chckbxCertificado1.setSelected(false);
+		chckbxCertificado2.setSelected(false);
+		txtfLocal.setText("");
+		txtfTipo.setText("");
+		txtfCuota.setText("");
+		txtfReferenciaCatastral.setText("");
+		txtfEmplazamiento.setText("");
+		DCFechaInicio.setDate(null);
+		DCFechaSolicitud.setDate(null);
+		txtDescripcion.setText("");
+		chckOtrasAuto.setSelected(false);
+		
+		
 	}
 }

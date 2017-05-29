@@ -141,4 +141,9 @@ public class ControladorWB extends JFrame implements Controlador {
 		
 	}
 
+	public void vaciarNuevaAct() {
+		modelo.vaciarNuevaAct();
+		
+	}
+
 }

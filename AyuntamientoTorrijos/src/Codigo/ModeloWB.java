@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class ModeloWB extends JFrame implements Modelo {
 	private Vista vista;
+	private VistaWB vistaP;
 	private JPanel contentPane;
 	private JPanel ArrVistas[];
 
@@ -33,10 +34,8 @@ public class ModeloWB extends JFrame implements Modelo {
 		}
 	}
 
-
-	public void ActivarRepresentante() {
-		
-		
+	public void vaciarNuevaAct() {
+		vistaP.vaciarAct();
 	}
 
 

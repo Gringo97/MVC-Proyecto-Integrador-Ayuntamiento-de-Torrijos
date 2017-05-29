@@ -802,24 +802,30 @@ public class VistaWB extends JFrame implements Vista {
 		scrollPane.setBounds(473, 338, 146, 61);
 
 		JButton btnAceptarInsActv = new JButton("Aceptar");
-		btnAceptarInsActv.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnAceptarInsActv.addMouseListener(new MouseAdapter() {
-			@Override
+
 			public void mouseClicked(MouseEvent e) {
 				if (checkRepresentante.isSelected()) {
 					
 					int idPer=controlador.insetarPersona();
 					int idAct=controlador.inscribirActividad();
-					controlador.insertarRepresentante();
-					
+					int idRep=controlador.insertarRepresentante();
 					controlador.inscribirTablaInter(idPer, idAct);
+					controlador.inscribirtablaInter2(idPer,idRep);
+					controlador.cambioPantalla(VisualizarLicencias);
+					tabbedPane.setVisible(true);
+					btnRefresh.setVisible(true);
+					
+					
+					controlador.refrescar();
 				} else {
 					int idPer=controlador.insetarPersona();
 					int idAct=controlador.inscribirActividad();
 					controlador.inscribirTablaInter(idPer, idAct);
+					controlador.cambioPantalla(VisualizarLicencias);
+					tabbedPane.setVisible(true);
+					btnRefresh.setVisible(true);
+					controlador.refrescar();
 				}
 
 			}

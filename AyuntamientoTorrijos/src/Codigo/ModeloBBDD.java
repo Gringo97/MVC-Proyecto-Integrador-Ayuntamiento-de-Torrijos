@@ -361,13 +361,13 @@ public class ModeloBBDD implements Modelo {
 		this.vista = (VistaWB) vista;
 	}
 
-	public void insertarRepresentante(String txtfNombreR, String txtfApellidosR, String txtfDocumentoIdentidadR,
+	public int insertarRepresentante(String txtfNombreR, String txtfApellidosR, String txtfDocumentoIdentidadR,
 			String txtfDireccionR, String txtfMuncipioR, String txtfCDR, String txtfEmailR, String txtfFaxR,
 			String txtfMovilR, String txtfFijo) {
 		Connection con = getConnection();
 		int r = 0;
 		String query = "INSERT INTO `representante` ( `nombre`, `apellidos`, `documentoIdentidad`, `direccion`, `municipio`, `codigoPostal`, `telefonoFijo`, `telefonoMovil`, `fax`, `Email`) VALUES (?,?,?,?,?,?,?,?,?,?)";
-
+		int last_inserted_id =-1;
 		PreparedStatement pstmt;
 		try {
 			pstmt = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
@@ -385,7 +385,7 @@ public class ModeloBBDD implements Modelo {
 			ResultSet rs = pstmt.getGeneratedKeys();
             if(rs.next())
             {
-                int last_inserted_id = rs.getInt(1);
+                 last_inserted_id = rs.getInt(1);
                 
                 System.out.println(last_inserted_id);
                 
@@ -395,6 +395,7 @@ public class ModeloBBDD implements Modelo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return last_inserted_id;
 		
 		
 	}
@@ -528,6 +529,36 @@ public class ModeloBBDD implements Modelo {
 			e.printStackTrace();
 			//System.exit(-1);
 		}
+	}
+
+
+	public void insertarTablaInter2(int idPer, int idRep) {
+		Connection con = getConnection();
+		int r = 0;
+		String query = "INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES (NULL, ?, ?)";
+		PreparedStatement pstmt;
+		int last_inserted_id=-1;
+		
+		try {
+			pstmt = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+			pstmt.setInt(1, idPer);
+			pstmt.setInt(2, idRep);
+			
+			r=pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+			 if(rs.next())
+	            {
+	                last_inserted_id = rs.getInt(1);
+	                System.out.println(r);
+                
+            }
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//System.exit(-1);
+		}
+		
 	}
 	
 

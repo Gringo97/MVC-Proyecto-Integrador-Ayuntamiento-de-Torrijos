@@ -115,8 +115,8 @@ public class ControladorWB extends JFrame implements Controlador {
             }
       }
 
-	public void insertarRepresentante() {
-		modelo2.insertarRepresentante(vista.getTxtfNombreR(),vista.getTxtfApellidosR(),vista.getTxtfDocumentoIdentidadR(),vista.getTxtfDireccionR(),vista.getTxtfMuncipioR(),vista.getTxtfCDR(),vista.getTxtfEmailR(),vista.getTxtfFaxR(),vista.getTxtfMovilR(),vista.getTxtfFijo());
+	public int insertarRepresentante() {
+		return modelo2.insertarRepresentante(vista.getTxtfNombreR(),vista.getTxtfApellidosR(),vista.getTxtfDocumentoIdentidadR(),vista.getTxtfDireccionR(),vista.getTxtfMuncipioR(),vista.getTxtfCDR(),vista.getTxtfEmailR(),vista.getTxtfFaxR(),vista.getTxtfMovilR(),vista.getTxtfFijo());
 		
 	}
 
@@ -133,6 +133,11 @@ public class ControladorWB extends JFrame implements Controlador {
 	public void inscribirTablaInter(int idPersona, int idActividad){
 		modelo2.insertarTablaInter(idPersona,idActividad);
 			
+		
+	}
+
+	public void inscribirtablaInter2(int idPer, int idRep) {
+		modelo2.insertarTablaInter2(idPer,idRep);
 		
 	}
 

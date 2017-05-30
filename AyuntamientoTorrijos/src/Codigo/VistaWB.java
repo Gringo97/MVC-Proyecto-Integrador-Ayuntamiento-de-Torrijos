@@ -28,6 +28,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
@@ -237,13 +239,7 @@ public class VistaWB extends JFrame implements Vista {
 																// ACTIVIDADES
 
 		JButton btnBuscarLicencia = new JButton("Buscar");
-		btnBuscarLicencia.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				controlador.busquedaActividad();
-			}
-		});
-
+		
 		JLabel lblTipo = new JLabel("Tipo");
 
 		FechaInicialActBusqueda = new JDateChooser();
@@ -1237,25 +1233,7 @@ public class VistaWB extends JFrame implements Vista {
 		this.txtfRazonSocialBusquedaPJ = txtfRazonSocialBusquedaPJ;
 	}
 
-	public String getFechaInicialActBusqueda() {
 
-		// System.out.println(as);
-
-		int str = (Integer) FechaInicialActBusqueda.getDate().getDay();
-		int str2 = (Integer) FechaInicialActBusqueda.getDate().getMonth() + 1;
-		int str3 = (Integer) FechaInicialActBusqueda.getDate().getYear() + 1900;
-		System.out.println(str + "-" + str2 + "-" + str3);
-		return str + "-" + str2 + "-" + str3;
-	}
-
-	public String getFechaFinalActBusqueda() {
-
-		int str = (Integer) FechaFinalActBusqueda.getDate().getDay();
-		int str2 = (Integer) FechaFinalActBusqueda.getDate().getMonth() + 1;
-		int str3 = (Integer) FechaFinalActBusqueda.getDate().getYear() + 1900;
-		System.out.println(str + "-" + str2 + "-" + str3);
-		return str + "-" + str2 + "-" + str3;
-	}
 
 	public void clear_Table() {
 		for (int i = 0; i < table.getRowCount(); i++) {
@@ -1416,22 +1394,24 @@ public class VistaWB extends JFrame implements Vista {
 
 		// System.out.println(as);
 
-		int str = (Integer) DCFechaSolicitud.getDate().getDay();
-		int str2 = (Integer) DCFechaSolicitud.getDate().getMonth() + 1;
-		int str3 = (Integer) DCFechaSolicitud.getDate().getYear() + 1900;
-		System.out.println(str + "-" + str2 + "-" + str3);
-		return str + "-" + str2 + "-" + str3;
+		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+	      String date = fmt.format(this.DCFechaSolicitud.getDate());
+return date;
 	}
 
 	public String getDCFechaInicio() {
 
 		// System.out.println(as);
+		
+		 DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+	      String date = fmt.format(this.DCFechaInicio.getDate());
 
-		int str = (Integer) DCFechaInicio.getDate().getDay();
-		int str2 = (Integer) DCFechaInicio.getDate().getMonth() + 1;
-		int str3 = (Integer) DCFechaInicio.getDate().getYear() + 1900;
-		System.out.println(str + "-" + str2 + "-" + str3);
-		return str + "-" + str2 + "-" + str3;
+//		int str = (Integer) DCFechaInicio.getDate().getDay();
+//		int str2 = (Integer) DCFechaInicio.getDate().getMonth() + 1;
+//		int str3 = (Integer) DCFechaInicio.getDate().getYear() + 1900;
+//		System.out.println(str + "-" + str2 + "-" + str3);
+//		return str + "-" + str2 + "-" + str3;
+	      return date;
 	}
 
 	public String gettxtfDescripcion() {

@@ -35,6 +35,9 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class VistaAuxTabla extends JFrame {
 	private ControladorWB controlador;
@@ -489,7 +492,7 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_35 = new JLabel("Tipo de suelo");
 		
 		comboBoxActTipoSuelo = new JComboBox();
-		comboBoxActTipoSuelo.setModel(new DefaultComboBoxModel(new String[] {"Urbano ", "Turistico"}));
+		comboBoxActTipoSuelo.setModel(new DefaultComboBoxModel(new String[] {"Urbano ", "Rustico"}));
 		comboBoxActTipoSuelo.setEditable(true);
 		
 		JLabel label_27 = new JLabel("Justificante de pago");
@@ -819,7 +822,7 @@ public class VistaAuxTabla extends JFrame {
 		this.modelo =  modelo;
 	}
 	public void setModelo2(Modelo modelo) {
-		this.modelo = (ModeloBBDD) modelo;
+		this.modelo2 = (ModeloBBDD) modelo;
 	}
 
 	public void adirArr() {
@@ -827,12 +830,135 @@ public class VistaAuxTabla extends JFrame {
 	}
 
 	public void devolverDatosTitular() {
-		System.out.println(modelo2.ActCertColegioOficial+"holaaaaa");
-		System.out.println(modelo2.repApellidos+ "holaaaa");
-		if(modelo2.ActCertColegioOficial == "1"){
+		
+		/////// DATOS CHECKBOX ///////
+	
+		if(modelo2.getActCertColegioOficial().equalsIgnoreCase("1")){
+			
 			checkActCertColegioOficial.setSelected(true);
 		}
+
+		if(modelo2.getActFotoEscritura().equalsIgnoreCase("1")){
+			
+			checkActFotoEscritura.setSelected(true);
+		}
+		
+		if(modelo2.getActFotoModelo036().equalsIgnoreCase("1")){
+			
+			checkActFotoModelo036.setSelected(true);
+		}
+		if(modelo2.getActFotoPlanos().equalsIgnoreCase("1")){
+			
+			checkActFotoPlanos.setSelected(true);
+		}
+		if(modelo2.getActFotoCD().equalsIgnoreCase("1")){
+			
+			checkActFotoCD.setSelected(true);
+		}
+		if(modelo2.getActFotoMemoria().equalsIgnoreCase("1")){
+			
+			checkActFotoMemoria.setSelected(true);
+		}
+		if(modelo2.getActFotoFofografia().equalsIgnoreCase("1")){
+			
+			checkActFotoFofografia.setSelected(true);
+		}
+		if(modelo2.getActFotocopiaDni().equalsIgnoreCase("1")){
+			
+			checkActFotocopiaDni.setSelected(true);
+		}
+		if(modelo2.getActCertColegioOficial().equalsIgnoreCase("1")){
+			
+			checkActCertColegioOficial.setSelected(true);
+		}
+		if(modelo2.getActCertModelo1().equalsIgnoreCase("1")){
+			
+			checkActCertModelo1.setSelected(true);
+		}
+		if(modelo2.getActCertModelo2().equalsIgnoreCase("1")){
+			
+			checkActCertModelo2.setSelected(true);
+		}
+		if(modelo2.getActFotoLicenciaObra().equalsIgnoreCase("1")){
+			
+			checkActFotoLicenciaObra.setSelected(true);
+		}
+		if(modelo2.getActFotoOtrasAutorizaciones().equalsIgnoreCase("1")){
+			
+			checkActFotoOtrasAutorizaciones.setSelected(true);
+		}
+		if(modelo2.getActFotoJustificantePago().equalsIgnoreCase("1")){
+			
+			checkActFotoJustificantePago.setSelected(true);
+		}
+	
+
+		/////DATOS REPRESENTANTE////
+		
+		txtfrepNombre.setText(modelo2.repNombre);
 		txtfrepApellidos.setText(modelo2.repApellidos);
+		txtfrepDocumentoIdentidad.setText(modelo2.repDocumentoIdentidad);
+		txtfrepDireccion.setText(modelo2.repDireccion);
+		txtfrepMunicipio.setText(modelo2.repMunicipio);
+		txtfrepCP.setText(modelo2.repCP);
+		txtfrepTlfF.setText(modelo2.repTlfF);
+		txtfrepTlfM.setText(modelo2.repTlfM);
+		txtfrepFax.setText(modelo2.repFax);
+		txtfrepEmail.setText(modelo2.repEmail);
+
+		/////INTERESADO//////
+		
+		txtfintNombre.setText(modelo2.intNombre);
+		txtfintApellido.setText(modelo2.intApellido);
+		txtfintCif.setText(modelo2.intCif);
+		txtfintDireccion.setText(modelo2.intDireccion);
+		txtfintMunicipio.setText(modelo2.intMunicipio);
+		txtfintCP.setText(modelo2.intCP);
+		txtfintTlfF.setText(modelo2.intTlfF);
+		txtfintTlfM.setText(modelo2.intTlfM);
+		txtfintFax.setText(modelo2.intFax);
+		txtfintEmail.setText(modelo2.intEmail);
+
+		///////ACTIVIDAD//////
+		///////SELECTS /////
+		if ("Urbano".equals(comboBoxActTipoSuelo.getSelectedItem())){
+			comboBoxActTipoSuelo.setSelectedIndex(0);
+		}else{
+			comboBoxActTipoSuelo.setSelectedIndex(1);
+		}
+		txtfActReferenciaCatastral.setText(modelo2.ActReferenciaCatastral);
+		txtfActLocal.setText(modelo2.ActLocal);
+		txtfActTipo.setText(modelo2.ActTipo);
+		txtfActEmplazamiento.setText(modelo2.ActEmplazamiento);
+		txtPActDescripcion.setText(modelo2.ActDescripcion);
+		txtActCuota.setText(modelo2.ActCuota);
+
+
+		java.text.SimpleDateFormat formato = new java.text.SimpleDateFormat("dd/MM/yyyy"); 
+		/////DATES////
+		try {
+			java.util.Date fechaDate = formato.parse(modelo2.ActFechaInicio);
+			txtfDCFechaInicio.setDate(fechaDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		try {
+			java.util.Date fechaDate = formato.parse(modelo2.ActFechaSolicitud);
+			txtfDCFechaSolicitud.setDate(fechaDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+
+		
+//		
+//		txtfintTlfF.setText(modelo2.intTlfF);
+//		txtfintTlfM.setText(modelo2.intTlfM);
+//		txtfintFax.setText(modelo2.intFax);
+//		txtfintEmail.setText(modelo2.intEmail);
+
 	}
 
 	public JCheckBox getCheckBoxrepresentanteAux() {

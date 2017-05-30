@@ -98,13 +98,7 @@ public class ControladorWB extends JFrame implements Controlador {
 
 	}
 
-	public void busquedaActividad() {
-		String fechaInicial = vista.getFechaInicialActBusqueda();
-		String fechaFinal = vista.getFechaFinalActBusqueda();
-		String tipo = vista.getTxtfActBusqueda();
-		//modelo2.Consulta3(tipo, fechaInicial, fechaFinal);
 
-	}
 
 	public void ActivarRepre(Container container, boolean enable) {
             Component[] components = container.getComponents();

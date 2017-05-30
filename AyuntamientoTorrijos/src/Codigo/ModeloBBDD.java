@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Properties;
 
 public class ModeloBBDD implements Modelo {

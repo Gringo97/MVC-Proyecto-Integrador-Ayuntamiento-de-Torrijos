@@ -8,9 +8,11 @@ public class Test {
 		ControladorWB controlador = new ControladorWB();
 		ModeloFicheroIni modeloFicheroIni = new ModeloFicheroIni();
 		VistaWB vista = new VistaWB();
+
 		
 
 		modelo.setVista(vista);
+
 		modelobbdd.setVista(vista);
 		
 		modeloFicheroIni.setModeloBBDD(modelobbdd);
@@ -24,6 +26,7 @@ public class Test {
 		controlador.setModelo(modelo);
 		controlador.setModelo2(modelobbdd);
 		controlador.setModelo3(modeloFicheroIni);
+
 		controlador.setVista(vista);
 		controlador.refrescar();
 		

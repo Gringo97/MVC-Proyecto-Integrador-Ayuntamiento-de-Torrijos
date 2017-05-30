@@ -39,37 +39,56 @@ import java.awt.event.MouseEvent;
 public class VistaAuxTabla extends JFrame {
 	private ControladorWB controlador;
 	private Modelo modelo;
+	private ModeloBBDD modelo2;
 	private Container contenedor;
 	private JPanel contentPane;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
-	private JTextField textField_21;
 	private JCheckBox checkBoxrepresentanteAux;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_22;
-	private JTextField textField_23;
 	private JPanel PanelActividadAux;
 	private JPanel PanelInteresadoAux;
 	private JPanel PanelRepAux;
 	private JPanel PanelActividadAux_1;
+	private JTextField txtfActEmplazamiento;
+	private JDateChooser txtfDCFechaInicio;
+	private JDateChooser txtfDCFechaSolicitud;
+	private JCheckBox checkActFotoJustificantePago;
+	private JCheckBox checkActFotoEscritura;
+	private JCheckBox checkActFotoModelo036;
+	private JCheckBox checkActFotoMemoria;
+	private JCheckBox checkActFotoFofografia;
+	private JCheckBox checkActFotocopiaDni;
+	private JCheckBox checkActCertColegioOficial;
+	private JCheckBox checkActCertModelo1;
+	private JCheckBox checkActCertModelo2;
+	private JCheckBox checkActFotoLicenciaObra;
+	private JCheckBox checkActFotoOtrasAutorizaciones;
+	private JTextPane txtPActDescripcion;
+	private JCheckBox checkActFotoPlanos;
+	private JCheckBox checkActFotoCD;
+	private JTextField txtfActReferenciaCatastral;
+	private JTextField txtfActLocal;
+	private JTextField txtfActTipo;
+	private JTextField txtActCuota;
+	private JTextField txtfintNombre;
+	private JTextField txtfintApellido;
+	private JTextField txtfintCif;
+	private JTextField txtfintDireccion;
+	private JTextField txtfintMunicipio;
+	private JTextField txtfintCP;
+	private JTextField txtfintTlfF;
+	private JTextField txtfintTlfM;
+	private JTextField txtfintFax;
+	private JTextField txtfintEmail;
+	private JTextField txtfrepNombre;
+	private JTextField txtfrepApellidos;
+	private JTextField txtfrepDocumentoIdentidad;
+	private JTextField txtfrepDireccion;
+	private JTextField txtfrepMunicipio;
+	private JTextField txtfrepCP;
+	private JTextField txtfrepTlfF;
+	private JTextField txtfrepTlfM;
+	private JTextField txtfrepFax;
+	private JComboBox comboBoxActTipoSuelo;
+	private JTextField txtfrepEmail;
 
 	public VistaAuxTabla() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -103,53 +122,53 @@ public class VistaAuxTabla extends JFrame {
 		
 		JLabel label_2 = new JLabel("Nombre");
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
+		txtfintNombre = new JTextField();
+		txtfintNombre.setColumns(10);
 		
 		JLabel label_3 = new JLabel("Apellidos");
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
+		txtfintApellido = new JTextField();
+		txtfintApellido.setColumns(10);
 		
 		JLabel label_4 = new JLabel("CIF");
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
+		txtfintCif = new JTextField();
+		txtfintCif.setColumns(10);
 		
 		JLabel label_5 = new JLabel("Direccion");
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
+		txtfintDireccion = new JTextField();
+		txtfintDireccion.setColumns(10);
 		
 		JLabel label_6 = new JLabel("Municipio");
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
+		txtfintMunicipio = new JTextField();
+		txtfintMunicipio.setColumns(10);
 		
 		JLabel label_7 = new JLabel("Codigo postal");
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
+		txtfintCP = new JTextField();
+		txtfintCP.setColumns(10);
 		
 		JLabel label_8 = new JLabel("Tlf Fijo");
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
+		txtfintTlfF = new JTextField();
+		txtfintTlfF.setColumns(10);
 		
 		JLabel label_9 = new JLabel("Tlf Movil");
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
+		txtfintTlfM = new JTextField();
+		txtfintTlfM.setColumns(10);
 		
 		JLabel label_10 = new JLabel("Fax");
 		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
+		txtfintFax = new JTextField();
+		txtfintFax.setColumns(10);
 		
 		JLabel label_11 = new JLabel("Email");
 		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
+		txtfintEmail = new JTextField();
+		txtfintEmail.setColumns(10);
 		GroupLayout gl_PanelInteresadoAux = new GroupLayout(PanelInteresadoAux);
 		gl_PanelInteresadoAux.setHorizontalGroup(
 			gl_PanelInteresadoAux.createParallelGroup(Alignment.TRAILING)
@@ -168,17 +187,17 @@ public class VistaAuxTabla extends JFrame {
 								.addComponent(label_6))
 							.addGap(33)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtfintNombre, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintApellido, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintCif, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintDireccion, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintMunicipio, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
 							.addGap(67)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 									.addComponent(label_11)
 									.addPreferredGap(ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-									.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
+									.addComponent(txtfintEmail, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.TRAILING)
@@ -188,17 +207,17 @@ public class VistaAuxTabla extends JFrame {
 												.addComponent(label_9))
 											.addPreferredGap(ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
 											.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.TRAILING)
-												.addComponent(textField_11, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-												.addComponent(textField_10, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)))
+												.addComponent(txtfintFax, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+												.addComponent(txtfintTlfM, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)))
 										.addGroup(Alignment.LEADING, gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
 											.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 												.addComponent(label_8, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 												.addGap(18)
-												.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
+												.addComponent(txtfintTlfF, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
 											.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 												.addComponent(label_7)
 												.addGap(18)
-												.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))
+												.addComponent(txtfintCP, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))
 									.addPreferredGap(ComponentPlacement.RELATED)))))
 					.addGap(41))
 		);
@@ -213,11 +232,11 @@ public class VistaAuxTabla extends JFrame {
 							.addGap(7)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.BASELINE)
 								.addComponent(label_2)
-								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(txtfintNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 							.addGap(6)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintCP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label_7))
 							.addGap(1)))
 					.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
@@ -229,40 +248,40 @@ public class VistaAuxTabla extends JFrame {
 									.addComponent(label_3))
 								.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 									.addGap(1)
-									.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(txtfintApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_4)
-								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(txtfintCif, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_8)
-								.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtfintTlfF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintTlfM, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label_9))))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.BASELINE)
-							.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfintDireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addComponent(label_5))
 						.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
 							.addComponent(label_10)
-							.addComponent(textField_11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(txtfintFax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 							.addGap(7)
 							.addGroup(gl_PanelInteresadoAux.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfintMunicipio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label_6)))
 						.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(label_11))
 						.addGroup(gl_PanelInteresadoAux.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(txtfintEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(27, Short.MAX_VALUE))
 		);
 		PanelInteresadoAux.setLayout(gl_PanelInteresadoAux);
@@ -271,9 +290,9 @@ public class VistaAuxTabla extends JFrame {
 		PanelRepAux.setBounds(459, 309, 484, 187);
 		contentPane.add(PanelRepAux);
 		
-		textField_13 = new JTextField();
-		textField_13.setEnabled(false);
-		textField_13.setColumns(10);
+		txtfrepNombre = new JTextField();
+		txtfrepNombre.setEnabled(false);
+		txtfrepNombre.setColumns(10);
 		
 		JLabel label_12 = new JLabel("Nombre");
 		label_12.setEnabled(false);
@@ -281,30 +300,30 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_13 = new JLabel("Apellidos");
 		label_13.setEnabled(false);
 		
-		textField_14 = new JTextField();
-		textField_14.setEnabled(false);
-		textField_14.setColumns(10);
+		txtfrepApellidos = new JTextField();
+		txtfrepApellidos.setEnabled(false);
+		txtfrepApellidos.setColumns(10);
 		
 		JLabel label_14 = new JLabel("Documento Identidad");
 		label_14.setEnabled(false);
 		
-		textField_15 = new JTextField();
-		textField_15.setEnabled(false);
-		textField_15.setColumns(10);
+		txtfrepDocumentoIdentidad = new JTextField();
+		txtfrepDocumentoIdentidad.setEnabled(false);
+		txtfrepDocumentoIdentidad.setColumns(10);
 		
 		JLabel label_15 = new JLabel("Direccion");
 		label_15.setEnabled(false);
 		
-		textField_16 = new JTextField();
-		textField_16.setEnabled(false);
-		textField_16.setColumns(10);
+		txtfrepDireccion = new JTextField();
+		txtfrepDireccion.setEnabled(false);
+		txtfrepDireccion.setColumns(10);
 		
 		JLabel label_16 = new JLabel("Municipio");
 		label_16.setEnabled(false);
 		
-		textField_17 = new JTextField();
-		textField_17.setEnabled(false);
-		textField_17.setColumns(10);
+		txtfrepMunicipio = new JTextField();
+		txtfrepMunicipio.setEnabled(false);
+		txtfrepMunicipio.setColumns(10);
 		
 		JLabel label_17 = new JLabel("REPRESENTANTE");
 		label_17.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -312,30 +331,37 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_18 = new JLabel("Codigo Postal");
 		label_18.setEnabled(false);
 		
-		textField_18 = new JTextField();
-		textField_18.setEnabled(false);
-		textField_18.setColumns(10);
+		txtfrepCP = new JTextField();
+		txtfrepCP.setEnabled(false);
+		txtfrepCP.setColumns(10);
 		
 		JLabel label_19 = new JLabel("Tlf Fijo");
 		label_19.setEnabled(false);
 		
-		textField_19 = new JTextField();
-		textField_19.setEnabled(false);
-		textField_19.setColumns(10);
+		txtfrepTlfF = new JTextField();
+		txtfrepTlfF.setEnabled(false);
+		txtfrepTlfF.setColumns(10);
 		
 		JLabel label_20 = new JLabel("Tlf Movil");
 		label_20.setEnabled(false);
 		
-		textField_20 = new JTextField();
-		textField_20.setEnabled(false);
-		textField_20.setColumns(10);
+		txtfrepTlfM = new JTextField();
+		txtfrepTlfM.setEnabled(false);
+		txtfrepTlfM.setColumns(10);
 		
 		JLabel label_21 = new JLabel("Fax");
 		label_21.setEnabled(false);
 		
-		textField_21 = new JTextField();
-		textField_21.setEnabled(false);
-		textField_21.setColumns(10);
+		txtfrepFax = new JTextField();
+		txtfrepFax.setEnabled(false);
+		txtfrepFax.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setEnabled(false);
+		
+		txtfrepEmail = new JTextField();
+		txtfrepEmail.setEnabled(false);
+		txtfrepEmail.setColumns(10);
 		GroupLayout gl_PanelRepAux = new GroupLayout(PanelRepAux);
 		gl_PanelRepAux.setHorizontalGroup(
 			gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
@@ -354,25 +380,25 @@ public class VistaAuxTabla extends JFrame {
 								.addComponent(label_16))
 							.addGap(18)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_PanelRepAux.createSequentialGroup()
-									.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-									.addGap(27)
-									.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
-										.addComponent(label_21)
-										.addComponent(label_18)
-										.addComponent(label_20)
-										.addComponent(label_19))
-									.addGap(57)
-									.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField_21, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_20, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_18, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)))
-								.addComponent(textField_17, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(txtfrepDocumentoIdentidad, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfrepDireccion, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfrepApellidos, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfrepNombre, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfrepMunicipio, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
+							.addGap(27)
+							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_21)
+								.addComponent(label_18)
+								.addComponent(label_20)
+								.addComponent(label_19)
+								.addComponent(lblEmail))
+							.addGap(47)
+							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(txtfrepFax, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+								.addComponent(txtfrepTlfM, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+								.addComponent(txtfrepTlfF, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+								.addComponent(txtfrepCP, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+								.addComponent(txtfrepEmail))))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_PanelRepAux.setVerticalGroup(
@@ -389,9 +415,9 @@ public class VistaAuxTabla extends JFrame {
 							.addGroup(gl_PanelRepAux.createSequentialGroup()
 								.addGap(6)
 								.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-									.addComponent(textField_18, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(label_18))))
-						.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addComponent(label_18)
+									.addComponent(txtfrepCP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+						.addComponent(txtfrepNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_PanelRepAux.createSequentialGroup()
@@ -401,31 +427,37 @@ public class VistaAuxTabla extends JFrame {
 							.addGap(3)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
 								.addComponent(label_19)
-								.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtfrepApellidos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(txtfrepTlfF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_PanelRepAux.createSequentialGroup()
 							.addGap(4)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
 								.addComponent(label_14)
-								.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfrepDocumentoIdentidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label_20))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
 								.addComponent(label_21)
-								.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_15))
-							.addGap(6))
+								.addComponent(txtfrepDireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(label_15)))
 						.addGroup(gl_PanelRepAux.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_20, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfrepTlfM, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_21, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(txtfrepFax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField_17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label_16))
-					.addContainerGap(12, Short.MAX_VALUE))
+						.addGroup(gl_PanelRepAux.createSequentialGroup()
+							.addGap(4)
+							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
+									.addComponent(txtfrepMunicipio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(lblEmail))
+								.addComponent(label_16)))
+						.addGroup(gl_PanelRepAux.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(txtfrepEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		PanelRepAux.setLayout(gl_PanelRepAux);
 		
@@ -456,76 +488,77 @@ public class VistaAuxTabla extends JFrame {
 		
 		JLabel label_35 = new JLabel("Tipo de suelo");
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setEditable(true);
+		comboBoxActTipoSuelo = new JComboBox();
+		comboBoxActTipoSuelo.setModel(new DefaultComboBoxModel(new String[] {"Urbano ", "Turistico"}));
+		comboBoxActTipoSuelo.setEditable(true);
 		
 		JLabel label_27 = new JLabel("Justificante de pago");
 		
-		JCheckBox checkBox_5 = new JCheckBox("");
+		checkActFotoJustificantePago = new JCheckBox("");
 		
 		JLabel label_26 = new JLabel("Certificado colegio oficial");
 		
-		JCheckBox checkBox_4 = new JCheckBox("");
+		checkActCertColegioOficial = new JCheckBox("");
 		
 		JLabel label_37 = new JLabel("Referencia catastral");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		txtfActReferenciaCatastral = new JTextField();
+		txtfActReferenciaCatastral.setColumns(10);
 		
 		JLabel label_34 = new JLabel("Escritura");
 		
-		JCheckBox checkBox_6 = new JCheckBox("");
+		checkActFotoEscritura = new JCheckBox("");
 		
 		JLabel label_25 = new JLabel("Certificado Modelo 1");
 		
-		JCheckBox checkBox_3 = new JCheckBox("");
+		checkActCertModelo1 = new JCheckBox("");
 		
 		JLabel label_43 = new JLabel("Local");
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		txtfActLocal = new JTextField();
+		txtfActLocal.setColumns(10);
 		
 		JLabel label_33 = new JLabel("Modelo 36");
 		
-		JCheckBox checkBox_7 = new JCheckBox("");
+		checkActFotoModelo036 = new JCheckBox("");
 		
 		JLabel label_24 = new JLabel("Certificado Modelo 2");
 		
-		JCheckBox checkBox_2 = new JCheckBox("");
+		checkActCertModelo2 = new JCheckBox("");
 		
 		JLabel label_42 = new JLabel("Tipo");
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		txtfActTipo = new JTextField();
+		txtfActTipo.setColumns(10);
 		
 		JLabel label_32 = new JLabel("Planos");
 		
-		JCheckBox checkBox_8 = new JCheckBox("");
+		checkActFotoPlanos = new JCheckBox("");
 		
 		JLabel label_23 = new JLabel("Licencia obra");
 		
-		JCheckBox checkBox_1 = new JCheckBox("");
+		checkActFotoLicenciaObra = new JCheckBox("");
 		
 		JLabel label_41 = new JLabel("Emplazamiento");
 		
-		textField_22 = new JTextField();
-		textField_22.setColumns(10);
+		txtfActEmplazamiento = new JTextField();
+		txtfActEmplazamiento.setColumns(10);
 		
 		JLabel label_31 = new JLabel("CD");
 		
-		JCheckBox checkBox_9 = new JCheckBox("");
+		checkActFotoCD = new JCheckBox("");
 		
 		JLabel label_22 = new JLabel("Otras autorizaciones");
 		
-		JCheckBox checkBox = new JCheckBox("");
+		checkActFotoOtrasAutorizaciones = new JCheckBox("");
 		
 		JLabel label_40 = new JLabel("Fecha inicio");
 		
-		JDateChooser dateChooser = new JDateChooser();
+		txtfDCFechaInicio = new JDateChooser();
 		
 		JLabel label_30 = new JLabel("Memoria");
 		
-		JCheckBox checkBox_10 = new JCheckBox("");
+		checkActFotoMemoria = new JCheckBox("");
 		
 		JLabel label = new JLabel("Descripcion");
 		
@@ -533,20 +566,20 @@ public class VistaAuxTabla extends JFrame {
 		
 		JLabel label_39 = new JLabel("Fecha Solicitud");
 		
-		JDateChooser dateChooser_1 = new JDateChooser();
+		txtfDCFechaSolicitud = new JDateChooser();
 		
 		JLabel label_29 = new JLabel("Fotografia");
 		
-		JCheckBox checkBox_11 = new JCheckBox("");
+		checkActFotoFofografia = new JCheckBox("");
 		
 		JLabel label_38 = new JLabel("Cuota");
 		
-		textField_23 = new JTextField();
-		textField_23.setColumns(10);
+		txtActCuota = new JTextField();
+		txtActCuota.setColumns(10);
 		
 		JLabel label_28 = new JLabel("Fotocopia DNI");
 		
-		JCheckBox checkBox_12 = new JCheckBox("");
+		checkActFotocopiaDni = new JCheckBox("");
 		GroupLayout gl_PanelActividadAux_1 = new GroupLayout(PanelActividadAux_1);
 		gl_PanelActividadAux_1.setHorizontalGroup(
 			gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
@@ -556,19 +589,19 @@ public class VistaAuxTabla extends JFrame {
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_37, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfActReferenciaCatastral, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(104)
 							.addComponent(label_34, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(checkBox_6))
+							.addComponent(checkActFotoEscritura))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_35, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboBoxActTipoSuelo, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
 							.addGap(80)
 							.addComponent(label_27, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(checkBox_5)))
+							.addComponent(checkActFotoJustificantePago)))
 					.addGap(119)
 					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
 						.addComponent(label_25, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -576,36 +609,36 @@ public class VistaAuxTabla extends JFrame {
 					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(5)
-							.addComponent(checkBox_4))
+							.addComponent(checkActCertColegioOficial))
 						.addGroup(Alignment.TRAILING, gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(5)
-							.addComponent(checkBox_3))))
+							.addComponent(checkActCertModelo1))))
 				.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_43, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfActLocal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(104)
 							.addComponent(label_33, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(checkBox_7))
+							.addComponent(checkActFotoModelo036))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_42, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfActTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(104)
 							.addComponent(label_32, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 							.addGap(67)
-							.addComponent(checkBox_8))
+							.addComponent(checkActFotoPlanos))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_41, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(textField_22, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfActEmplazamiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(104)
 							.addComponent(label_31, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
 							.addGap(37)
-							.addComponent(checkBox_9))
+							.addComponent(checkActFotoCD))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_40, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
@@ -613,9 +646,9 @@ public class VistaAuxTabla extends JFrame {
 								.addComponent(label_38, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
 							.addGap(5)
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-								.addComponent(dateChooser_1, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_23, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtfDCFechaInicio, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfDCFechaSolicitud, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtActCuota, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE))
 							.addGap(80)
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_30)
@@ -623,9 +656,9 @@ public class VistaAuxTabla extends JFrame {
 								.addComponent(label_28))
 							.addGap(57)
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(checkBox_10)
-								.addComponent(checkBox_11)
-								.addComponent(checkBox_12))))
+								.addComponent(checkActFotoMemoria)
+								.addComponent(checkActFotoFofografia)
+								.addComponent(checkActFotocopiaDni))))
 					.addGap(119)
 					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
@@ -635,7 +668,7 @@ public class VistaAuxTabla extends JFrame {
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_22, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
 							.addGap(5)
-							.addComponent(checkBox))
+							.addComponent(checkActFotoOtrasAutorizaciones))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(label_23, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -643,10 +676,10 @@ public class VistaAuxTabla extends JFrame {
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(checkBox_2))
+									.addComponent(checkActCertModelo2))
 								.addGroup(Alignment.TRAILING, gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(6)
-									.addComponent(checkBox_1))))))
+									.addComponent(checkActFotoLicenciaObra))))))
 		);
 		gl_PanelActividadAux_1.setVerticalGroup(
 			gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
@@ -659,16 +692,16 @@ public class VistaAuxTabla extends JFrame {
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(4)
 									.addComponent(label_35))
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(comboBoxActTipoSuelo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(4)
 									.addComponent(label_27))
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(2)
-									.addComponent(checkBox_5))
+									.addComponent(checkActFotoJustificantePago))
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(2)
-									.addComponent(checkBox_4))))
+									.addComponent(checkActCertColegioOficial))))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(36)
 							.addComponent(label_26)))
@@ -681,10 +714,10 @@ public class VistaAuxTabla extends JFrame {
 									.addComponent(label_37))
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(1)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addComponent(txtfActReferenciaCatastral, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addComponent(label_34)
-								.addComponent(checkBox_6)
-								.addComponent(checkBox_3)))
+								.addComponent(checkActFotoEscritura)
+								.addComponent(checkActCertModelo1)))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(9)
 							.addComponent(label_25)))
@@ -695,12 +728,12 @@ public class VistaAuxTabla extends JFrame {
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(3)
 									.addComponent(label_43))
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfActLocal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(3)
 									.addComponent(label_33))
-								.addComponent(checkBox_7)
-								.addComponent(checkBox_2)))
+								.addComponent(checkActFotoModelo036)
+								.addComponent(checkActCertModelo2)))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(8)
 							.addComponent(label_24)))
@@ -711,12 +744,12 @@ public class VistaAuxTabla extends JFrame {
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(3)
 									.addComponent(label_42))
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfActTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(3)
 									.addComponent(label_32))
-								.addComponent(checkBox_8)
-								.addComponent(checkBox_1)))
+								.addComponent(checkActFotoPlanos)
+								.addComponent(checkActFotoLicenciaObra)))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(8)
 							.addComponent(label_23)))
@@ -727,12 +760,12 @@ public class VistaAuxTabla extends JFrame {
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(3)
 									.addComponent(label_41))
-								.addComponent(textField_22, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtfActEmplazamiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 									.addGap(3)
 									.addComponent(label_31))
-								.addComponent(checkBox_9)
-								.addComponent(checkBox)))
+								.addComponent(checkActFotoCD)
+								.addComponent(checkActFotoOtrasAutorizaciones)))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addGap(12)
 							.addComponent(label_22)))
@@ -746,11 +779,11 @@ public class VistaAuxTabla extends JFrame {
 							.addGap(17)
 							.addComponent(label_38))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfDCFechaInicio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
-							.addComponent(dateChooser_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(txtfDCFechaSolicitud, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(10)
-							.addComponent(textField_23, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addComponent(txtActCuota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 							.addComponent(label_30)
 							.addGap(12)
@@ -758,16 +791,16 @@ public class VistaAuxTabla extends JFrame {
 							.addGap(17)
 							.addComponent(label_28))
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(checkBox_10)
+							.addComponent(checkActFotoMemoria)
 							.addGap(5)
-							.addComponent(checkBox_11)
+							.addComponent(checkActFotoFofografia)
 							.addGap(5)
-							.addComponent(checkBox_12))
+							.addComponent(checkActFotocopiaDni))
 						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
 		);
 		
-		JTextPane textPane = new JTextPane();
-		scrollPane.setViewportView(textPane);
+		txtPActDescripcion = new JTextPane();
+		scrollPane.setViewportView(txtPActDescripcion);
 		PanelActividadAux_1.setLayout(gl_PanelActividadAux_1);
 		
 	
@@ -783,10 +816,366 @@ public class VistaAuxTabla extends JFrame {
 	}
 
 	public void setModelo(Modelo modelo) {
-		this.modelo = modelo;
+		this.modelo =  modelo;
+	}
+	public void setModelo2(Modelo modelo) {
+		this.modelo = (ModeloBBDD) modelo;
 	}
 
 	public void adirArr() {
 
+	}
+
+	public void devolverDatosTitular() {
+		System.out.println(modelo2.ActCertColegioOficial+"holaaaaa");
+		System.out.println(modelo2.repApellidos+ "holaaaa");
+		if(modelo2.ActCertColegioOficial == "1"){
+			checkActCertColegioOficial.setSelected(true);
+		}
+		txtfrepApellidos.setText(modelo2.repApellidos);
+	}
+
+	public JCheckBox getCheckBoxrepresentanteAux() {
+		return checkBoxrepresentanteAux;
+	}
+
+	public void setCheckBoxrepresentanteAux(JCheckBox checkBoxrepresentanteAux) {
+		this.checkBoxrepresentanteAux = checkBoxrepresentanteAux;
+	}
+
+	public JTextField getTxtfActEmplazamiento() {
+		return txtfActEmplazamiento;
+	}
+
+	public void setTxtfActEmplazamiento(JTextField txtfActEmplazamiento) {
+		this.txtfActEmplazamiento = txtfActEmplazamiento;
+	}
+
+	public JDateChooser getTxtfDCFechaInicio() {
+		return txtfDCFechaInicio;
+	}
+
+	public void setTxtfDCFechaInicio(JDateChooser txtfDCFechaInicio) {
+		this.txtfDCFechaInicio = txtfDCFechaInicio;
+	}
+
+	public JDateChooser getTxtfDCFechaSolicitud() {
+		return txtfDCFechaSolicitud;
+	}
+
+	public void setTxtfDCFechaSolicitud(JDateChooser txtfDCFechaSolicitud) {
+		this.txtfDCFechaSolicitud = txtfDCFechaSolicitud;
+	}
+
+	public JCheckBox getCheckActFotoJustificantePago() {
+		return checkActFotoJustificantePago;
+	}
+
+	public void setCheckActFotoJustificantePago(JCheckBox checkActFotoJustificantePago) {
+		this.checkActFotoJustificantePago = checkActFotoJustificantePago;
+	}
+
+	public JCheckBox getCheckActFotoEscritura() {
+		return checkActFotoEscritura;
+	}
+
+	public void setCheckActFotoEscritura(JCheckBox checkActFotoEscritura) {
+		this.checkActFotoEscritura = checkActFotoEscritura;
+	}
+
+	public JCheckBox getCheckActFotoModelo036() {
+		return checkActFotoModelo036;
+	}
+
+	public void setCheckActFotoModelo036(JCheckBox checkActFotoModelo036) {
+		this.checkActFotoModelo036 = checkActFotoModelo036;
+	}
+
+	public JCheckBox getCheckActFotoMemoria() {
+		return checkActFotoMemoria;
+	}
+
+	public void setCheckActFotoMemoria(JCheckBox checkActFotoMemoria) {
+		this.checkActFotoMemoria = checkActFotoMemoria;
+	}
+
+	public JCheckBox getCheckActFotoFofografia() {
+		return checkActFotoFofografia;
+	}
+
+	public void setCheckActFotoFofografia(JCheckBox checkActFotoFofografia) {
+		this.checkActFotoFofografia = checkActFotoFofografia;
+	}
+
+	public JCheckBox getCheckActFotocopiaDni() {
+		return checkActFotocopiaDni;
+	}
+
+	public void setCheckActFotocopiaDni(JCheckBox checkActFotocopiaDni) {
+		this.checkActFotocopiaDni = checkActFotocopiaDni;
+	}
+
+	public JCheckBox getCheckActCertColegioOficial() {
+		return checkActCertColegioOficial;
+	}
+
+	public void setCheckActCertColegioOficial(JCheckBox checkActCertColegioOficial) {
+		this.checkActCertColegioOficial = checkActCertColegioOficial;
+	}
+
+	public JCheckBox getCheckActCertModelo1() {
+		return checkActCertModelo1;
+	}
+
+	public void setCheckActCertModelo1(JCheckBox checkActCertModelo1) {
+		this.checkActCertModelo1 = checkActCertModelo1;
+	}
+
+	public JCheckBox getCheckActCertModelo2() {
+		return checkActCertModelo2;
+	}
+
+	public void setCheckActCertModelo2(JCheckBox checkActCertModelo2) {
+		this.checkActCertModelo2 = checkActCertModelo2;
+	}
+
+	public JCheckBox getCheckActFotoLicenciaObra() {
+		return checkActFotoLicenciaObra;
+	}
+
+	public void setCheckActFotoLicenciaObra(JCheckBox checkActFotoLicenciaObra) {
+		this.checkActFotoLicenciaObra = checkActFotoLicenciaObra;
+	}
+
+	public JCheckBox getCheckActFotoOtrasAutorizaciones() {
+		return checkActFotoOtrasAutorizaciones;
+	}
+
+	public void setCheckActFotoOtrasAutorizaciones(JCheckBox checkActFotoOtrasAutorizaciones) {
+		this.checkActFotoOtrasAutorizaciones = checkActFotoOtrasAutorizaciones;
+	}
+
+	public JTextPane getTxtPActDescripcion() {
+		return txtPActDescripcion;
+	}
+
+	public void setTxtPActDescripcion(JTextPane txtPActDescripcion) {
+		this.txtPActDescripcion = txtPActDescripcion;
+	}
+
+	public JCheckBox getCheckActFotoPlanos() {
+		return checkActFotoPlanos;
+	}
+
+	public void setCheckActFotoPlanos(JCheckBox checkActFotoPlanos) {
+		this.checkActFotoPlanos = checkActFotoPlanos;
+	}
+
+	public JCheckBox getCheckActFotoCD() {
+		return checkActFotoCD;
+	}
+
+	public void setCheckActFotoCD(JCheckBox checkActFotoCD) {
+		this.checkActFotoCD = checkActFotoCD;
+	}
+
+	public JTextField getTxtfActReferenciaCatastral() {
+		return txtfActReferenciaCatastral;
+	}
+
+	public void setTxtfActReferenciaCatastral(JTextField txtfActReferenciaCatastral) {
+		this.txtfActReferenciaCatastral = txtfActReferenciaCatastral;
+	}
+
+	public JTextField getTxtfActLocal() {
+		return txtfActLocal;
+	}
+
+	public void setTxtfActLocal(JTextField txtfActLocal) {
+		this.txtfActLocal = txtfActLocal;
+	}
+
+	public JTextField getTxtfActTipo() {
+		return txtfActTipo;
+	}
+
+	public void setTxtfActTipo(JTextField txtfActTipo) {
+		this.txtfActTipo = txtfActTipo;
+	}
+
+	public JTextField getTxtActCuota() {
+		return txtActCuota;
+	}
+
+	public void setTxtActCuota(JTextField txtActCuota) {
+		this.txtActCuota = txtActCuota;
+	}
+
+	public JTextField getTxtfintNombre() {
+		return txtfintNombre;
+	}
+
+	public void setTxtfintNombre(JTextField txtfintNombre) {
+		this.txtfintNombre = txtfintNombre;
+	}
+
+	public JTextField getTxtfintApellido() {
+		return txtfintApellido;
+	}
+
+	public void setTxtfintApellido(JTextField txtfintApellido) {
+		this.txtfintApellido = txtfintApellido;
+	}
+
+	public JTextField getTxtfintCif() {
+		return txtfintCif;
+	}
+
+	public void setTxtfintCif(JTextField txtfintCif) {
+		this.txtfintCif = txtfintCif;
+	}
+
+	public JTextField getTxtfintDireccion() {
+		return txtfintDireccion;
+	}
+
+	public void setTxtfintDireccion(JTextField txtfintDireccion) {
+		this.txtfintDireccion = txtfintDireccion;
+	}
+
+	public JTextField getTxtfintMunicipio() {
+		return txtfintMunicipio;
+	}
+
+	public void setTxtfintMunicipio(JTextField txtfintMunicipio) {
+		this.txtfintMunicipio = txtfintMunicipio;
+	}
+
+	public JTextField getTxtfintCP() {
+		return txtfintCP;
+	}
+
+	public void setTxtfintCP(JTextField txtfintCP) {
+		this.txtfintCP = txtfintCP;
+	}
+
+	public JTextField getTxtfintTlfF() {
+		return txtfintTlfF;
+	}
+
+	public void setTxtfintTlfF(JTextField txtfintTlfF) {
+		this.txtfintTlfF = txtfintTlfF;
+	}
+
+	public JTextField getTxtfintTlfM() {
+		return txtfintTlfM;
+	}
+
+	public void setTxtfintTlfM(JTextField txtfintTlfM) {
+		this.txtfintTlfM = txtfintTlfM;
+	}
+
+	public JTextField getTxtfintFax() {
+		return txtfintFax;
+	}
+
+	public void setTxtfintFax(JTextField txtfintFax) {
+		this.txtfintFax = txtfintFax;
+	}
+
+	public JTextField getTxtfintEmail() {
+		return txtfintEmail;
+	}
+
+	public void setTxtfintEmail(JTextField txtfintEmail) {
+		this.txtfintEmail = txtfintEmail;
+	}
+
+	public JTextField getTxtfrepNombre() {
+		return txtfrepNombre;
+	}
+
+	public void setTxtfrepNombre(JTextField txtfrepNombre) {
+		this.txtfrepNombre = txtfrepNombre;
+	}
+
+	public JTextField getTxtfrepApellidos() {
+		return txtfrepApellidos;
+	}
+
+	public void setTxtfrepApellidos(JTextField txtfrepApellidos) {
+		this.txtfrepApellidos = txtfrepApellidos;
+	}
+
+	public JTextField getTxtfrepDocumentoIdentidad() {
+		return txtfrepDocumentoIdentidad;
+	}
+
+	public void setTxtfrepDocumentoIdentidad(JTextField txtfrepDocumentoIdentidad) {
+		this.txtfrepDocumentoIdentidad = txtfrepDocumentoIdentidad;
+	}
+
+	public JTextField getTxtfrepDireccion() {
+		return txtfrepDireccion;
+	}
+
+	public void setTxtfrepDireccion(JTextField txtfrepDireccion) {
+		this.txtfrepDireccion = txtfrepDireccion;
+	}
+
+	public JTextField getTxtfrepMunicipio() {
+		return txtfrepMunicipio;
+	}
+
+	public void setTxtfrepMunicipio(JTextField txtfrepMunicipio) {
+		this.txtfrepMunicipio = txtfrepMunicipio;
+	}
+
+	public JTextField getTxtfrepCP() {
+		return txtfrepCP;
+	}
+
+	public void setTxtfrepCP(JTextField txtfrepCP) {
+		this.txtfrepCP = txtfrepCP;
+	}
+
+	public JTextField getTxtfrepTlfF() {
+		return txtfrepTlfF;
+	}
+
+	public void setTxtfrepTlfF(JTextField txtfrepTlfF) {
+		this.txtfrepTlfF = txtfrepTlfF;
+	}
+
+	public String getTxtfrepTlfM() {
+		return txtfrepTlfM.getText();
+	}
+
+	public void setTxtfrepTlfM(JTextField txtfrepTlfM) {
+		this.txtfrepTlfM = txtfrepTlfM;
+	}
+
+	public JTextField getTxtfrepFax() {
+		return txtfrepFax;
+	}
+
+	public void setTxtfrepFax(JTextField txtfrepFax) {
+		this.txtfrepFax = txtfrepFax;
+	}
+
+	public JComboBox getComboBoxActTipoSuelo() {
+		return comboBoxActTipoSuelo;
+	}
+
+	public void setComboBoxActTipoSuelo(JComboBox comboBoxActTipoSuelo) {
+		this.comboBoxActTipoSuelo = comboBoxActTipoSuelo;
+	}
+
+	public JTextField getTxtfrepEmail() {
+		return txtfrepEmail;
+	}
+
+	public void setTxtfrepEmail(JTextField txtfrepEmail) {
+		this.txtfrepEmail = txtfrepEmail;
 	}
 }

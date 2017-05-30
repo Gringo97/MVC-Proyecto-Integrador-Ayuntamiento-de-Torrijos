@@ -698,7 +698,12 @@ public class VistaWB extends JFrame implements Vista {
 				if (e.getClickCount() == 2) {
 					DefaultTableModel model = (DefaultTableModel) table.getModel();
 					int selectedRowIndex = table.getSelectedRow();
+					
 					controlador.nuevaPantalla();
+					controlador.recogerRegistroCambio();
+					
+						
+					
 				}
 			}
 		});
@@ -1482,4 +1487,14 @@ public class VistaWB extends JFrame implements Vista {
 		
 		
 	}
+
+	public JTable getTabla() {
+		return table;
+	}
+
+	public void setTabla(JTable table) {
+		this.table = table;
+	}
+
+	
 }

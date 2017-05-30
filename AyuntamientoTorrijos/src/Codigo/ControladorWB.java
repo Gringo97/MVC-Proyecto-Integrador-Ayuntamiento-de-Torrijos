@@ -60,6 +60,8 @@ public class ControladorWB extends JFrame implements Controlador {
 		VistaAuxTabla vistaTabla = new VistaAuxTabla();
 		vistaTabla.setControlador(this);
 		vistaTabla.setModelo(modelo);
+		vistaTabla.setModelo2(modelo2);
+		modelo2.setVista2(vistaTabla);
 		vistaTabla.setVisible(true);
 
 	}
@@ -74,7 +76,6 @@ public class ControladorWB extends JFrame implements Controlador {
 		vistaFichero.setModeloFich(modeloFicheroIni);
 		vistaFichero.setModeloBBDD(modelo2);
 		modeloFicheroIni.setVista(vistaFichero);
-		
 		modeloFicheroIni.setDatos();
 		setVistaFichero(vistaFichero);
 
@@ -93,7 +94,7 @@ public class ControladorWB extends JFrame implements Controlador {
 	public void busquedaPersonaJur() {
 		String nif = vista.getNIFBusquedaPJ();
 		String razonSocial = vista.getTxtfRazonSocialBusquedaPJ();
-		modelo2.Consulta2(nif, razonSocial);
+		//modelo2.Consulta2(nif, razonSocial);
 
 	}
 
@@ -101,7 +102,7 @@ public class ControladorWB extends JFrame implements Controlador {
 		String fechaInicial = vista.getFechaInicialActBusqueda();
 		String fechaFinal = vista.getFechaFinalActBusqueda();
 		String tipo = vista.getTxtfActBusqueda();
-		modelo2.Consulta3(tipo, fechaInicial, fechaFinal);
+		//modelo2.Consulta3(tipo, fechaInicial, fechaFinal);
 
 	}
 
@@ -145,5 +146,10 @@ public class ControladorWB extends JFrame implements Controlador {
 		modelo.vaciarNuevaAct();
 		
 	}
+String dato;
+	public void recogerRegistroCambio(){
+dato=String.valueOf(vista.getTabla().getValueAt(vista.getTabla().getSelectedRow(),0));
+modelo2.recogerDatosParaCambioTitularidad(dato);
+}
 
 }

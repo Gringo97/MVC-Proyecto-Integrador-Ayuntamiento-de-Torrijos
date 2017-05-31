@@ -61,10 +61,16 @@ public class ControladorWB extends JFrame implements Controlador {
 		vistaTabla.setControlador(this);
 		vistaTabla.setModelo(modelo);
 		vistaTabla.setModelo2(modelo2);
+		this.setVista2(vistaTabla);
 		modelo2.setVista2(vistaTabla);
 		vistaTabla.setVisible(true);
 
 	}
+	private void setVista2(VistaAuxTabla vistaTabla) {
+		this.vista2=vistaTabla;
+		
+	}
+
 	public void GuardarDatos(){
 		
 		modeloFicheroIni.GuardarDatos(vistaFicheroIni.getTxtfBaseDatos(), vistaFicheroIni.getTxtfLogin(), vistaFicheroIni.getTxtfPassword(), vistaFicheroIni.getTxtfURL());
@@ -158,8 +164,12 @@ modelo2.recogerDatosParaCambioTitularidad(dato);
 
 	public void realizarUpdate() {
 		
+		modelo2.realizarUpdate(vista2.getComboBoxActTipoSuelo(),vista2.getTxtfActReferenciaCatastral(),vista2.getTxtfActLocal(),vista2.getTxtfActTipo(),vista2.getTxtfActEmplazamiento(),vista2.getTxtfDCFechaInicio(),vista2.getTxtfDCFechaSolicitud(),vista2.getTxtActCuota(),vista2.getCheckActFotoJustificantePago(),vista2.getCheckActFotoEscritura(),vista2.getCheckActFotoModelo036(),vista2.getCheckActFotoPlanos(),vista2.getCheckActFotoCD(),vista2.getCheckActFotoMemoria(),vista2.getCheckActFotoFofografia(),vista2.getCheckActFotocopiaDni(),vista2.getCheckActCertColegioOficial(),vista2.getCheckActCertModelo1(),vista2.getCheckActCertModelo2(),vista2.getCheckActFotoLicenciaObra(),vista2.getCheckActFotoOtrasAutorizaciones(),vista2.getTxtPActDescripcion(),vista2.getTxtfintNombre(),vista2.getTxtfintApellido(),vista2.getTxtfintCif(),vista2.getTxtfintDireccion(),vista2.getTxtfintMunicipio(),vista2.getTxtfintCP(),vista2.getTxtfintTlfF(),vista2.getTxtfintTlfM(),vista2.getTxtfintFax(),vista2.getTxtfintEmail());
 		
 		
+	}
+	public void realizarUpdate2() {
+		modelo2.realizarUpdate2(vista2.getTxtfrepNombre(),vista2.getTxtfrepApellidos(),vista2.getTxtfrepDocumentoIdentidad(),vista2.getTxtfrepDireccion(),vista2.getTxtfrepMunicipio(),vista2.getTxtfrepCP(),vista2.getTxtfrepTlfF(),vista2.getTxtfrepTlfM(),vista2.getTxtfrepFax(),vista2.getTxtfrepEmail());
 	}
 
 }

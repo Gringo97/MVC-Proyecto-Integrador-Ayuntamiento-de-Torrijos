@@ -954,5 +954,132 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 		
 	}
 
+	public void realizarUpdate(String comboBoxActTipoSuelo, String txtfActReferenciaCatastral, String txtfActLocal,
+			String txtfActTipo, String txtfActEmplazamiento, String txtfDCFechaInicio, String txtfDCFechaSolicitud,
+			String txtActCuota, Boolean checkActFotoJustificantePago, Boolean checkActFotoEscritura,
+			Boolean checkActFotoModelo036, Boolean checkActFotoPlanos, Boolean checkActFotoCD,
+			Boolean checkActFotoMemoria, Boolean checkActFotoFofografia, Boolean checkActFotocopiaDni,
+			Boolean checkActCertColegioOficial, Boolean checkActCertModelo1, Boolean checkActCertModelo2,
+			Boolean checkActFotoLicenciaObra, Boolean checkActFotoOtrasAutorizaciones, String txtPActDescripcion,
+			String txtfintNombre, String txtfintApellido, String txtfintCif, String txtfintDireccion,
+			String txtfintMunicipio, String txtfintCP, String txtfintTlfF, String txtfintTlfM, String txtfintFax,
+			String txtfintEmail) {
+		
+		System.out.println("Oscarrrrrrrr entra???");
+		Connection con = getConnection();
+		int r = 0;
+		String query = "UPDATE interesado SET nombre = ?, apellidos = ?, cif = ?, direccion = ?, municipio = ?, codigoPostal = ?, telefonoFijo = ?, telefonoMovil = ?, fax = ?, email = ? where id = ?";
+		
+		
+		PreparedStatement pstmt;
+		int last_inserted_id = -1;
+
+		try {
+			pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			pstmt.setString(1, txtfintNombre);
+			pstmt.setString(2, txtfintApellido);
+			pstmt.setString(3, txtfintCif);
+			pstmt.setString(4, txtfintDireccion);
+			pstmt.setString(5, txtfintMunicipio);
+			pstmt.setString(6, txtfintCP);
+			pstmt.setString(7, txtfintTlfF);
+			pstmt.setString(8, txtfintTlfM);
+			pstmt.setString(9, txtfintFax);
+			pstmt.setString(10, txtfintEmail);
+			pstmt.setString(11, intId);
+			
+			r = pstmt.executeUpdate();
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			// System.exit(-1);
+		}
+		String query2 = "UPDATE actividad SET fotoLicenciaObra= ?,fotoOtrasAutorizaciones= ?,fotoJustificantePago= ?,fotoEscritura= ?,fotomodelo036= ?,fotoPlanos= ?,fotoCD= ?,fotoMemoria= ?,fotoFotografia= ?,tipoSuelo= ?,referenciaCatastral=?,local=?,tipo=?,emplazamiento=?,fechaSolicitud=?,fechainicio=?,cuota=?,descripcion=?,certColegioOficial=?,certModelo1=?,certModelo2 = ?, FotocopiaDNI = ? where id = ?";
+		try {
+			pstmt = con.prepareStatement(query2, Statement.RETURN_GENERATED_KEYS);
+			pstmt.setBoolean(1, checkActFotoLicenciaObra);
+			pstmt.setBoolean(2, checkActFotoOtrasAutorizaciones);
+			pstmt.setBoolean(3, checkActFotoJustificantePago);
+			pstmt.setBoolean(4, checkActFotoEscritura);
+			pstmt.setBoolean(5, checkActFotoModelo036);
+			pstmt.setBoolean(6, checkActFotoPlanos);
+			pstmt.setBoolean(7, checkActFotoCD);
+			pstmt.setBoolean(8, checkActFotoMemoria);
+			pstmt.setBoolean(9, checkActFotoFofografia);
+			pstmt.setString(10, comboBoxActTipoSuelo);
+			pstmt.setString(11, txtfActReferenciaCatastral);
+			pstmt.setString(12, txtfActLocal);
+			pstmt.setString(13, txtfActTipo);
+			pstmt.setString(14, txtfActEmplazamiento);
+			pstmt.setString(15, txtfDCFechaSolicitud);
+			pstmt.setString(16, txtfDCFechaInicio);
+			pstmt.setString(17, txtActCuota);
+			pstmt.setString(18, txtPActDescripcion);
+			pstmt.setBoolean(19, checkActCertColegioOficial);
+			pstmt.setBoolean(20, checkActCertModelo1);
+			pstmt.setBoolean(21, checkActCertModelo2);
+			pstmt.setBoolean(22, checkActFotocopiaDni);
+			pstmt.setString(23, ActId);
+			
+
+
+			r = pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+			if (rs.next()) {
+				last_inserted_id = rs.getInt(1);
+				System.out.println(r);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			// System.exit(-1);
+		}
+		
+	}
+
+	public void realizarUpdate2(String txtfrepNombre, String txtfrepApellidos, String txtfrepDocumentoIdentidad,
+			String txtfrepDireccion, String txtfrepMunicipio, String txtfrepCP, String txtfrepTlfF, String txtfrepTlfM,
+			String txtfrepFax, String txtfrepEmail) {
+		Connection con = getConnection();
+		int r = 0;
+		if(!repId.equals(null)){
+			String query3 = "UPDATE representante SET nombre=?,apellidos=?,documentoIdentidad=?,direccion=?,municipio=?,codigoPostal=?,telefonoFijo=?,telefonoMovil=?,fax=?,Email=?where id = ?";
+			PreparedStatement pstmt;
+			int last_inserted_id = -1;
+			
+			try {
+				pstmt = con.prepareStatement(query3, Statement.RETURN_GENERATED_KEYS);
+				pstmt.setString(1, txtfrepNombre);
+				pstmt.setString(2, txtfrepApellidos);
+				pstmt.setString(3, txtfrepDocumentoIdentidad);
+				pstmt.setString(4, txtfrepDireccion);
+				pstmt.setString(5, txtfrepMunicipio);
+				pstmt.setString(6, txtfrepCP);
+				pstmt.setString(7, txtfrepTlfF);
+				pstmt.setString(8, txtfrepTlfM);
+				pstmt.setString(9, txtfrepFax);	
+				pstmt.setString(10, txtfrepEmail);
+				pstmt.setString(11, repId);
+
+				r = pstmt.executeUpdate();
+				ResultSet rs = pstmt.getGeneratedKeys();
+				if (rs.next()) {
+					last_inserted_id = rs.getInt(1);
+					System.out.println(r);
+
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				// System.exit(-1);
+			}
+		}
+	}
+
 
 }

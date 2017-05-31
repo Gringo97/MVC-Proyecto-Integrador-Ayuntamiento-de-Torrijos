@@ -117,7 +117,15 @@ public class VistaAuxTabla extends JFrame {
 		btnAceptar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				if(modelo2.getRepId()==null){
 				controlador.realizarUpdate();
+				}else{
+				controlador.realizarUpdate();
+				controlador.realizarUpdate2();	
+				}
+				controlador.refrescar();
+				dispose();
+				
 			}
 		});
 		btnAceptar.setBounds(728, 499, 89, 23);
@@ -826,7 +834,7 @@ public class VistaAuxTabla extends JFrame {
 		
 		/////// DATOS CHECKBOX ///////
 	
-		if(modelo2.getActCertColegioOficial().equalsIgnoreCase("1")){
+		if(modelo2.getActCertColegioOficial().equals("1")){
 			
 			checkActCertColegioOficial.setSelected(true);
 		}
@@ -961,12 +969,6 @@ public class VistaAuxTabla extends JFrame {
 			e.printStackTrace();
 		} 
 
-		
-//		
-//		txtfintTlfF.setText(modelo2.intTlfF);
-//		txtfintTlfM.setText(modelo2.intTlfM);
-//		txtfintFax.setText(modelo2.intFax);
-//		txtfintEmail.setText(modelo2.intEmail);
 
 	}
 

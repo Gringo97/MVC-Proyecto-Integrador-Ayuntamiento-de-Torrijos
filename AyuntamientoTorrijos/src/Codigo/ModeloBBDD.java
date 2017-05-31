@@ -94,7 +94,7 @@ public class ModeloBBDD implements Modelo {
 	public void refrescar() {
 
 		this.Consulta(
-				"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id join relintrep on interesado.id = relintrep.idInteresado join representante on relintrep.idRepresentante = representante.id");
+				"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id");
 	}
 
 	public String[][] getTabla() {
@@ -384,19 +384,19 @@ public class ModeloBBDD implements Modelo {
 	
 	
 public String repId;
-public String repNombre;
-public String repApellidos;
-public String repDocumentoIdentidad;
-public String repDireccion;
-public String repMunicipio;
-public String repCP;
-public String repTlfF;
-public String repTlfM;
-public String repFax;
-public String repEmail;
-public String relIntRepId;
-public String relIntRepIdInteresado;
-public String relIntRepIdRepresentante;
+public String repNombre="";
+public String repApellidos="";
+public String repDocumentoIdentidad="";
+public String repDireccion="";
+public String repMunicipio="";
+public String repCP="";
+public String repTlfF="";
+public String repTlfM="";
+public String repFax="";
+public String repEmail="";
+public String relIntRepId="";
+public String relIntRepIdInteresado="";
+public String relIntRepIdRepresentante="";
 public String relactper;	
 public String datoRegistro;
 public String intId;
@@ -461,8 +461,13 @@ public String ActFotoFofografia;
 				System.out.println("NO EXISTE");
 				System.exit(-1);
 			}
-			PreparedStatement pstmt = conexion.prepareStatement(
-					"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id join relintrep on interesado.id = relintrep.idInteresado join representante on relintrep.idRepresentante = representante.id WHERE actividad.id= "+ dato);
+			PreparedStatement pstmt;
+
+			pstmt = conexion.prepareStatement(
+					
+					"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id left join relintrep on interesado.id = relintrep.idInteresado left  join representante on relintrep.idRepresentante = representante.id WHERE actividad.id= ? ");
+			
+			pstmt.setString(1, datoRegistro);
 			ResultSet rset = pstmt.executeQuery();
 
 			// ResultSetMetaData rsmd = rset.getMetaData();
@@ -470,7 +475,8 @@ public String ActFotoFofografia;
 			int z = 0;
 			while (rset.next()) {
 //				intnombre = rset.getString("NOMBRE");
-repId= rset.getString("representante.id");;
+
+				repId= rset.getString("representante.id");
 repNombre= rset.getString("representante.nombre");
 repApellidos= rset.getString("representante.apellidos");
  repDocumentoIdentidad= rset.getString("representante.documentoIdentidad");
@@ -487,18 +493,18 @@ relIntRepIdRepresentante= rset.getString("relintrep.idRepresentante");
 intId= rset.getString("interesado.id");
 intNombre= rset.getString("interesado.nombre");
 intApellido= rset.getString("interesado.apellidos");
- intCif= rset.getString("interesado.cif");
+intCif= rset.getString("interesado.cif");
 intDireccion= rset.getString("interesado.direccion");
 intMunicipio= rset.getString("interesado.municipio");
- intCP= rset.getString("interesado.codigoPostal");
- intTlfF= rset.getString("interesado.telefonoFijo");
- intTlfM= rset.getString("interesado.telefonoMovil");
+intCP= rset.getString("interesado.codigoPostal");
+intTlfF= rset.getString("interesado.telefonoFijo");
+intTlfM= rset.getString("interesado.telefonoMovil");
 intFax= rset.getString("interesado.fax");
 intEmail= rset.getString("interesado.email");
 relActPerId= rset.getString("relactper.id");
 relActPeIdInt= rset.getString("relactper.idInt");
 relActPeIdAct= rset.getString("relactper.idAct");
- ActId= rset.getString("actividad.id");
+ActId= rset.getString("actividad.id");
 ActFotoLicenciaObra= rset.getString("actividad.fotoLicenciaObra");
 ActFotoOtrasAutorizaciones= rset.getString("actividad.fotoOtrasAutorizaciones");
  ActFotoJustificantePago= rset.getString("actividad.fotoJustificantePago");
@@ -521,7 +527,6 @@ ActCertColegioOficial= rset.getString("actividad.certColegioOficial");
  ActCertModelo1= rset.getString("actividad.certModelo1");
 ActCertModelo2= rset.getString("actividad.certModelo2");
 ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
-
 				z += 1;
 			}
 
@@ -938,5 +943,16 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 	public void setActFotoFofografia(String actFotoFofografia) {
 		ActFotoFofografia = actFotoFofografia;
 	}
+	
+	public void habilitarRepresentante() {
+		vista2.habilitarRepresentante();
+	}
+
+
+	public void deshabilitarRepresentante() {
+		vista2.deshabilitarRepresentante();
+		
+	}
+
 
 }

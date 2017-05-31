@@ -36,6 +36,7 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -45,7 +46,7 @@ public class VistaAuxTabla extends JFrame {
 	private ModeloBBDD modelo2;
 	private Container contenedor;
 	private JPanel contentPane;
-	private JCheckBox checkBoxrepresentanteAux;
+
 	private JPanel PanelActividadAux;
 	private JPanel PanelInteresadoAux;
 	private JPanel PanelRepAux;
@@ -92,6 +93,7 @@ public class VistaAuxTabla extends JFrame {
 	private JTextField txtfrepFax;
 	private JComboBox comboBoxActTipoSuelo;
 	private JTextField txtfrepEmail;
+	private JButton btnAceptar;
 
 	public VistaAuxTabla() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -111,7 +113,13 @@ public class VistaAuxTabla extends JFrame {
 		btnCancelar.setBounds(850, 499, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.realizarUpdate();
+			}
+		});
 		btnAceptar.setBounds(728, 499, 89, 23);
 		contentPane.add(btnAceptar);
 		
@@ -463,22 +471,7 @@ public class VistaAuxTabla extends JFrame {
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		PanelRepAux.setLayout(gl_PanelRepAux);
-		
-		checkBoxrepresentanteAux = new JCheckBox("Persona Jurídica");
-		checkBoxrepresentanteAux.setBounds(10, 503, 104, 14);
-		contentPane.add(checkBoxrepresentanteAux);
-		checkBoxrepresentanteAux = new JCheckBox("");
-		checkBoxrepresentanteAux.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 
-				if (checkBoxrepresentanteAux.isSelected()) {
-					controlador.ActivarRepre(PanelRepAux, true);
-} else {
-					controlador.ActivarRepre(PanelRepAux, false);
-}
-			}
-			});
-		
 		
 
 		
@@ -894,7 +887,10 @@ public class VistaAuxTabla extends JFrame {
 	
 
 		/////DATOS REPRESENTANTE////
-		
+	if(modelo2.getRepId()!=null)	{
+
+
+		habilitarRepresentante();
 		txtfrepNombre.setText(modelo2.repNombre);
 		txtfrepApellidos.setText(modelo2.repApellidos);
 		txtfrepDocumentoIdentidad.setText(modelo2.repDocumentoIdentidad);
@@ -905,7 +901,20 @@ public class VistaAuxTabla extends JFrame {
 		txtfrepTlfM.setText(modelo2.repTlfM);
 		txtfrepFax.setText(modelo2.repFax);
 		txtfrepEmail.setText(modelo2.repEmail);
+	}else{
+		deshabilitarRepresentante();
 
+		txtfrepNombre.setText("");
+		txtfrepApellidos.setText("");
+		txtfrepDocumentoIdentidad.setText("");
+		txtfrepDireccion.setText("");
+		txtfrepMunicipio.setText("");
+		txtfrepCP.setText("");
+		txtfrepTlfF.setText("");
+		txtfrepTlfM.setText("");
+		txtfrepFax.setText("");
+		txtfrepEmail.setText("");
+	}
 		/////INTERESADO//////
 		
 		txtfintNombre.setText(modelo2.intNombre);
@@ -961,312 +970,380 @@ public class VistaAuxTabla extends JFrame {
 
 	}
 
-	public JCheckBox getCheckBoxrepresentanteAux() {
-		return checkBoxrepresentanteAux;
-	}
 
-	public void setCheckBoxrepresentanteAux(JCheckBox checkBoxrepresentanteAux) {
-		this.checkBoxrepresentanteAux = checkBoxrepresentanteAux;
-	}
 
-	public JTextField getTxtfActEmplazamiento() {
-		return txtfActEmplazamiento;
+	public String getTxtfActEmplazamiento() {
+		return txtfActEmplazamiento.getText();
 	}
 
 	public void setTxtfActEmplazamiento(JTextField txtfActEmplazamiento) {
 		this.txtfActEmplazamiento = txtfActEmplazamiento;
 	}
 
-	public JDateChooser getTxtfDCFechaInicio() {
-		return txtfDCFechaInicio;
+	public String getTxtfDCFechaInicio() {
+		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+		String date = fmt.format(this.txtfDCFechaInicio.getDate());
+		return date;
+		
 	}
 
 	public void setTxtfDCFechaInicio(JDateChooser txtfDCFechaInicio) {
 		this.txtfDCFechaInicio = txtfDCFechaInicio;
 	}
 
-	public JDateChooser getTxtfDCFechaSolicitud() {
-		return txtfDCFechaSolicitud;
+	public String getTxtfDCFechaSolicitud() {
+		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+		String date = fmt.format(this.txtfDCFechaSolicitud.getDate());
+		return date;
+		
 	}
 
 	public void setTxtfDCFechaSolicitud(JDateChooser txtfDCFechaSolicitud) {
 		this.txtfDCFechaSolicitud = txtfDCFechaSolicitud;
 	}
 
-	public JCheckBox getCheckActFotoJustificantePago() {
-		return checkActFotoJustificantePago;
+	public Boolean getCheckActFotoJustificantePago() {
+		if(checkActFotoJustificantePago.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
-	public void setCheckActFotoJustificantePago(JCheckBox checkActFotoJustificantePago) {
-		this.checkActFotoJustificantePago = checkActFotoJustificantePago;
+	public void setCheckActFotoJustificantePago(String checkActFotoJustificantePago) {
+		this.checkActFotoJustificantePago.setText(checkActFotoJustificantePago);
 	}
 
-	public JCheckBox getCheckActFotoEscritura() {
-		return checkActFotoEscritura;
+	public Boolean getCheckActFotoEscritura() {
+		if(checkActFotoEscritura.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoEscritura(JCheckBox checkActFotoEscritura) {
-		this.checkActFotoEscritura = checkActFotoEscritura;
+	public void setCheckActFotoEscritura(String checkActFotoEscritura) {
+		this.checkActFotoEscritura.setText(checkActFotoEscritura);
 	}
 
-	public JCheckBox getCheckActFotoModelo036() {
-		return checkActFotoModelo036;
+	public Boolean getCheckActFotoModelo036() {
+		if(checkActFotoModelo036.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoModelo036(JCheckBox checkActFotoModelo036) {
-		this.checkActFotoModelo036 = checkActFotoModelo036;
+	public void setCheckActFotoModelo036(String checkActFotoModelo036) {
+		this.checkActFotoModelo036.setText(checkActFotoModelo036);
 	}
 
-	public JCheckBox getCheckActFotoMemoria() {
-		return checkActFotoMemoria;
+	public Boolean getCheckActFotoMemoria() {
+		if(checkActFotoMemoria.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoMemoria(JCheckBox checkActFotoMemoria) {
-		this.checkActFotoMemoria = checkActFotoMemoria;
+	public void setCheckActFotoMemoria(String checkActFotoMemoria) {
+		this.checkActFotoMemoria.setText(checkActFotoMemoria);
 	}
 
-	public JCheckBox getCheckActFotoFofografia() {
-		return checkActFotoFofografia;
+	public Boolean getCheckActFotoFofografia() {
+		if(checkActFotoFofografia.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoFofografia(JCheckBox checkActFotoFofografia) {
-		this.checkActFotoFofografia = checkActFotoFofografia;
+	public void setCheckActFotoFofografia(String checkActFotoFofografia) {
+		this.checkActFotoFofografia.setText(checkActFotoFofografia);
 	}
 
-	public JCheckBox getCheckActFotocopiaDni() {
-		return checkActFotocopiaDni;
+	public Boolean getCheckActFotocopiaDni() {
+		if(checkActFotocopiaDni.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+	
 	}
 
-	public void setCheckActFotocopiaDni(JCheckBox checkActFotocopiaDni) {
-		this.checkActFotocopiaDni = checkActFotocopiaDni;
+	public void setCheckActFotocopiaDni(String checkActFotocopiaDni) {
+		this.checkActFotocopiaDni.setText(checkActFotocopiaDni);
 	}
 
-	public JCheckBox getCheckActCertColegioOficial() {
-		return checkActCertColegioOficial;
+	public Boolean getCheckActCertColegioOficial() {
+		if(checkActCertColegioOficial.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+	
+		
 	}
 
-	public void setCheckActCertColegioOficial(JCheckBox checkActCertColegioOficial) {
-		this.checkActCertColegioOficial = checkActCertColegioOficial;
+	public void setCheckActCertColegioOficial(String checkActCertColegioOficial) {
+		this.checkActCertColegioOficial.setText(checkActCertColegioOficial);
 	}
 
-	public JCheckBox getCheckActCertModelo1() {
-		return checkActCertModelo1;
+	public Boolean getCheckActCertModelo1() {
+		if(checkActCertModelo1.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+	
+		
 	}
 
-	public void setCheckActCertModelo1(JCheckBox checkActCertModelo1) {
-		this.checkActCertModelo1 = checkActCertModelo1;
+	public void setCheckActCertModelo1(String checkActCertModelo1) {
+		this.checkActCertModelo1.setText(checkActCertModelo1);
 	}
 
-	public JCheckBox getCheckActCertModelo2() {
-		return checkActCertModelo2;
+	public Boolean getCheckActCertModelo2() {
+		if(checkActCertModelo2.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+	
+		
 	}
 
-	public void setCheckActCertModelo2(JCheckBox checkActCertModelo2) {
-		this.checkActCertModelo2 = checkActCertModelo2;
+	public void setCheckActCertModelo2(String checkActCertModelo2) {
+		this.checkActCertModelo2.setText(checkActCertModelo2);
 	}
 
-	public JCheckBox getCheckActFotoLicenciaObra() {
-		return checkActFotoLicenciaObra;
+	public Boolean getCheckActFotoLicenciaObra() {
+		
+		if(checkActFotoLicenciaObra.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoLicenciaObra(JCheckBox checkActFotoLicenciaObra) {
-		this.checkActFotoLicenciaObra = checkActFotoLicenciaObra;
+	public void setCheckActFotoLicenciaObra(String checkActFotoLicenciaObra) {
+		this.checkActFotoLicenciaObra.setText(checkActFotoLicenciaObra);
 	}
 
-	public JCheckBox getCheckActFotoOtrasAutorizaciones() {
-		return checkActFotoOtrasAutorizaciones;
+	public Boolean getCheckActFotoOtrasAutorizaciones() {
+		if(checkActFotoOtrasAutorizaciones.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoOtrasAutorizaciones(JCheckBox checkActFotoOtrasAutorizaciones) {
-		this.checkActFotoOtrasAutorizaciones = checkActFotoOtrasAutorizaciones;
+	public void setCheckActFotoOtrasAutorizaciones(String checkActFotoOtrasAutorizaciones) {
+		this.checkActFotoOtrasAutorizaciones.setText(checkActFotoOtrasAutorizaciones);
 	}
 
-	public JTextPane getTxtPActDescripcion() {
-		return txtPActDescripcion;
+	public String getTxtPActDescripcion() {
+		return txtPActDescripcion.getText();
 	}
 
 	public void setTxtPActDescripcion(JTextPane txtPActDescripcion) {
 		this.txtPActDescripcion = txtPActDescripcion;
 	}
 
-	public JCheckBox getCheckActFotoPlanos() {
-		return checkActFotoPlanos;
+	public Boolean getCheckActFotoPlanos() {
+		if(checkActFotoPlanos.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoPlanos(JCheckBox checkActFotoPlanos) {
-		this.checkActFotoPlanos = checkActFotoPlanos;
+	public void setCheckActFotoPlanos(String checkActFotoPlanos) {
+		this.checkActFotoPlanos.setText(checkActFotoPlanos);
 	}
 
-	public JCheckBox getCheckActFotoCD() {
-		return checkActFotoCD;
+	public Boolean getCheckActFotoCD() {
+		if(checkActFotoCD.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
-	public void setCheckActFotoCD(JCheckBox checkActFotoCD) {
-		this.checkActFotoCD = checkActFotoCD;
+	public void setCheckActFotoCD(String checkActFotoCD) {
+		this.checkActFotoCD.setText(checkActFotoCD);
 	}
 
-	public JTextField getTxtfActReferenciaCatastral() {
-		return txtfActReferenciaCatastral;
+	public String getTxtfActReferenciaCatastral() {
+		return txtfActReferenciaCatastral.getText();
 	}
 
 	public void setTxtfActReferenciaCatastral(JTextField txtfActReferenciaCatastral) {
 		this.txtfActReferenciaCatastral = txtfActReferenciaCatastral;
 	}
 
-	public JTextField getTxtfActLocal() {
-		return txtfActLocal;
+	public String getTxtfActLocal() {
+		return txtfActLocal.getText();
 	}
 
 	public void setTxtfActLocal(JTextField txtfActLocal) {
 		this.txtfActLocal = txtfActLocal;
 	}
 
-	public JTextField getTxtfActTipo() {
-		return txtfActTipo;
+	public String getTxtfActTipo() {
+		return txtfActTipo.getText();
 	}
 
 	public void setTxtfActTipo(JTextField txtfActTipo) {
 		this.txtfActTipo = txtfActTipo;
 	}
 
-	public JTextField getTxtActCuota() {
-		return txtActCuota;
+	public String getTxtActCuota() {
+		return txtActCuota.getText();
 	}
 
 	public void setTxtActCuota(JTextField txtActCuota) {
 		this.txtActCuota = txtActCuota;
 	}
 
-	public JTextField getTxtfintNombre() {
-		return txtfintNombre;
+	public String getTxtfintNombre() {
+		return txtfintNombre.getText();
 	}
 
 	public void setTxtfintNombre(JTextField txtfintNombre) {
 		this.txtfintNombre = txtfintNombre;
 	}
 
-	public JTextField getTxtfintApellido() {
-		return txtfintApellido;
+	public String getTxtfintApellido() {
+		return txtfintApellido.getText();
 	}
 
 	public void setTxtfintApellido(JTextField txtfintApellido) {
 		this.txtfintApellido = txtfintApellido;
 	}
 
-	public JTextField getTxtfintCif() {
-		return txtfintCif;
+	public String getTxtfintCif() {
+		return txtfintCif.getText();
 	}
 
 	public void setTxtfintCif(JTextField txtfintCif) {
 		this.txtfintCif = txtfintCif;
 	}
 
-	public JTextField getTxtfintDireccion() {
-		return txtfintDireccion;
+	public String getTxtfintDireccion() {
+		return txtfintDireccion.getText();
 	}
 
 	public void setTxtfintDireccion(JTextField txtfintDireccion) {
 		this.txtfintDireccion = txtfintDireccion;
 	}
 
-	public JTextField getTxtfintMunicipio() {
-		return txtfintMunicipio;
+	public String getTxtfintMunicipio() {
+		return txtfintMunicipio.getText();
 	}
 
 	public void setTxtfintMunicipio(JTextField txtfintMunicipio) {
 		this.txtfintMunicipio = txtfintMunicipio;
 	}
 
-	public JTextField getTxtfintCP() {
-		return txtfintCP;
+	public String getTxtfintCP() {
+		return txtfintCP.getText();
 	}
 
 	public void setTxtfintCP(JTextField txtfintCP) {
 		this.txtfintCP = txtfintCP;
 	}
 
-	public JTextField getTxtfintTlfF() {
-		return txtfintTlfF;
+	public String getTxtfintTlfF() {
+		return txtfintTlfF.getText();
 	}
 
 	public void setTxtfintTlfF(JTextField txtfintTlfF) {
 		this.txtfintTlfF = txtfintTlfF;
 	}
 
-	public JTextField getTxtfintTlfM() {
-		return txtfintTlfM;
+	public String getTxtfintTlfM() {
+		return txtfintTlfM.getText();
 	}
 
 	public void setTxtfintTlfM(JTextField txtfintTlfM) {
 		this.txtfintTlfM = txtfintTlfM;
 	}
 
-	public JTextField getTxtfintFax() {
-		return txtfintFax;
+	public String getTxtfintFax() {
+		return txtfintFax.getText();
 	}
 
 	public void setTxtfintFax(JTextField txtfintFax) {
 		this.txtfintFax = txtfintFax;
 	}
 
-	public JTextField getTxtfintEmail() {
-		return txtfintEmail;
+	public String getTxtfintEmail() {
+		return txtfintEmail.getText();
 	}
 
 	public void setTxtfintEmail(JTextField txtfintEmail) {
 		this.txtfintEmail = txtfintEmail;
 	}
 
-	public JTextField getTxtfrepNombre() {
-		return txtfrepNombre;
+	public String getTxtfrepNombre() {
+		return txtfrepNombre.getText();
 	}
 
 	public void setTxtfrepNombre(JTextField txtfrepNombre) {
 		this.txtfrepNombre = txtfrepNombre;
 	}
 
-	public JTextField getTxtfrepApellidos() {
-		return txtfrepApellidos;
+	public String getTxtfrepApellidos() {
+		return txtfrepApellidos.getText();
 	}
 
 	public void setTxtfrepApellidos(JTextField txtfrepApellidos) {
 		this.txtfrepApellidos = txtfrepApellidos;
 	}
 
-	public JTextField getTxtfrepDocumentoIdentidad() {
-		return txtfrepDocumentoIdentidad;
+	public String getTxtfrepDocumentoIdentidad() {
+		return txtfrepDocumentoIdentidad.getText();
 	}
 
 	public void setTxtfrepDocumentoIdentidad(JTextField txtfrepDocumentoIdentidad) {
 		this.txtfrepDocumentoIdentidad = txtfrepDocumentoIdentidad;
 	}
 
-	public JTextField getTxtfrepDireccion() {
-		return txtfrepDireccion;
+	public String getTxtfrepDireccion() {
+		return txtfrepDireccion.getText();
 	}
 
 	public void setTxtfrepDireccion(JTextField txtfrepDireccion) {
 		this.txtfrepDireccion = txtfrepDireccion;
 	}
 
-	public JTextField getTxtfrepMunicipio() {
-		return txtfrepMunicipio;
+	public String getTxtfrepMunicipio() {
+		return txtfrepMunicipio.getText();
 	}
 
 	public void setTxtfrepMunicipio(JTextField txtfrepMunicipio) {
 		this.txtfrepMunicipio = txtfrepMunicipio;
 	}
 
-	public JTextField getTxtfrepCP() {
-		return txtfrepCP;
+	public String getTxtfrepCP() {
+		return txtfrepCP.getText();
 	}
 
 	public void setTxtfrepCP(JTextField txtfrepCP) {
 		this.txtfrepCP = txtfrepCP;
 	}
 
-	public JTextField getTxtfrepTlfF() {
-		return txtfrepTlfF;
+	public String getTxtfrepTlfF() {
+		return txtfrepTlfF.getText();
 	}
 
 	public void setTxtfrepTlfF(JTextField txtfrepTlfF) {
@@ -1281,27 +1358,65 @@ public class VistaAuxTabla extends JFrame {
 		this.txtfrepTlfM = txtfrepTlfM;
 	}
 
-	public JTextField getTxtfrepFax() {
-		return txtfrepFax;
+	public String getTxtfrepFax() {
+		return txtfrepFax.getText();
 	}
 
 	public void setTxtfrepFax(JTextField txtfrepFax) {
 		this.txtfrepFax = txtfrepFax;
 	}
 
-	public JComboBox getComboBoxActTipoSuelo() {
-		return comboBoxActTipoSuelo;
+	public String getComboBoxActTipoSuelo() {
+		return (String) comboBoxActTipoSuelo.getSelectedItem();
 	}
 
 	public void setComboBoxActTipoSuelo(JComboBox comboBoxActTipoSuelo) {
 		this.comboBoxActTipoSuelo = comboBoxActTipoSuelo;
 	}
 
-	public JTextField getTxtfrepEmail() {
-		return txtfrepEmail;
+	public String getTxtfrepEmail() {
+		return txtfrepEmail.getText();
 	}
 
 	public void setTxtfrepEmail(JTextField txtfrepEmail) {
 		this.txtfrepEmail = txtfrepEmail;
+	}
+
+	public void habilitarRepresentante() {
+		System.out.println("habilita");
+
+
+		System.out.println("habilita2");
+		txtfrepNombre.setEnabled(true);
+		txtfrepApellidos.setEnabled(true);
+		txtfrepDocumentoIdentidad.setEnabled(true);
+		txtfrepDireccion.setEnabled(true);
+		txtfrepMunicipio.setEnabled(true);
+		txtfrepCP.setEnabled(true);
+		txtfrepTlfF.setEnabled(true);
+		txtfrepTlfM.setEnabled(true);
+		txtfrepFax.setEnabled(true);
+		txtfrepEmail.setEnabled(true);
+		
+		
+		
+	}
+
+	public void deshabilitarRepresentante() {
+		System.out.println("deshabilita");
+
+
+		txtfrepNombre.setEnabled(false);
+		txtfrepApellidos.setEnabled(false);
+		txtfrepDocumentoIdentidad.setEnabled(false);
+		txtfrepDireccion.setEnabled(false);
+		txtfrepMunicipio.setEnabled(false);
+		txtfrepCP.setEnabled(false);
+		txtfrepTlfF.setEnabled(false);
+		txtfrepTlfM.setEnabled(false);
+		txtfrepFax.setEnabled(false);
+		txtfrepEmail.setEnabled(false);
+		
+		
 	}
 }

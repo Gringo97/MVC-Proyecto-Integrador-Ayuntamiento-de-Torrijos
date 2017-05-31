@@ -239,7 +239,7 @@ public class VistaWB extends JFrame implements Vista {
 																// ACTIVIDADES
 
 		JButton btnBuscarLicencia = new JButton("Buscar");
-		
+
 		JLabel lblTipo = new JLabel("Tipo");
 
 		FechaInicialActBusqueda = new JDateChooser();
@@ -252,7 +252,7 @@ public class VistaWB extends JFrame implements Vista {
 
 		txtfActBusqueda = new JTextField();
 		txtfActBusqueda.setColumns(10);
-		
+
 		btnActualizar2 = new JButton("Actualizar");
 		btnActualizar2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -261,53 +261,51 @@ public class VistaWB extends JFrame implements Vista {
 			}
 		});
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblTipo, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+		gl_panel_1
+				.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_panel_1.createSequentialGroup().addContainerGap().addGroup(gl_panel_1
+								.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_1
+										.createSequentialGroup().addGroup(gl_panel_1
+												.createParallelGroup(Alignment.LEADING).addComponent(lblTipo,
+														GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+												.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216,
+														GroupLayout.PREFERRED_SIZE)
+												.addGroup(gl_panel_1.createSequentialGroup()
+														.addComponent(lblDesdeActBusqueda, GroupLayout.PREFERRED_SIZE,
+																103, GroupLayout.PREFERRED_SIZE)
+														.addGap(10).addComponent(lblHastaActBusqueda)))
+										.addGap(10))
 								.addGroup(gl_panel_1.createSequentialGroup()
-									.addComponent(lblDesdeActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-									.addGap(10)
-									.addComponent(lblHastaActBusqueda)))
-							.addGap(10))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-							.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(btnBuscarLicencia, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(btnActualizar2, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-		);
-		gl_panel_1.setVerticalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGap(11)
-					.addComponent(lblTipo)
-					.addGap(6)
-					.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblDesdeActBusqueda)
-						.addComponent(lblHastaActBusqueda))
-					.addGap(11)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addComponent(btnBuscarLicencia)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnActualizar2)
-					.addContainerGap(36, Short.MAX_VALUE))
-		);
+										.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+										.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103,
+												GroupLayout.PREFERRED_SIZE)
+										.addContainerGap())
+								.addGroup(
+										gl_panel_1.createSequentialGroup()
+												.addComponent(btnBuscarLicencia, GroupLayout.DEFAULT_SIZE, 216,
+														Short.MAX_VALUE)
+												.addContainerGap())
+								.addGroup(gl_panel_1.createSequentialGroup()
+										.addComponent(btnActualizar2, GroupLayout.PREFERRED_SIZE, 216,
+												GroupLayout.PREFERRED_SIZE)
+										.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))));
+		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup().addGap(11).addComponent(lblTipo).addGap(6)
+						.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addGap(26)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING).addComponent(lblDesdeActBusqueda)
+								.addComponent(lblHastaActBusqueda))
+						.addGap(11)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+								.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(18).addComponent(btnBuscarLicencia).addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(btnActualizar2).addContainerGap(36, Short.MAX_VALUE)));
 		panel_1.setLayout(gl_panel_1);
 
 		btnConfiguracion = new JButton("Configuracion");
@@ -694,12 +692,10 @@ public class VistaWB extends JFrame implements Vista {
 				if (e.getClickCount() == 2) {
 					DefaultTableModel model = (DefaultTableModel) table.getModel();
 					int selectedRowIndex = table.getSelectedRow();
-					
+
 					controlador.nuevaPantalla();
 					controlador.recogerRegistroCambio();
-					
-						
-					
+
 				}
 			}
 		});
@@ -831,22 +827,21 @@ public class VistaWB extends JFrame implements Vista {
 
 			public void mouseClicked(MouseEvent e) {
 				if (checkRepresentante.isSelected()) {
-					
-					int idPer=controlador.insetarPersona();
-					int idAct=controlador.inscribirActividad();
-					int idRep=controlador.insertarRepresentante();
+
+					int idPer = controlador.insetarPersona();
+					int idAct = controlador.inscribirActividad();
+					int idRep = controlador.insertarRepresentante();
 					controlador.inscribirTablaInter(idPer, idAct);
-					controlador.inscribirtablaInter2(idPer,idRep);
+					controlador.inscribirtablaInter2(idPer, idRep);
 					controlador.cambioPantalla(VisualizarLicencias);
 					tabbedPane.setVisible(true);
 					btnRefresh.setVisible(true);
 					vaciarAct();
-					
-					
+
 					controlador.refrescar();
 				} else {
-					int idPer=controlador.insetarPersona();
-					int idAct=controlador.inscribirActividad();
+					int idPer = controlador.insetarPersona();
+					int idAct = controlador.inscribirActividad();
 					controlador.inscribirTablaInter(idPer, idAct);
 					controlador.cambioPantalla(VisualizarLicencias);
 					tabbedPane.setVisible(true);
@@ -944,11 +939,11 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(btnAceptarInsActv);
 		inscActv.add(scrollPane);
 		inscActv.add(comboBoxTipoSuelo);
-		
+
 		JLabel lblOtrasAutorizaciones = new JLabel("Otras autorizaciones");
 		lblOtrasAutorizaciones.setBounds(37, 519, 139, 14);
 		inscActv.add(lblOtrasAutorizaciones);
-		
+
 		chckOtrasAuto = new JCheckBox("Entregado");
 		chckOtrasAuto.setBounds(209, 515, 98, 23);
 		inscActv.add(chckOtrasAuto);
@@ -961,52 +956,52 @@ public class VistaWB extends JFrame implements Vista {
 				btnRefresh.setVisible(false);
 			}
 		});
-		
 
 		lblRutaDeAcceso = new JLabel("");
 		lblRutaDeAcceso.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRutaDeAcceso.setText("Inscribir Licencia de Actividad");
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
+								.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+								.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+								.addGroup(gl_contentPane.createSequentialGroup().addGap(32).addComponent(label_6,
+										GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnConfiguracion))
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 665,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE))
+						.addGap(6)));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
-						.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(32)
-							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
-						.addComponent(btnConfiguracion))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE))
-					.addGap(6))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-					.addGap(17)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 655, GroupLayout.PREFERRED_SIZE)
-							.addGap(35))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnConfiguracion)
-							.addGap(56))))
-		);
+						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25,
+								GroupLayout.PREFERRED_SIZE)
+						.addGap(17)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 655,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(35))
+								.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 178,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
+										.addComponent(btnConfiguracion).addGap(56)))));
 
 		contentPane.setLayout(gl_contentPane);
 		btnInscribirActividad.addActionListener(new ActionListener() {
@@ -1091,7 +1086,6 @@ public class VistaWB extends JFrame implements Vista {
 	public void setTxtfDocumentoIdentidadR(JTextField txtfDocumentoIdentidadR) {
 		this.txtfDocumentoIdentidadR = txtfDocumentoIdentidadR;
 	}
-	
 
 	public String getTxtfDireccionR() {
 		return txtfDireccionR.getText();
@@ -1233,8 +1227,6 @@ public class VistaWB extends JFrame implements Vista {
 		this.txtfRazonSocialBusquedaPJ = txtfRazonSocialBusquedaPJ;
 	}
 
-
-
 	public void clear_Table() {
 		for (int i = 0; i < table.getRowCount(); i++) {
 			DefaultTableModel dm = (DefaultTableModel) table.getModel();
@@ -1369,49 +1361,45 @@ public class VistaWB extends JFrame implements Vista {
 		}
 
 	}
-	
-	public Boolean getchckFotocopiaLicenciaObra(){
+
+	public Boolean getchckFotocopiaLicenciaObra() {
 		if (chckFotocopiaLicenciaObra.isSelected()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
-	
-	public Boolean getchckOtrasAuto(){
+
+	public Boolean getchckOtrasAuto() {
 		if (chckOtrasAuto.isSelected()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
-	
-
 
 	public String getDCFechaSolicitud() {
 
 		// System.out.println(as);
 
 		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-	      String date = fmt.format(this.DCFechaSolicitud.getDate());
-return date;
+		String date = fmt.format(this.DCFechaSolicitud.getDate());
+		return date;
 	}
 
 	public String getDCFechaInicio() {
 
 		// System.out.println(as);
-		
-		 DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-	      String date = fmt.format(this.DCFechaInicio.getDate());
 
-//		int str = (Integer) DCFechaInicio.getDate().getDay();
-//		int str2 = (Integer) DCFechaInicio.getDate().getMonth() + 1;
-//		int str3 = (Integer) DCFechaInicio.getDate().getYear() + 1900;
-//		System.out.println(str + "-" + str2 + "-" + str3);
-//		return str + "-" + str2 + "-" + str3;
-	      return date;
+		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+		String date = fmt.format(this.DCFechaInicio.getDate());
+
+		// int str = (Integer) DCFechaInicio.getDate().getDay();
+		// int str2 = (Integer) DCFechaInicio.getDate().getMonth() + 1;
+		// int str3 = (Integer) DCFechaInicio.getDate().getYear() + 1900;
+		// System.out.println(str + "-" + str2 + "-" + str3);
+		// return str + "-" + str2 + "-" + str3;
+		return date;
 	}
 
 	public String gettxtfDescripcion() {
@@ -1419,7 +1407,7 @@ return date;
 	}
 
 	public void vaciarAct() {
-		//INTERESADO
+		// INTERESADO
 		txtfNombreI.setText("");
 		txtfApellidosI.setText("");
 		txtfMunicipio.setText("");
@@ -1431,7 +1419,7 @@ return date;
 		txtfMovilI.setText("");
 		txtfFijoI.setText("");
 		checkRepresentante.setSelected(false);
-		//REPRESENTANTE
+		// REPRESENTANTE
 		txtfNombreR.setText("");
 		txtfApellidosR.setText("");
 		txtfDocumentoIdentidadR.setText("");
@@ -1442,7 +1430,7 @@ return date;
 		txtfFaxR.setText("");
 		txtfMovilR.setText("");
 		txtfFijo.setText("");
-		//ACTIVIDAD
+		// ACTIVIDAD
 		chckCertificadoColegio.setSelected(false);
 		chckbxFotocopiaDNI.setSelected(false);
 		chckFotocopiaLicenciaObra.setSelected(false);
@@ -1464,8 +1452,7 @@ return date;
 		DCFechaSolicitud.setDate(null);
 		txtDescripcion.setText("");
 		chckOtrasAuto.setSelected(false);
-		
-		
+
 	}
 
 	public JTable getTabla() {
@@ -1476,5 +1463,4 @@ return date;
 		this.table = table;
 	}
 
-	
 }

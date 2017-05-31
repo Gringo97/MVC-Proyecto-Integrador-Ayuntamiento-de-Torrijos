@@ -146,4 +146,20 @@ dato=String.valueOf(vista.getTabla().getValueAt(vista.getTabla().getSelectedRow(
 modelo2.recogerDatosParaCambioTitularidad(dato);
 }
 
+	public void habilitarRepresentante() {
+		modelo2.habilitarRepresentante();
+		
+	}
+
+	public void deshabilitarRepresentante() {
+		modelo2.deshabilitarRepresentante();
+		
+	}
+
+	public void realizarUpdate() {
+		
+		
+		
+	}
+
 }

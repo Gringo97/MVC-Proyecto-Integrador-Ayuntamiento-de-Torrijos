@@ -329,7 +329,7 @@ public class VistaAuxTabla extends JFrame {
 						.addComponent(txtfrepDocumentoIdentidad, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
 						.addComponent(txtfrepCP, 106, 106, Short.MAX_VALUE)
 						.addComponent(txtfrepMunicipio, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
-					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_PanelRepAux.createSequentialGroup()
 							.addGap(34)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
@@ -344,10 +344,11 @@ public class VistaAuxTabla extends JFrame {
 								.addComponent(txtfrepFax)
 								.addComponent(txtfrepTlfM)
 								.addComponent(txtfrepTlfF)
-								.addComponent(txtfrepDireccion, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(Alignment.TRAILING, gl_PanelRepAux.createSequentialGroup()
+								.addComponent(txtfrepDireccion, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+							.addGap(17))
+						.addGroup(gl_PanelRepAux.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(button, GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)))
 					.addGap(157))
@@ -405,7 +406,7 @@ public class VistaAuxTabla extends JFrame {
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
 						.addComponent(button_1)
 						.addComponent(button))
-					.addContainerGap(29, Short.MAX_VALUE))
+					.addContainerGap(26, Short.MAX_VALUE))
 		);
 		PanelRepAux.setLayout(gl_PanelRepAux);
 

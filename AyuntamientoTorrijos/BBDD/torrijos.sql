@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2017 a las 22:23:01
+-- Tiempo de generación: 02-06-2017 a las 01:40:42
 -- Versión del servidor: 10.1.22-MariaDB
 -- Versión de PHP: 7.1.4
 
@@ -30,7 +30,6 @@ USE `torrijos`;
 -- Estructura de tabla para la tabla `actividad`
 --
 
-DROP TABLE IF EXISTS `actividad`;
 CREATE TABLE IF NOT EXISTS `actividad` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fotoLicenciaObra` tinyint(11) DEFAULT NULL,
@@ -43,30 +42,35 @@ CREATE TABLE IF NOT EXISTS `actividad` (
   `fotoMemoria` tinyint(11) DEFAULT NULL,
   `fotoFotografia` tinyint(11) DEFAULT NULL,
   `tipoSuelo` enum('urbano','rustico') NOT NULL,
-  `referenciaCatastral` varchar(11) NOT NULL,
-  `local` varchar(11) NOT NULL,
-  `tipo` varchar(11) NOT NULL,
-  `emplazamiento` varchar(11) NOT NULL,
-  `fechaInicio` varchar(45) NOT NULL,
+  `referenciaCatastral` varchar(50) NOT NULL,
+  `local` varchar(50) NOT NULL,
+  `tipo` varchar(50) NOT NULL,
+  `emplazamiento` varchar(50) NOT NULL,
+  `fechaInicio` varchar(45) DEFAULT NULL,
   `fechaSolicitud` varchar(45) NOT NULL,
   `cuota` float NOT NULL,
-  `descripcion` varchar(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
   `certColegioOficial` tinyint(11) DEFAULT NULL,
   `certModelo1` tinyint(11) DEFAULT NULL,
   `certModelo2` tinyint(11) DEFAULT NULL,
   `FotocopiaDNI` tinyint(1) DEFAULT NULL,
   `Estado` enum('Procesando','Aceptada','Archivada','') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `actividad`
 --
 
 INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`, `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`, `Estado`) VALUES
-(14, 1, 1, 1, 1, 1, 1, 0, 1, 1, 'urbano', 'afsd', 'BangBang', 'Deportivo', 'asdf', '02/06/2017', '03/06/2017', 1300, 'adsf', 1, 1, 1, 1, 'Procesando'),
-(15, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'urbano', 'asdf', 'Shotual Gym', 'Deportes', 'asdf', '02/06/2017', '24/06/2017', 1300, 'asdf', 1, 1, 1, 1, 'Procesando'),
-(16, 1, 0, 1, 1, 1, 1, 1, 0, 0, 'urbano', 'SI', 'BAR', 'RESTAURANTE', 'NO', '16/06/2017', '03/06/2017', 300, 'ASDF', 1, 1, 0, 0, 'Aceptada');
+(14, 1, 1, 1, 1, 1, 1, 0, 1, 1, 'rustico', 'afsd', 'BangBang', 'DEPORTE', 'asdf', '02/06/2017', '10/06/2017', 1300, 'adsf', 1, 1, 1, 1, 'Procesando'),
+(15, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'urbano', 'asdf', 'Shotual Gym', 'DEPORTE', 'asdf', '01/06/2017', '09/06/2017', 1300, 'asdf', 1, 1, 1, 1, 'Procesando'),
+(21, 1, 1, 0, 1, 0, 1, 0, 1, 1, 'urbano', 'SI', 'ESPACIO PUBLICO', 'OCIO', 'NO', '09/06/2017', '01/06/2017', 100, 'ASDF', 1, 0, 1, 1, 'Procesando'),
+(22, 1, 0, 0, 1, 0, 1, 0, 1, 1, 'urbano', 'SI', 'EDIFICIO JUVENIL', 'OCIO', 'NO', '04/06/2017', '03/06/2017', 100, 'ASDF', 1, 1, 0, 0, 'Archivada'),
+(23, 1, 0, 0, 1, 0, 1, 0, 0, 0, 'urbano', 'SI', 'LENCERIAS JUDITH', 'COMERCIO', 'NO', '14/06/2017', '03/06/2017', 100, 'ASDF', 0, 1, 0, 0, 'Procesando'),
+(24, 1, 1, 0, 1, 0, 1, 0, 1, 0, 'urbano', 'SI', 'FRUTERIAS FERNANDEZ', 'COMERCIO', 'NO', '17/06/2017', '06/06/2017', 100, 'ASDF', 0, 0, 1, 1, 'Aceptada'),
+(25, 1, 0, 0, 0, 0, 0, 0, 0, 1, 'urbano', 'SI', 'RECINTO FERIAL', 'OCIO', 'NO', '16/06/2017', '08/06/2017', 100, 'ASDF', 0, 0, 0, 0, 'Aceptada'),
+(26, 1, 0, 1, 1, 1, 1, 1, 1, 1, 'urbano', 'NO', 'CATERING RAM', 'COMERCIO', 'NO', '22/06/2017', '06/06/2017', 1000, 'ASDF', 0, 1, 1, 1, 'Aceptada');
 
 -- --------------------------------------------------------
 
@@ -74,7 +78,6 @@ INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `f
 -- Estructura de tabla para la tabla `cambiotitularidad`
 --
 
-DROP TABLE IF EXISTS `cambiotitularidad`;
 CREATE TABLE IF NOT EXISTS `cambiotitularidad` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idLicenciaAnterior` int(11) NOT NULL,
@@ -94,12 +97,11 @@ CREATE TABLE IF NOT EXISTS `cambiotitularidad` (
 -- Estructura de tabla para la tabla `interesado`
 --
 
-DROP TABLE IF EXISTS `interesado`;
 CREATE TABLE IF NOT EXISTS `interesado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
-  `cif` varchar(9) NOT NULL,
+  `cif` varchar(50) NOT NULL,
   `direccion` varchar(50) NOT NULL,
   `municipio` varchar(50) NOT NULL,
   `codigoPostal` int(5) NOT NULL,
@@ -108,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `interesado` (
   `fax` int(12) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `interesado`
@@ -117,9 +119,12 @@ CREATE TABLE IF NOT EXISTS `interesado` (
 INSERT INTO `interesado` (`id`, `nombre`, `apellidos`, `cif`, `direccion`, `municipio`, `codigoPostal`, `telefonoFijo`, `telefonoMovil`, `fax`, `email`) VALUES
 (24, 'JUAN', 'LUIS', '12345678O', 'C/ lOS OLIVOS 2', 'SEGOVIA', 24567, 918437362, 918437362, 918437362, 'juanluis@gmail.com'),
 (25, 'GUILLERO', 'TUVILLA CALVO', '12345674K', 'C/ ENFERMO 2', 'MORALZARZAL', 28411, 918571827, 918571827, 918571827, 'shotual@gmail.com'),
-(26, 'GUILLERMO', 'TUVILLA GOMEZ', '54025678A', 'C/ SAN JUAN', 'MORALZARLZAL', 28411, 619991411, 619991518, 918578499, 'GUILLEDIOS@GMAIL.COM'),
-(27, 'GUILLERMO', 'TUVILLA', '28458459', 'SAN JUAN', 'MORAL', 956, 5616516, 5146545, 6848454, 'GUITUAL@HOTMAIL.COM'),
-(28, 'GUILLERMO', 'RODRIGUEZ SANCHEZ', '245932', 'GRANDE 5', 'MADRID', 24532, 12345678, 12345678, 13456789, 'GUILLE@RODRIGUEZ.COM');
+(31, 'JUAN', 'RAMON JIMENEZ', '91827483J', 'CALLE BAJA 5', 'SEGOVIA', 23543, 912849374, 912849374, 912849374, 'JUANMA@GMAIL.COM'),
+(32, 'PEDRO', 'CALVO RAMOS', '574829482J', 'CALLE ALTA 3', 'TORDESILLAS', 23543, 912849374, 912849374, 912849374, 'PEDRO@GMAIL.COM'),
+(33, 'JUDITH', 'ARRANZ SOBRINO', '43423554J', 'CALLE POSTUREO 1', 'MORALZARZAL', 28411, 912849374, 912849374, 912849374, 'JUDITH@GMAIL.COM'),
+(34, 'JAVIER', 'FERNANDEZ TRISTE', '56438202J', 'CALLE LARGA 2', 'LAS ROZAS ', 23400, 912849374, 912849374, 912849374, 'JAVIER@TRISTE.COM'),
+(35, 'SERGIO', 'REDONDO MONTES', '47568382J', 'CALLE ESTRECHA 3', 'MADRID', 23400, 912849374, 912849374, 912849374, 'SERGIO@REDONDO.COM'),
+(36, 'RAMSES', 'DIEZ CAYETANO', '7534648K', 'CALLE CUESTA ARRIBA 4', 'HOYO DE MANZANARES', 25432, 912849374, 912849374, 912849374, 'RAM@GMAIL.COM');
 
 -- --------------------------------------------------------
 
@@ -127,7 +132,6 @@ INSERT INTO `interesado` (`id`, `nombre`, `apellidos`, `cif`, `direccion`, `muni
 -- Estructura de tabla para la tabla `relactper`
 --
 
-DROP TABLE IF EXISTS `relactper`;
 CREATE TABLE IF NOT EXISTS `relactper` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idInt` int(11) NOT NULL,
@@ -135,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `relactper` (
   PRIMARY KEY (`id`),
   KEY `idInt` (`idInt`),
   KEY `idAct` (`idAct`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `relactper`
@@ -144,7 +148,12 @@ CREATE TABLE IF NOT EXISTS `relactper` (
 INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES
 (12, 24, 14),
 (13, 25, 15),
-(17, 28, 16);
+(21, 31, 21),
+(22, 32, 22),
+(23, 33, 23),
+(24, 34, 24),
+(25, 35, 25),
+(26, 36, 26);
 
 -- --------------------------------------------------------
 
@@ -152,7 +161,6 @@ INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES
 -- Estructura de tabla para la tabla `relintrep`
 --
 
-DROP TABLE IF EXISTS `relintrep`;
 CREATE TABLE IF NOT EXISTS `relintrep` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idInteresado` int(11) NOT NULL,
@@ -176,7 +184,6 @@ INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES
 -- Estructura de tabla para la tabla `representante`
 --
 
-DROP TABLE IF EXISTS `representante`;
 CREATE TABLE IF NOT EXISTS `representante` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
@@ -190,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `representante` (
   `fax` int(12) DEFAULT NULL,
   `Email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `representante`

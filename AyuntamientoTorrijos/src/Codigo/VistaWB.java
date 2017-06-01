@@ -186,22 +186,8 @@ public class VistaWB extends JFrame implements Vista {
 		tabbedPane.addTab("Actividad", null, panel_3, null);// BUSCAR PERSONA
 		
 		
-		txtfRazonSocialBusquedaPJ = new JTextField();
-		txtfRazonSocialBusquedaPJ.addKeyListener(new KeyAdapter() {
-			
-		@Override
-		public void keyTyped(KeyEvent arg0) {
-		txtfRazonSocialBusquedaPJ.addKeyListener(new KeyAdapter() {
-		public void keyReleased(final KeyEvent arg0) {
 		
-		filtroRegistro();
 		
-		}
-		});
-		trsfiltro = new TableRowSorter(table.getModel());
-		table.setRowSorter(trsfiltro);
-		}
-		});
 
 		
 
@@ -209,6 +195,21 @@ public class VistaWB extends JFrame implements Vista {
 
 		txtfRazonSocialBusquedaPJ_1 = new JTextField();
 		txtfRazonSocialBusquedaPJ_1.setColumns(10);
+		txtfRazonSocialBusquedaPJ_1.addKeyListener(new KeyAdapter() {
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+			txtfRazonSocialBusquedaPJ_1.addKeyListener(new KeyAdapter() {
+			public void keyReleased(final KeyEvent arg0) {
+			repaint();
+			filtroRegistro();
+			
+			}
+			});
+			trsfiltro = new TableRowSorter(table.getModel());
+			table.setRowSorter(trsfiltro);
+			}
+			});
 
 		JLabel lblDocumentoDeIdentidad = new JLabel("Documento de Identidad");
 
@@ -232,16 +233,16 @@ public class VistaWB extends JFrame implements Vista {
 		});
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(
-			gl_panel_3.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel_3.createSequentialGroup()
+			gl_panel_3.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_3.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_3.createParallelGroup(Alignment.TRAILING)
 						.addComponent(NIFBusquedaPJ, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
 						.addComponent(txtfRazonSocialBusquedaPJ_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
 						.addComponent(BuscarPJ, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-						.addComponent(lblRazonSocial, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblDocumentoDeIdentidad, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnRefresh, 0, 0, Short.MAX_VALUE))
+						.addComponent(btnRefresh, 0, 0, Short.MAX_VALUE)
+						.addComponent(lblDocumentoDeIdentidad, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addComponent(lblRazonSocial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_panel_3.setVerticalGroup(

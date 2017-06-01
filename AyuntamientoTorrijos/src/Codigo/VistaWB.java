@@ -133,6 +133,7 @@ public class VistaWB extends JFrame implements Vista {
 	
 	private TableRowSorter trsfiltro;
 	private JButton btnRefresh;
+	private JButton btnConfiguracion;
 
 	
 
@@ -953,13 +954,19 @@ public class VistaWB extends JFrame implements Vista {
 		lblRutaDeAcceso = new JLabel("");
 		lblRutaDeAcceso.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		lblRutaDeAcceso.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRutaDeAcceso.setText("Inscribir Licencia de Actividad");
+		lblRutaDeAcceso.setText("Visualizar Licencias");
 		
 		//////////////COLORES //////////////
 		
 		 contentPane.setBackground(new Color(148,  183, 203));
 		
-		JButton button = new JButton("Configuracion");
+		btnConfiguracion = new JButton("Configuracion");
+		btnConfiguracion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.ventanaConfiguracion() ;
+							}
+		});
 		
 		 
 		 
@@ -982,7 +989,7 @@ public class VistaWB extends JFrame implements Vista {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(button, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(btnConfiguracion, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)))
 					.addGap(6))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -990,7 +997,7 @@ public class VistaWB extends JFrame implements Vista {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(button)
+						.addComponent(btnConfiguracion)
 						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -1396,12 +1403,15 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getDCFechaInicio() {
+		String date=null;
+		if (DCFechaInicio.getDate()!=null){
+			DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+			date = fmt.format(this.DCFechaInicio.getDate());
 
+		}
 		// System.out.println(as);
 
-		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-		String date = fmt.format(this.DCFechaInicio.getDate());
-
+		
 		// int str = (Integer) DCFechaInicio.getDate().getDay();
 		// int str2 = (Integer) DCFechaInicio.getDate().getMonth() + 1;
 		// int str3 = (Integer) DCFechaInicio.getDate().getYear() + 1900;

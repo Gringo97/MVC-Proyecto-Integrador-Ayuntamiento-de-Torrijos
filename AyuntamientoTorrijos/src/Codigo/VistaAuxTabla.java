@@ -97,6 +97,16 @@ public class VistaAuxTabla extends JFrame {
 	private JComboBox comboBoxActEstado;
 	private JButton button;
 	private JButton button_1;
+	private JLabel label_7;
+	private JLabel label_12;
+	private JLabel label_13;
+	private JLabel label_14;
+	private JLabel label_16;
+	private JLabel label_15;
+	private JLabel label_18;
+	private JLabel label_19;
+	private JLabel label_20;
+	private JLabel lblEmail;
 
 	public VistaAuxTabla() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -214,31 +224,31 @@ public class VistaAuxTabla extends JFrame {
 		txtfrepNombre.setEnabled(false);
 		txtfrepNombre.setColumns(10);
 		
-		JLabel label_12 = new JLabel("Nombre");
-		label_12.setEnabled(false);
+		label_7 = new JLabel("Nombre");
+		label_7.setEnabled(false);
 		
-		JLabel label_13 = new JLabel("Apellidos");
-		label_13.setEnabled(false);
+		label_12 = new JLabel("Apellidos");
+		label_12.setEnabled(false);
 		
 		txtfrepApellidos = new JTextField();
 		txtfrepApellidos.setEnabled(false);
 		txtfrepApellidos.setColumns(10);
 		
-		JLabel label_14 = new JLabel("Documento Identidad");
-		label_14.setEnabled(false);
+		label_13 = new JLabel("Documento Identidad");
+		label_13.setEnabled(false);
 		
 		txtfrepDocumentoIdentidad = new JTextField();
 		txtfrepDocumentoIdentidad.setEnabled(false);
 		txtfrepDocumentoIdentidad.setColumns(10);
 		
-		JLabel label_15 = new JLabel("Direccion");
+		label_15 = new JLabel("Direccion");
 		label_15.setEnabled(false);
 		
 		txtfrepDireccion = new JTextField();
 		txtfrepDireccion.setEnabled(false);
 		txtfrepDireccion.setColumns(10);
 		
-		JLabel label_16 = new JLabel("Municipio");
+		label_16 = new JLabel("Municipio");
 		label_16.setEnabled(false);
 		
 		txtfrepMunicipio = new JTextField();
@@ -248,31 +258,31 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_17 = new JLabel("REPRESENTANTE");
 		label_17.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		JLabel label_18 = new JLabel("Codigo Postal");
-		label_18.setEnabled(false);
+		label_14 = new JLabel("Codigo Postal");
+		label_14.setEnabled(false);
 		
-		JLabel label_19 = new JLabel("Tlf Fijo");
-		label_19.setEnabled(false);
+		label_18 = new JLabel("Tlf Fijo");
+		label_18.setEnabled(false);
 		
 		txtfrepTlfF = new JTextField();
 		txtfrepTlfF.setEnabled(false);
 		txtfrepTlfF.setColumns(10);
 		
-		JLabel label_20 = new JLabel("Tlf Movil");
-		label_20.setEnabled(false);
+		label_19 = new JLabel("Tlf Movil");
+		label_19.setEnabled(false);
 		
 		txtfrepTlfM = new JTextField();
 		txtfrepTlfM.setEnabled(false);
 		txtfrepTlfM.setColumns(10);
 		
-		JLabel label_21 = new JLabel("Fax");
-		label_21.setEnabled(false);
+		label_20 = new JLabel("Fax");
+		label_20.setEnabled(false);
 		
 		txtfrepFax = new JTextField();
 		txtfrepFax.setEnabled(false);
 		txtfrepFax.setColumns(10);
 		
-		JLabel lblEmail = new JLabel("Email");
+		lblEmail = new JLabel("Email");
 		lblEmail.setEnabled(false);
 		
 		txtfrepEmail = new JTextField();
@@ -282,6 +292,7 @@ public class VistaAuxTabla extends JFrame {
 		txtfrepCP = new JTextField();
 		txtfrepCP.setEnabled(false);
 		txtfrepCP.setColumns(10);
+		
 		
 		button = new JButton("Aceptar");
 		button.addActionListener(new ActionListener() {
@@ -317,10 +328,10 @@ public class VistaAuxTabla extends JFrame {
 				.addGroup(gl_PanelRepAux.createSequentialGroup()
 					.addGap(27)
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_12, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_12)
 						.addComponent(label_13)
 						.addComponent(label_14)
-						.addComponent(label_18)
 						.addComponent(label_16))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
@@ -334,9 +345,9 @@ public class VistaAuxTabla extends JFrame {
 							.addGap(34)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblEmail)
-								.addComponent(label_20)
-								.addComponent(label_21)
 								.addComponent(label_19)
+								.addComponent(label_20)
+								.addComponent(label_18)
 								.addComponent(label_15))
 							.addGap(18)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.LEADING, false)
@@ -362,19 +373,19 @@ public class VistaAuxTabla extends JFrame {
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_PanelRepAux.createSequentialGroup()
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-								.addComponent(label_12)
+								.addComponent(label_7)
 								.addComponent(txtfrepNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(9)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-								.addComponent(label_13)
+								.addComponent(label_12)
 								.addComponent(txtfrepApellidos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(4)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-								.addComponent(label_14)
+								.addComponent(label_13)
 								.addComponent(txtfrepDocumentoIdentidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-								.addComponent(label_18)
+								.addComponent(label_14)
 								.addComponent(txtfrepCP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
@@ -392,15 +403,15 @@ public class VistaAuxTabla extends JFrame {
 									.addComponent(txtfrepDireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-									.addComponent(label_19)
+									.addComponent(label_18)
 									.addComponent(txtfrepTlfF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-									.addComponent(label_20)
+									.addComponent(label_19)
 									.addComponent(txtfrepTlfM, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
-									.addComponent(label_21)
+									.addComponent(label_20)
 									.addComponent(txtfrepFax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
 					.addGap(18)
 					.addGroup(gl_PanelRepAux.createParallelGroup(Alignment.BASELINE)
@@ -618,6 +629,7 @@ public class VistaAuxTabla extends JFrame {
 		PanelActividadAux_1.add(lblEstado);
 		PanelActividadAux_1.add(label_36);
 		
+
 	
 	}
 
@@ -772,8 +784,10 @@ public class VistaAuxTabla extends JFrame {
 		java.text.SimpleDateFormat formato = new java.text.SimpleDateFormat("dd/MM/yyyy"); 
 		/////DATES////
 		try {
+			if(modelo2.ActFechaInicio==null){}else{
 			java.util.Date fechaDate = formato.parse(modelo2.ActFechaInicio);
 			txtfDCFechaInicio.setDate(fechaDate);
+			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -801,8 +815,11 @@ public class VistaAuxTabla extends JFrame {
 	}
 
 	public String getTxtfDCFechaInicio() {
-		DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-		String date = fmt.format(this.txtfDCFechaInicio.getDate());
+		String date=null;
+		if(txtfDCFechaInicio  ==null){
+	
+		}else{	DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+		date = fmt.format(this.txtfDCFechaInicio.getDate());}
 		return date;
 		
 	}
@@ -1217,6 +1234,16 @@ public class VistaAuxTabla extends JFrame {
 		txtfrepTlfM.setEnabled(true);
 		txtfrepFax.setEnabled(true);
 		txtfrepEmail.setEnabled(true);
+		label_12.setEnabled(true);
+		label_13.setEnabled(true);
+		label_14.setEnabled(true);
+		label_15.setEnabled(true);
+		label_16.setEnabled(true);
+		label_18.setEnabled(true);
+		label_19.setEnabled(true);
+		label_20.setEnabled(true);
+		label_7.setEnabled(true);
+		lblEmail.setEnabled(true);
 		
 		
 		
@@ -1225,7 +1252,16 @@ public class VistaAuxTabla extends JFrame {
 	public void deshabilitarRepresentante() {
 		System.out.println("deshabilita");
 
-
+		label_12.setEnabled(false);
+		label_13.setEnabled(false);
+		label_14.setEnabled(false);
+		label_15.setEnabled(false);
+		label_16.setEnabled(false);
+		label_18.setEnabled(false);
+		label_19.setEnabled(false);
+		label_20.setEnabled(false);
+		label_7.setEnabled(false);
+		lblEmail.setEnabled(false);
 		txtfrepNombre.setEnabled(false);
 		txtfrepApellidos.setEnabled(false);
 		txtfrepDocumentoIdentidad.setEnabled(false);

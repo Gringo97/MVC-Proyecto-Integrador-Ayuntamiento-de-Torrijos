@@ -10,7 +10,6 @@ public class Test {
 		VistaWB vista = new VistaWB();
 
 		
-
 		modelo.setVista(vista);
 
 		modelobbdd.setVista(vista);
@@ -35,5 +34,6 @@ public class Test {
 		vista.setVisible(true);
 
 	}
+
 
 }

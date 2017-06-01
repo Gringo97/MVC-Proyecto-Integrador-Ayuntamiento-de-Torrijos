@@ -572,7 +572,7 @@ public class VistaAuxTabla extends JFrame {
 		checkActFotocopiaDni.setBounds(552, 229, 21, 21);
 		
 		lblEstado = new JLabel("Estado");
-		lblEstado.setBounds(656, 182, 33, 14);
+		lblEstado.setBounds(656, 182, 98, 14);
 		
 		comboBoxActEstado = new JComboBox();
 		comboBoxActEstado.setBounds(799, 179, 110, 20);

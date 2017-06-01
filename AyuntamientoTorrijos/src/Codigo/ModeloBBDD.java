@@ -82,7 +82,7 @@ public class ModeloBBDD implements Modelo {
 				cont2++;
 
 			}
-			// vista.RellenarTabla(tabla);
+//			vista.RellenarTabla(tabla);
 			vista.setDatosTabla();
 			rset.close();
 			stmt.close();
@@ -97,6 +97,7 @@ public class ModeloBBDD implements Modelo {
 
 		this.Consulta(
 				"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id");
+		
 	}
 
 	public String[][] getTabla() {

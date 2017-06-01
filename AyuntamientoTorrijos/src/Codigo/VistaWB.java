@@ -132,6 +132,7 @@ public class VistaWB extends JFrame implements Vista {
 	private JComboBox comboBoxEstado;
 	
 	private TableRowSorter trsfiltro;
+	private JButton btnRefresh;
 
 	
 
@@ -183,7 +184,7 @@ public class VistaWB extends JFrame implements Vista {
 		tabbedPane.setVisible(true);
 
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("Actividad", null, panel_3, null);// BUSCAR PERSONA
+		tabbedPane.addTab("Busqueda", null, panel_3, null);// BUSCAR PERSONA
 		
 		
 		
@@ -214,11 +215,25 @@ public class VistaWB extends JFrame implements Vista {
 		JLabel lblDocumentoDeIdentidad = new JLabel("Documento de Identidad");
 
 		NIFBusquedaPJ = new JTextField();
+		NIFBusquedaPJ.addKeyListener(new KeyAdapter() {
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				NIFBusquedaPJ.addKeyListener(new KeyAdapter() {
+			public void keyReleased(final KeyEvent arg0) {
+			repaint();
+			filtroRegistro2();
+			
+			}
+			});
+			trsfiltro = new TableRowSorter(table.getModel());
+			table.setRowSorter(trsfiltro);
+			}
+			});
+
 		NIFBusquedaPJ.setColumns(10);
 
-		JButton BuscarPJ = new JButton("Buscar");
-
-		JButton btnRefresh = new JButton("Actualizar");
+		btnRefresh = new JButton("Actualizar");
 		btnRefresh.setVisible(true);
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -236,13 +251,12 @@ public class VistaWB extends JFrame implements Vista {
 			gl_panel_3.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel_3.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panel_3.createParallelGroup(Alignment.TRAILING)
-						.addComponent(NIFBusquedaPJ, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-						.addComponent(txtfRazonSocialBusquedaPJ_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-						.addComponent(BuscarPJ, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-						.addComponent(btnRefresh, 0, 0, Short.MAX_VALUE)
-						.addComponent(lblDocumentoDeIdentidad, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-						.addComponent(lblRazonSocial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+					.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
+						.addComponent(NIFBusquedaPJ, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addComponent(txtfRazonSocialBusquedaPJ_1, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addComponent(lblDocumentoDeIdentidad, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addComponent(lblRazonSocial, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addComponent(btnRefresh, 0, 0, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_panel_3.setVerticalGroup(
@@ -257,18 +271,10 @@ public class VistaWB extends JFrame implements Vista {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(NIFBusquedaPJ, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(BuscarPJ, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
 					.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(24, Short.MAX_VALUE))
+					.addContainerGap(74, Short.MAX_VALUE))
 		);
 		panel_3.setLayout(gl_panel_3);
-
-		BuscarPJ.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.busquedaPersonaJur();
-			}
-		});
 
 		JLabel label_6 = new JLabel("");
 		label_6.setIcon(new ImageIcon(VistaWB.class.getResource("/Codigo/Ayto.png")));
@@ -965,9 +971,9 @@ public class VistaWB extends JFrame implements Vista {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
 								.addComponent(btnVisualizarLicencias, 0, 0, Short.MAX_VALUE)
 								.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-								.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGap(32)
 									.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)))
@@ -996,7 +1002,7 @@ public class VistaWB extends JFrame implements Vista {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 203, GroupLayout.PREFERRED_SIZE)))
 					.addGap(35))
 		);
 
@@ -1023,6 +1029,9 @@ public class VistaWB extends JFrame implements Vista {
 	public void filtroRegistro() {
 	trsfiltro.setRowFilter(RowFilter.regexFilter(txtfRazonSocialBusquedaPJ_1.getText(), 0));
 	}
+	public void filtroRegistro2() {
+		trsfiltro.setRowFilter(RowFilter.regexFilter(NIFBusquedaPJ.getText(), 4));
+		}
 
 	public String getTxtfLocal() {
 		return txtfLocal.getText().toUpperCase().toUpperCase();

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2017 a las 23:02:11
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 01-06-2017 a las 22:23:01
+-- Versión del servidor: 10.1.22-MariaDB
+-- Versión de PHP: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,8 +31,8 @@ USE `torrijos`;
 --
 
 DROP TABLE IF EXISTS `actividad`;
-CREATE TABLE `actividad` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `actividad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fotoLicenciaObra` tinyint(11) DEFAULT NULL,
   `fotoOtrasAutorizaciones` tinyint(11) DEFAULT NULL,
   `fotoJustificantePago` tinyint(11) DEFAULT NULL,
@@ -52,16 +54,19 @@ CREATE TABLE `actividad` (
   `certColegioOficial` tinyint(11) DEFAULT NULL,
   `certModelo1` tinyint(11) DEFAULT NULL,
   `certModelo2` tinyint(11) DEFAULT NULL,
-  `FotocopiaDNI` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `FotocopiaDNI` tinyint(1) DEFAULT NULL,
+  `Estado` enum('Procesando','Aceptada','Archivada','') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `actividad`
 --
 
-INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`, `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`) VALUES
-(14, 1, 1, 1, 1, 1, 1, 0, 1, 1, 'urbano', 'afsd', 'BangBang', 'Deportivo', 'asdf', '4-5-2017', '4-5-2017', 1300, 'adsf', 1, 1, 1, 1),
-(15, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'urbano', 'asdf', 'Shotual Gym', 'Deportes', 'asdf', '3-5-2017', '1-5-2017', 1300, 'asdf', 1, 1, 1, 1);
+INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`, `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`, `Estado`) VALUES
+(14, 1, 1, 1, 1, 1, 1, 0, 1, 1, 'urbano', 'afsd', 'BangBang', 'Deportivo', 'asdf', '02/06/2017', '03/06/2017', 1300, 'adsf', 1, 1, 1, 1, 'Procesando'),
+(15, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'urbano', 'asdf', 'Shotual Gym', 'Deportes', 'asdf', '02/06/2017', '24/06/2017', 1300, 'asdf', 1, 1, 1, 1, 'Procesando'),
+(16, 1, 0, 1, 1, 1, 1, 1, 0, 0, 'urbano', 'SI', 'BAR', 'RESTAURANTE', 'NO', '16/06/2017', '03/06/2017', 300, 'ASDF', 1, 1, 0, 0, 'Aceptada');
 
 -- --------------------------------------------------------
 
@@ -70,15 +75,17 @@ INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `f
 --
 
 DROP TABLE IF EXISTS `cambiotitularidad`;
-CREATE TABLE `cambiotitularidad` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cambiotitularidad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idLicenciaAnterior` int(11) NOT NULL,
   `numExpediente` tinyint(4) DEFAULT NULL,
   `escrituraPropiedad` tinyint(4) DEFAULT NULL,
   `contratoArrendamiento` tinyint(4) DEFAULT NULL,
   `documentacionJust` tinyint(4) DEFAULT NULL,
   `planosYPlanta` tinyint(4) DEFAULT NULL,
-  `fotoLicenciaAnterior` tinyint(4) NOT NULL
+  `fotoLicenciaAnterior` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idLicenciaAnterior` (`idLicenciaAnterior`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -88,8 +95,8 @@ CREATE TABLE `cambiotitularidad` (
 --
 
 DROP TABLE IF EXISTS `interesado`;
-CREATE TABLE `interesado` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `interesado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `cif` varchar(9) NOT NULL,
@@ -99,8 +106,9 @@ CREATE TABLE `interesado` (
   `telefonoFijo` int(12) DEFAULT NULL,
   `telefonoMovil` int(12) NOT NULL,
   `fax` int(12) DEFAULT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `interesado`
@@ -108,7 +116,10 @@ CREATE TABLE `interesado` (
 
 INSERT INTO `interesado` (`id`, `nombre`, `apellidos`, `cif`, `direccion`, `municipio`, `codigoPostal`, `telefonoFijo`, `telefonoMovil`, `fax`, `email`) VALUES
 (24, 'JUAN', 'LUIS', '12345678O', 'C/ lOS OLIVOS 2', 'SEGOVIA', 24567, 918437362, 918437362, 918437362, 'juanluis@gmail.com'),
-(25, 'GUILLERO', 'TUVILLA CALVO', '12345674K', 'C/ ENFERMO 2', 'MORALZARZAL', 28411, 918571827, 918571827, 918571827, 'shotual@gmail.com');
+(25, 'GUILLERO', 'TUVILLA CALVO', '12345674K', 'C/ ENFERMO 2', 'MORALZARZAL', 28411, 918571827, 918571827, 918571827, 'shotual@gmail.com'),
+(26, 'GUILLERMO', 'TUVILLA GOMEZ', '54025678A', 'C/ SAN JUAN', 'MORALZARLZAL', 28411, 619991411, 619991518, 918578499, 'GUILLEDIOS@GMAIL.COM'),
+(27, 'GUILLERMO', 'TUVILLA', '28458459', 'SAN JUAN', 'MORAL', 956, 5616516, 5146545, 6848454, 'GUITUAL@HOTMAIL.COM'),
+(28, 'GUILLERMO', 'RODRIGUEZ SANCHEZ', '245932', 'GRANDE 5', 'MADRID', 24532, 12345678, 12345678, 13456789, 'GUILLE@RODRIGUEZ.COM');
 
 -- --------------------------------------------------------
 
@@ -117,11 +128,14 @@ INSERT INTO `interesado` (`id`, `nombre`, `apellidos`, `cif`, `direccion`, `muni
 --
 
 DROP TABLE IF EXISTS `relactper`;
-CREATE TABLE `relactper` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `relactper` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idInt` int(11) NOT NULL,
-  `idAct` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idAct` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idInt` (`idInt`),
+  KEY `idAct` (`idAct`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `relactper`
@@ -129,7 +143,8 @@ CREATE TABLE `relactper` (
 
 INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES
 (12, 24, 14),
-(13, 25, 15);
+(13, 25, 15),
+(17, 28, 16);
 
 -- --------------------------------------------------------
 
@@ -138,11 +153,14 @@ INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES
 --
 
 DROP TABLE IF EXISTS `relintrep`;
-CREATE TABLE `relintrep` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `relintrep` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idInteresado` int(11) NOT NULL,
-  `idRepresentante` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idRepresentante` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idInteresado` (`idInteresado`,`idRepresentante`),
+  KEY `idRepresentante` (`idRepresentante`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `relintrep`
@@ -159,8 +177,8 @@ INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES
 --
 
 DROP TABLE IF EXISTS `representante`;
-CREATE TABLE `representante` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `representante` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `documentoIdentidad` varchar(9) NOT NULL,
@@ -170,8 +188,9 @@ CREATE TABLE `representante` (
   `telefonoFijo` int(12) DEFAULT NULL,
   `telefonoMovil` int(12) NOT NULL,
   `fax` int(12) DEFAULT NULL,
-  `Email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `representante`
@@ -181,85 +200,6 @@ INSERT INTO `representante` (`id`, `nombre`, `apellidos`, `documentoIdentidad`, 
 (8, 'JUAN', 'LUIS', '12345678O', 'C/ lOS OLIVOS 2', 'SEGOVIA', 24567, 918437362, 918437362, 918437362, 'juanluis@gmail.com'),
 (9, 'GUILLERO', 'TUVILLA CALVO', '12345674K', 'C/ ENFERMO 2', 'MORALZARZAL', 28411, 918571827, 918571827, 918571827, 'shotual@gmail.com');
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `actividad`
---
-ALTER TABLE `actividad`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `cambiotitularidad`
---
-ALTER TABLE `cambiotitularidad`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idLicenciaAnterior` (`idLicenciaAnterior`);
-
---
--- Indices de la tabla `interesado`
---
-ALTER TABLE `interesado`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `relactper`
---
-ALTER TABLE `relactper`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idInt` (`idInt`),
-  ADD KEY `idAct` (`idAct`);
-
---
--- Indices de la tabla `relintrep`
---
-ALTER TABLE `relintrep`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idInteresado` (`idInteresado`,`idRepresentante`),
-  ADD KEY `idRepresentante` (`idRepresentante`);
-
---
--- Indices de la tabla `representante`
---
-ALTER TABLE `representante`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `actividad`
---
-ALTER TABLE `actividad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `cambiotitularidad`
---
-ALTER TABLE `cambiotitularidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `interesado`
---
-ALTER TABLE `interesado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT de la tabla `relactper`
---
-ALTER TABLE `relactper`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT de la tabla `relintrep`
---
-ALTER TABLE `relintrep`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT de la tabla `representante`
---
-ALTER TABLE `representante`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --
@@ -283,6 +223,7 @@ ALTER TABLE `relactper`
 ALTER TABLE `relintrep`
   ADD CONSTRAINT `relintrep_ibfk_2` FOREIGN KEY (`idInteresado`) REFERENCES `interesado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `relintrep_ibfk_3` FOREIGN KEY (`idRepresentante`) REFERENCES `representante` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 
+import javax.swing.JComboBox;
+
 public class ModeloBBDD implements Modelo {
 
 	private VistaWB vista;
@@ -241,12 +243,12 @@ public class ModeloBBDD implements Modelo {
 			Boolean getchckbxCertificado2, Boolean getchckCertificadoColegio, String comboBoxTipoSuelo,
 			String dcFechaSolicitud, String dcFechaInicio, String txtfLocal, String txtfTipo, String txtfCuota,
 			String txtfReferenciaCatastral, String txtfEmplazamiento, String gettxtfDescripcion,
-			Boolean getchckFotocopiaLicenciaObra, Boolean chckOtrasAuto) {
+			Boolean getchckFotocopiaLicenciaObra, Boolean chckOtrasAuto, String jComboBox) {
 
 		Connection con = getConnection();
 		int r = 0;
 		String query = "INSERT INTO `actividad` (`fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `fotoJustificantePago`, `fotoEscritura`, `fotoModelo036`, `fotoPlanos`, `fotoCD`, `fotoMemoria`, `fotoFotografia`, `tipoSuelo`, `referenciaCatastral`, `local`,"
-				+ " `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " `tipo`, `emplazamiento`, `fechaInicio`, `fechaSolicitud`, `cuota`, `descripcion`, `certColegioOficial`, `certModelo1`, `certModelo2`, `FotocopiaDNI`,Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 		PreparedStatement pstmt;
 		int last_inserted_id = -1;
 
@@ -274,6 +276,7 @@ public class ModeloBBDD implements Modelo {
 			pstmt.setBoolean(20, getchckbxCertificado1);
 			pstmt.setBoolean(21, getchckbxCertificado2);
 			pstmt.setBoolean(22, getchckbxFotocopiaDNI);
+			pstmt.setString(23, jComboBox);
 
 			r = pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
@@ -436,6 +439,7 @@ public String ActFotoPlanos;
 public String ActFotoCD;
 public String ActFotoMemoria;
 public String ActFotoFofografia;
+public String ActEstado;
 
 
 //public String CambioTituId;
@@ -527,6 +531,7 @@ ActCertColegioOficial= rset.getString("actividad.certColegioOficial");
  ActCertModelo1= rset.getString("actividad.certModelo1");
 ActCertModelo2= rset.getString("actividad.certModelo2");
 ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
+ActEstado = rset.getString("actividad.Estado");
 				z += 1;
 			}
 
@@ -535,6 +540,7 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 		}
 		vista2.devolverDatosTitular();
 	}
+
 
 	public String getRepId() {
 		return repId;
@@ -815,6 +821,14 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 	public void setActTipoSuelo(String actTipoSuelo) {
 		ActTipoSuelo = actTipoSuelo;
 	}
+	public String getActEstado() {
+		return ActEstado;
+	}
+
+	public void setActEstado(String actEstado) {
+		ActEstado = actEstado;
+	}
+
 
 	public String getActReferenciaCatastral() {
 		return ActReferenciaCatastral;
@@ -963,9 +977,9 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 			Boolean checkActFotoLicenciaObra, Boolean checkActFotoOtrasAutorizaciones, String txtPActDescripcion,
 			String txtfintNombre, String txtfintApellido, String txtfintCif, String txtfintDireccion,
 			String txtfintMunicipio, String txtfintCP, String txtfintTlfF, String txtfintTlfM, String txtfintFax,
-			String txtfintEmail) {
+			String txtfintEmail, String jComboBoxEstado) {
 		
-		System.out.println("Oscarrrrrrrr entra???");
+
 		Connection con = getConnection();
 		int r = 0;
 		String query = "UPDATE interesado SET nombre = ?, apellidos = ?, cif = ?, direccion = ?, municipio = ?, codigoPostal = ?, telefonoFijo = ?, telefonoMovil = ?, fax = ?, email = ? where id = ?";
@@ -996,7 +1010,7 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 			e.printStackTrace();
 			// System.exit(-1);
 		}
-		String query2 = "UPDATE actividad SET fotoLicenciaObra= ?,fotoOtrasAutorizaciones= ?,fotoJustificantePago= ?,fotoEscritura= ?,fotomodelo036= ?,fotoPlanos= ?,fotoCD= ?,fotoMemoria= ?,fotoFotografia= ?,tipoSuelo= ?,referenciaCatastral=?,local=?,tipo=?,emplazamiento=?,fechaSolicitud=?,fechainicio=?,cuota=?,descripcion=?,certColegioOficial=?,certModelo1=?,certModelo2 = ?, FotocopiaDNI = ? where id = ?";
+		String query2 = "UPDATE actividad SET fotoLicenciaObra= ?,fotoOtrasAutorizaciones= ?,fotoJustificantePago= ?,fotoEscritura= ?,fotomodelo036= ?,fotoPlanos= ?,fotoCD= ?,fotoMemoria= ?,fotoFotografia= ?,tipoSuelo= ?,referenciaCatastral=?,local=?,tipo=?,emplazamiento=?,fechaSolicitud=?,fechainicio=?,cuota=?,descripcion=?,certColegioOficial=?,certModelo1=?,certModelo2 = ?, FotocopiaDNI = ?, Estado = ? where id = ?";
 		try {
 			pstmt = con.prepareStatement(query2, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setBoolean(1, checkActFotoLicenciaObra);
@@ -1021,7 +1035,8 @@ ActFotocopiaDni= rset.getString("actividad.FotocopiaDNI");
 			pstmt.setBoolean(20, checkActCertModelo1);
 			pstmt.setBoolean(21, checkActCertModelo2);
 			pstmt.setBoolean(22, checkActFotocopiaDni);
-			pstmt.setString(23, ActId);
+			pstmt.setString(23, jComboBoxEstado);
+			pstmt.setString(24, ActId);
 			
 
 

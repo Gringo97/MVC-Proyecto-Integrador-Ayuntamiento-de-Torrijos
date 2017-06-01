@@ -128,6 +128,7 @@ public class VistaWB extends JFrame implements Vista {
 	private JCheckBox chckOtrasAuto;
 	private JButton btnCancelarInsActv;
 	private JButton btnActualizar2;
+	private JComboBox comboBoxEstado;
 
 	public void setControlador(Controlador controlador) {
 
@@ -326,6 +327,50 @@ public class VistaWB extends JFrame implements Vista {
 
 		JPanel Contenedor = new JPanel();
 		Contenedor.setLayout(new CardLayout(0, 0));
+		
+				JPanel VisualizarLicencias = new JPanel();
+				Contenedor.add(VisualizarLicencias, "name_30680022169608");
+				ArrVistas[0] = VisualizarLicencias;
+				VisualizarLicencias.setVisible(true);
+				
+						JScrollPane scrollPane_1 = new JScrollPane();
+						GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
+						gl_VisualizarLicencias.setHorizontalGroup(
+								gl_VisualizarLicencias.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
+										gl_VisualizarLicencias.createSequentialGroup()
+												.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 660, GroupLayout.PREFERRED_SIZE)
+												.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+						gl_VisualizarLicencias.setVerticalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_VisualizarLicencias.createSequentialGroup().addContainerGap()
+										.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE)
+										.addContainerGap(52, Short.MAX_VALUE)));
+						
+								table = new JTable() {
+									private static final long serialVersionUID = 9082642090247275215L;
+						
+									public boolean isCellEditable(int row, int column) {
+										return false;// you can set which column/row can be edited.
+									}
+								};
+								table.setModel(new DefaultTableModel(new Object[][] {},
+										new String[] { "NºRegistro", "Nombre", "Apellido", "Licencia", "CIF" }));
+								table.addMouseListener(new MouseAdapter() {
+									public void mouseClicked(MouseEvent e) {
+										if (e.getClickCount() == 2) {
+											DefaultTableModel model = (DefaultTableModel) table.getModel();
+											int selectedRowIndex = table.getSelectedRow();
+
+											controlador.nuevaPantalla();
+											controlador.recogerRegistroCambio();
+
+										}
+									}
+								});
+								
+										table.setRowSelectionAllowed(true);
+										table.setColumnSelectionAllowed(false);
+										scrollPane_1.setViewportView(table);
+										VisualizarLicencias.setLayout(gl_VisualizarLicencias);
 
 		JPanel inscActvPers = new JPanel();
 		inscActvPers.setBackground(SystemColor.menu);
@@ -661,50 +706,6 @@ public class VistaWB extends JFrame implements Vista {
 						.addContainerGap(31, Short.MAX_VALUE)));
 		PanelInteresado.setLayout(gl_PanelInteresado);
 
-		JPanel VisualizarLicencias = new JPanel();
-		Contenedor.add(VisualizarLicencias, "name_30680022169608");
-		ArrVistas[0] = VisualizarLicencias;
-		VisualizarLicencias.setVisible(true);
-
-		JScrollPane scrollPane_1 = new JScrollPane();
-		GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
-		gl_VisualizarLicencias.setHorizontalGroup(
-				gl_VisualizarLicencias.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-						gl_VisualizarLicencias.createSequentialGroup()
-								.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 660, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		gl_VisualizarLicencias.setVerticalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_VisualizarLicencias.createSequentialGroup().addContainerGap()
-						.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(52, Short.MAX_VALUE)));
-
-		table = new JTable() {
-			private static final long serialVersionUID = 9082642090247275215L;
-
-			public boolean isCellEditable(int row, int column) {
-				return false;// you can set which column/row can be edited.
-			}
-		};
-		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "NºRegistro", "Nombre", "Apellido", "Licencia", "CIF" }));
-		table.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 2) {
-					DefaultTableModel model = (DefaultTableModel) table.getModel();
-					int selectedRowIndex = table.getSelectedRow();
-
-					controlador.nuevaPantalla();
-					controlador.recogerRegistroCambio();
-
-				}
-			}
-		});
-
-		table.setRowSelectionAllowed(true);
-		table.setColumnSelectionAllowed(false);
-		scrollPane_1.setViewportView(table);
-		VisualizarLicencias.setLayout(gl_VisualizarLicencias);
-
 		JPanel inscActv = new JPanel();
 		ArrVistas[2] = inscActv;
 		Contenedor.add(inscActv, "name_29022094463246");
@@ -758,37 +759,37 @@ public class VistaWB extends JFrame implements Vista {
 		lblNewLabel_15.setBounds(334, 227, 129, 14);
 
 		JLabel lblNewLabel_16 = new JLabel("Descripci\u00F3n");
-		lblNewLabel_16.setBounds(334, 338, 124, 14);
+		lblNewLabel_16.setBounds(334, 422, 124, 14);
 
 		JLabel lblNewLabel_17 = new JLabel("Certificado del Colegio Oficial");
 		lblNewLabel_17.setBounds(37, 489, 166, 14);
 
-		chckFotocopiaLicenciaObra = new JCheckBox("Entregado");
-		chckFotocopiaLicenciaObra.setBounds(209, 34, 98, 23);
+		chckFotocopiaLicenciaObra = new JCheckBox("");
+		chckFotocopiaLicenciaObra.setBounds(209, 34, 50, 23);
 
-		chckJustificantePago = new JCheckBox("Entregado");
-		chckJustificantePago.setBounds(209, 75, 98, 23);
+		chckJustificantePago = new JCheckBox("");
+		chckJustificantePago.setBounds(209, 75, 50, 23);
 
-		chckFotocopiaEscritura = new JCheckBox("Entregado");
-		chckFotocopiaEscritura.setBounds(209, 116, 98, 23);
+		chckFotocopiaEscritura = new JCheckBox("");
+		chckFotocopiaEscritura.setBounds(209, 116, 50, 23);
 
-		chckFotocopiaModelo36 = new JCheckBox("Entregado");
-		chckFotocopiaModelo36.setBounds(209, 157, 98, 23);
+		chckFotocopiaModelo36 = new JCheckBox("");
+		chckFotocopiaModelo36.setBounds(209, 157, 50, 23);
 
-		chckPlanos = new JCheckBox("Entregado");
-		chckPlanos.setBounds(209, 198, 98, 23);
+		chckPlanos = new JCheckBox("");
+		chckPlanos.setBounds(209, 198, 50, 23);
 
-		chckCD = new JCheckBox("Entregado");
-		chckCD.setBounds(209, 239, 98, 23);
+		chckCD = new JCheckBox("");
+		chckCD.setBounds(209, 239, 50, 23);
 
-		chckMemoria = new JCheckBox("Entregado");
-		chckMemoria.setBounds(209, 280, 98, 23);
+		chckMemoria = new JCheckBox("");
+		chckMemoria.setBounds(209, 280, 50, 23);
 
-		chckFotografia = new JCheckBox("Entregado");
-		chckFotografia.setBounds(209, 321, 98, 23);
+		chckFotografia = new JCheckBox("");
+		chckFotografia.setBounds(209, 321, 50, 23);
 
-		chckCertificadoColegio = new JCheckBox("Entregado");
-		chckCertificadoColegio.setBounds(209, 485, 98, 23);
+		chckCertificadoColegio = new JCheckBox("");
+		chckCertificadoColegio.setBounds(209, 485, 50, 23);
 
 		DCFechaSolicitud = new JDateChooser();
 		DCFechaSolicitud.setBounds(473, 72, 146, 20);
@@ -820,7 +821,7 @@ public class VistaWB extends JFrame implements Vista {
 		txtfEmplazamiento.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(473, 338, 146, 61);
+		scrollPane.setBounds(473, 419, 146, 61);
 
 		JButton btnAceptarInsActv = new JButton("Aceptar");
 		btnAceptarInsActv.addMouseListener(new MouseAdapter() {
@@ -872,20 +873,20 @@ public class VistaWB extends JFrame implements Vista {
 		JLabel lblNewLabel_18 = new JLabel("Fotocopia DNI/CIF/NIE");
 		lblNewLabel_18.setBounds(37, 366, 139, 14);
 
-		chckbxFotocopiaDNI = new JCheckBox("Entregado");
-		chckbxFotocopiaDNI.setBounds(209, 362, 98, 23);
+		chckbxFotocopiaDNI = new JCheckBox("");
+		chckbxFotocopiaDNI.setBounds(209, 362, 50, 23);
 
 		JLabel lblCertificado = new JLabel("Certificado 1");
 		lblCertificado.setBounds(37, 407, 139, 14);
 
-		chckbxCertificado1 = new JCheckBox("Entregado");
-		chckbxCertificado1.setBounds(209, 403, 98, 23);
+		chckbxCertificado1 = new JCheckBox("");
+		chckbxCertificado1.setBounds(209, 403, 50, 23);
 
 		JLabel lblCertificado_1 = new JLabel("Certificado2");
 		lblCertificado_1.setBounds(37, 453, 139, 14);
 
-		chckbxCertificado2 = new JCheckBox("Entregado");
-		chckbxCertificado2.setBounds(209, 449, 98, 23);
+		chckbxCertificado2 = new JCheckBox("");
+		chckbxCertificado2.setBounds(209, 449, 50, 23);
 
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(313, 0, 2, 573);
@@ -944,9 +945,18 @@ public class VistaWB extends JFrame implements Vista {
 		lblOtrasAutorizaciones.setBounds(37, 519, 139, 14);
 		inscActv.add(lblOtrasAutorizaciones);
 
-		chckOtrasAuto = new JCheckBox("Entregado");
-		chckOtrasAuto.setBounds(209, 515, 98, 23);
+		chckOtrasAuto = new JCheckBox("");
+		chckOtrasAuto.setBounds(209, 515, 50, 23);
 		inscActv.add(chckOtrasAuto);
+		
+		JLabel lblEstado = new JLabel("Estado");
+		lblEstado.setBounds(334, 349, 46, 14);
+		inscActv.add(lblEstado);
+		
+		comboBoxEstado = new JComboBox();
+		comboBoxEstado.setModel(new DefaultComboBoxModel(new String[] {"Procesando", "Aceptada", "Archivada"}));
+		comboBoxEstado.setBounds(473, 346, 146, 20);
+		inscActv.add(comboBoxEstado);
 		btnAceptarInsPers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lblRutaDeAcceso.setText("Inscribir Actividad");
@@ -1463,4 +1473,7 @@ public class VistaWB extends JFrame implements Vista {
 		this.table = table;
 	}
 
+	public String getComboBoxEstado() {
+		return (String) comboBoxEstado.getSelectedItem();
+	}
 }

@@ -94,6 +94,8 @@ public class VistaAuxTabla extends JFrame {
 	private JComboBox comboBoxActTipoSuelo;
 	private JTextField txtfrepEmail;
 	private JButton btnAceptar;
+	private JLabel lblEstado;
+	private JComboBox comboBoxActEstado;
 
 	public VistaAuxTabla() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -584,106 +586,110 @@ public class VistaAuxTabla extends JFrame {
 		JLabel label_28 = new JLabel("Fotocopia DNI");
 		
 		checkActFotocopiaDni = new JCheckBox("");
+		
+		lblEstado = new JLabel("Estado");
+		
+		comboBoxActEstado = new JComboBox();
+		comboBoxActEstado.setModel(new DefaultComboBoxModel(new String[] {"Procesando", "Aceptada", "Archivada"}));
 		GroupLayout gl_PanelActividadAux_1 = new GroupLayout(PanelActividadAux_1);
 		gl_PanelActividadAux_1.setHorizontalGroup(
 			gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-				.addComponent(label_36, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
 					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_36, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label_37, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(txtfActReferenciaCatastral, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(104)
-							.addComponent(label_34, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(checkActFotoEscritura))
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label_35, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(comboBoxActTipoSuelo, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-							.addGap(80)
-							.addComponent(label_27, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(checkActFotoJustificantePago)))
-					.addGap(119)
-					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(label_25, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(label_26, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
-					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addGap(5)
-							.addComponent(checkActCertColegioOficial))
-						.addGroup(Alignment.TRAILING, gl_PanelActividadAux_1.createSequentialGroup()
-							.addGap(5)
-							.addComponent(checkActCertModelo1))))
-				.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label_43, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(txtfActLocal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(104)
-							.addComponent(label_33, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(checkActFotoModelo036))
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label_42, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(txtfActTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(104)
-							.addComponent(label_32, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-							.addGap(67)
-							.addComponent(checkActFotoPlanos))
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label_41, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(txtfActEmplazamiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(104)
-							.addComponent(label_31, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
-							.addGap(37)
-							.addComponent(checkActFotoCD))
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(label_40, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_39, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_38, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
-							.addGap(5)
-							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtfDCFechaInicio, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfDCFechaSolicitud, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtActCuota, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE))
-							.addGap(80)
-							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(label_30)
-								.addComponent(label_29)
-								.addComponent(label_28))
-							.addGap(57)
-							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(checkActFotoMemoria)
-								.addComponent(checkActFotoFofografia)
-								.addComponent(checkActFotocopiaDni))))
-					.addGap(119)
-					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addComponent(label_22, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-							.addGap(5)
-							.addComponent(checkActFotoOtrasAutorizaciones))
-						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
-							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(label_23, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(label_24, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
 							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label_37, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(txtfActReferenciaCatastral, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGap(104)
+									.addComponent(label_34, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(checkActFotoEscritura))
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label_35, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(comboBoxActTipoSuelo, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+									.addGap(80)
+									.addComponent(label_27, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(checkActFotoJustificantePago)))
+							.addGap(119)
+							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(label_25, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(label_26, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+							.addGap(5)
+							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.TRAILING)
+								.addComponent(checkActCertColegioOficial)
+								.addComponent(checkActCertModelo1)))
+						.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label_43, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(txtfActLocal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGap(104)
+									.addComponent(label_33, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(checkActFotoModelo036))
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label_42, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(txtfActTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGap(104)
+									.addComponent(label_32, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+									.addGap(67)
+									.addComponent(checkActFotoPlanos))
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label_41, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(txtfActEmplazamiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGap(104)
+									.addComponent(label_31, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
+									.addGap(37)
+									.addComponent(checkActFotoCD))
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(label_40, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+										.addComponent(label_39, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+										.addComponent(label_38, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
+									.addGap(5)
+									.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(txtfDCFechaInicio, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+										.addComponent(txtfDCFechaSolicitud, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+										.addComponent(txtActCuota, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+										.addComponent(comboBoxActEstado, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+									.addGap(80)
+									.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(label_30)
+										.addComponent(label_29)
+										.addComponent(label_28))
+									.addGap(57)
+									.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(checkActFotoMemoria)
+										.addComponent(checkActFotoFofografia)
+										.addComponent(checkActFotocopiaDni))))
+							.addGap(119)
+							.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addComponent(label_22, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+									.addGap(5)
+									.addComponent(checkActFotoOtrasAutorizaciones))
+								.addGroup(gl_PanelActividadAux_1.createSequentialGroup()
+									.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(label_23, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(label_24, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(checkActCertModelo2))
-								.addGroup(Alignment.TRAILING, gl_PanelActividadAux_1.createSequentialGroup()
-									.addGap(6)
-									.addComponent(checkActFotoLicenciaObra))))))
+									.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.TRAILING)
+										.addComponent(checkActCertModelo2)
+										.addComponent(checkActFotoLicenciaObra)))))
+						.addComponent(lblEstado))
+					.addGap(84))
 		);
 		gl_PanelActividadAux_1.setVerticalGroup(
 			gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
@@ -800,7 +806,12 @@ public class VistaAuxTabla extends JFrame {
 							.addComponent(checkActFotoFofografia)
 							.addGap(5)
 							.addComponent(checkActFotocopiaDni))
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_PanelActividadAux_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblEstado)
+						.addComponent(comboBoxActEstado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(41, Short.MAX_VALUE))
 		);
 		
 		txtPActDescripcion = new JTextPane();
@@ -808,6 +819,14 @@ public class VistaAuxTabla extends JFrame {
 		PanelActividadAux_1.setLayout(gl_PanelActividadAux_1);
 		
 	
+	}
+
+	public String getComboBoxActEstado() {
+		return (String)comboBoxActEstado.getSelectedItem();
+	}
+
+	public void setComboBoxActEstado(JComboBox comboBoxActEstado) {
+		this.comboBoxActEstado = comboBoxActEstado;
 	}
 
 	public void setControlador(Controlador controlador) {
@@ -935,14 +954,13 @@ public class VistaAuxTabla extends JFrame {
 		txtfintTlfM.setText(modelo2.intTlfM);
 		txtfintFax.setText(modelo2.intFax);
 		txtfintEmail.setText(modelo2.intEmail);
-
+		comboBoxActEstado.setSelectedItem(modelo2.getActEstado());
+		comboBoxActTipoSuelo.setSelectedItem(modelo2.getActTipoSuelo());
 		///////ACTIVIDAD//////
 		///////SELECTS /////
-		if ("Urbano".equals(comboBoxActTipoSuelo.getSelectedItem())){
-			comboBoxActTipoSuelo.setSelectedIndex(0);
-		}else{
-			comboBoxActTipoSuelo.setSelectedIndex(1);
-		}
+	
+		
+		
 		txtfActReferenciaCatastral.setText(modelo2.ActReferenciaCatastral);
 		txtfActLocal.setText(modelo2.ActLocal);
 		txtfActTipo.setText(modelo2.ActTipo);

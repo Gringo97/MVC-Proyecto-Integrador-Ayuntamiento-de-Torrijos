@@ -195,7 +195,7 @@ public class VistaWB extends JFrame implements Vista {
 		public void keyTyped(KeyEvent arg0) {
 		txtfRazonSocialBusquedaPJ.addKeyListener(new KeyAdapter() {
 		public void keyReleased(final KeyEvent arg0) {
-		table.repaint();
+		
 		filtroRegistro();
 		
 		}
@@ -204,11 +204,10 @@ public class VistaWB extends JFrame implements Vista {
 		table.setRowSorter(trsfiltro);
 		}
 		});
-		txtfRazonSocialBusquedaPJ.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtfRazonSocialBusquedaPJ.setColumns(1);
+
 		
 
-		JLabel lblRazonSocial = new JLabel("Nombre:");
+		JLabel lblRazonSocial = new JLabel("Nº Registro");
 
 		txtfRazonSocialBusquedaPJ = new JTextField();
 		txtfRazonSocialBusquedaPJ.setColumns(10);
@@ -1103,7 +1102,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 	
 	public void filtroRegistro() {
-	trsfiltro.setRowFilter(RowFilter.regexFilter(txtfRazonSocialBusquedaPJ.getText().toUpperCase(), 1));
+	trsfiltro.setRowFilter(RowFilter.regexFilter(txtfRazonSocialBusquedaPJ.getText(), 0));
 	}
 
 	public String getTxtfLocal() {

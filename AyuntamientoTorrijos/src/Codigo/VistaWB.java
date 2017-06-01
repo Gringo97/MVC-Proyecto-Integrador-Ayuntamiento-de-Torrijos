@@ -178,7 +178,7 @@ public class VistaWB extends JFrame implements Vista {
 
 		JButton btnInscribirActividad = new JButton("Solicitud actividad");
 		JButton btnVisualizarLicencias = new JButton("Visualizar Licencias");
-
+		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setToolTipText("");
 
@@ -414,7 +414,7 @@ public class VistaWB extends JFrame implements Vista {
 
 		JButton btnAceptarInsPers = new JButton("Aceptar");
 
-		btnAceptarInsPers.setBounds(10, 605, 89, 23);
+		btnAceptarInsPers.setBounds(67, 605, 89, 23);
 		inscActvPers.add(btnAceptarInsPers);
 
 		JButton btnCancelarInsPers = new JButton("Cancelar");
@@ -425,7 +425,7 @@ public class VistaWB extends JFrame implements Vista {
 			}
 		});
 
-		btnCancelarInsPers.setBounds(566, 605, 89, 23);
+		btnCancelarInsPers.setBounds(477, 605, 89, 23);
 		inscActvPers.add(btnCancelarInsPers);
 
 		JPanel Panelrepresentante = new JPanel();
@@ -649,94 +649,124 @@ public class VistaWB extends JFrame implements Vista {
 			}
 		});
 		GroupLayout gl_PanelInteresado = new GroupLayout(PanelInteresado);
-		gl_PanelInteresado.setHorizontalGroup(gl_PanelInteresado.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_PanelInteresado.createSequentialGroup().addContainerGap(67, Short.MAX_VALUE)
-						.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(48).addComponent(label_2,
-										GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(label_14,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(txtfNombreI,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(label_15,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(
-										txtfApellidosI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(
-										lblMunicipio, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(
-										txtfMunicipio, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(label_17,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(txtfCIFI,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(label_18,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(
-										txtfDireccionI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(label_19,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(txtfCDI,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addComponent(label_20, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(txtfEmailI,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(label_21,
-										GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2).addComponent(txtfFaxI,
-										GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2)
-										.addComponent(label_22, GroupLayout.PREFERRED_SIZE, 84,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(10).addComponent(label_23, GroupLayout.PREFERRED_SIZE, 86,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_PanelInteresado.createSequentialGroup().addGap(2)
-										.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-												.addComponent(checkRepresentante)
-												.addGroup(gl_PanelInteresado.createSequentialGroup()
-														.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, 86,
-																GroupLayout.PREFERRED_SIZE)
-														.addGap(8).addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE,
-																86, GroupLayout.PREFERRED_SIZE)))))
-						.addGap(65)));
-		gl_PanelInteresado.setVerticalGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_PanelInteresado.createSequentialGroup().addContainerGap().addComponent(label_2).addGap(11)
-						.addComponent(label_14).addGap(11)
-						.addComponent(txtfNombreI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_15).addGap(11)
-						.addComponent(txtfApellidosI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(lblMunicipio).addGap(11)
-						.addComponent(txtfMunicipio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_17).addGap(11)
-						.addComponent(txtfCIFI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_18).addGap(11)
-						.addComponent(txtfDireccionI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_19).addGap(11)
-						.addComponent(txtfCDI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_20).addGap(11)
-						.addComponent(txtfEmailI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_21).addGap(7)
-						.addComponent(txtfFaxI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(14)
-						.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING).addComponent(label_22)
-								.addComponent(label_23))
-						.addGap(11)
-						.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE))
-						.addGap(18)
-						.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(31, Short.MAX_VALUE)));
+		gl_PanelInteresado.setHorizontalGroup(
+			gl_PanelInteresado.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_PanelInteresado.createSequentialGroup()
+					.addContainerGap(67, Short.MAX_VALUE)
+					.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(48)
+							.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_14, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfNombreI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_15, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfApellidosI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(lblMunicipio, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfMunicipio, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_17, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfCIFI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_18, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfDireccionI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_19, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfCDI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addComponent(label_20, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfEmailI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_21, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtfFaxI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_22, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addComponent(label_23, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+								.addComponent(checkRepresentante)
+								.addGroup(gl_PanelInteresado.createSequentialGroup()
+									.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+									.addGap(8)
+									.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))))
+					.addGap(65))
+		);
+		gl_PanelInteresado.setVerticalGroup(
+			gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_PanelInteresado.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(label_2)
+					.addGap(11)
+					.addComponent(label_14)
+					.addGap(11)
+					.addComponent(txtfNombreI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_15)
+					.addGap(11)
+					.addComponent(txtfApellidosI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(lblMunicipio)
+					.addGap(11)
+					.addComponent(txtfMunicipio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_17)
+					.addGap(11)
+					.addComponent(txtfCIFI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_18)
+					.addGap(11)
+					.addComponent(txtfDireccionI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_19)
+					.addGap(11)
+					.addComponent(txtfCDI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_20)
+					.addGap(11)
+					.addComponent(txtfEmailI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_21)
+					.addGap(7)
+					.addComponent(txtfFaxI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(14)
+					.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_22)
+						.addComponent(label_23))
+					.addGap(11)
+					.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(31, Short.MAX_VALUE))
+		);
 		PanelInteresado.setLayout(gl_PanelInteresado);
 
 		JPanel inscActv = new JPanel();
@@ -1003,7 +1033,13 @@ public class VistaWB extends JFrame implements Vista {
 		lblRutaDeAcceso = new JLabel("");
 		lblRutaDeAcceso.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRutaDeAcceso.setText("Inscribir Licencia de Actividad");
-
+		
+		//////////////COLORES //////////////
+		
+		 contentPane.setBackground(new Color(148,  183, 203));
+		
+		 
+		 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()

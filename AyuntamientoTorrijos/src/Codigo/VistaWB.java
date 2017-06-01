@@ -25,6 +25,8 @@ import javax.swing.JDesktopPane;
 import javax.swing.JComboBox;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
@@ -53,10 +55,13 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
 import javax.swing.JScrollPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
+
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.DefaultComboBoxModel;
@@ -129,6 +134,13 @@ public class VistaWB extends JFrame implements Vista {
 	private JButton btnCancelarInsActv;
 	private JButton btnActualizar2;
 	private JComboBox comboBoxEstado;
+	
+	private TableRowSorter trsfiltro;
+
+	
+
+
+
 
 	public void setControlador(Controlador controlador) {
 
@@ -174,6 +186,27 @@ public class VistaWB extends JFrame implements Vista {
 
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Personas", null, panel_3, null);// BUSCAR PERSONA
+		
+		
+		txtfRazonSocialBusquedaPJ = new JTextField();
+		txtfRazonSocialBusquedaPJ.addKeyListener(new KeyAdapter() {
+			
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+		txtfRazonSocialBusquedaPJ.addKeyListener(new KeyAdapter() {
+		public void keyReleased(final KeyEvent arg0) {
+		table.repaint();
+		filtroRegistro();
+		
+		}
+		});
+		trsfiltro = new TableRowSorter(table.getModel());
+		table.setRowSorter(trsfiltro);
+		}
+		});
+		txtfRazonSocialBusquedaPJ.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtfRazonSocialBusquedaPJ.setColumns(1);
+		
 
 		JLabel lblRazonSocial = new JLabel("Nombre:");
 
@@ -1032,9 +1065,13 @@ public class VistaWB extends JFrame implements Vista {
 		});
 
 	}
+	
+	public void filtroRegistro() {
+	trsfiltro.setRowFilter(RowFilter.regexFilter(txtfRazonSocialBusquedaPJ.getText().toUpperCase(), 1));
+	}
 
 	public String getTxtfLocal() {
-		return txtfLocal.getText();
+		return txtfLocal.getText().toUpperCase().toUpperCase();
 	}
 
 	public void setTxtfLocal(JTextField txtfLocal) {
@@ -1042,7 +1079,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfTipo() {
-		return txtfTipo.getText();
+		return txtfTipo.getText().toUpperCase();
 	}
 
 	public void setTxtfTipo(JTextField txtfTipo) {
@@ -1050,7 +1087,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfCuota() {
-		return txtfCuota.getText();
+		return txtfCuota.getText().toUpperCase();
 	}
 
 	public void setTxtfCuota(JTextField txtfCuota) {
@@ -1058,7 +1095,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfReferenciaCatastral() {
-		return txtfReferenciaCatastral.getText();
+		return txtfReferenciaCatastral.getText().toUpperCase();
 	}
 
 	public void setTxtfReferenciaCatastral(JTextField txtfReferenciaCatastral) {
@@ -1066,7 +1103,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfEmplazamiento() {
-		return txtfEmplazamiento.getText();
+		return txtfEmplazamiento.getText().toUpperCase();
 	}
 
 	public void setTxtfEmplazamiento(JTextField txtfEmplazamiento) {
@@ -1074,7 +1111,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfNombreR() {
-		return txtfNombreR.getText();
+		return txtfNombreR.getText().toUpperCase().toUpperCase();
 	}
 
 	public void setTxtfNombreR(JTextField txtfNombreR) {
@@ -1082,7 +1119,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfApellidosR() {
-		return txtfApellidosR.getText();
+		return txtfApellidosR.getText().toUpperCase();
 	}
 
 	public void setTxtfApellidosR(JTextField txtfApellidosR) {
@@ -1090,7 +1127,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfDocumentoIdentidadR() {
-		return txtfDocumentoIdentidadR.getText();
+		return txtfDocumentoIdentidadR.getText().toUpperCase();
 	}
 
 	public void setTxtfDocumentoIdentidadR(JTextField txtfDocumentoIdentidadR) {
@@ -1098,7 +1135,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfDireccionR() {
-		return txtfDireccionR.getText();
+		return txtfDireccionR.getText().toUpperCase();
 	}
 
 	public void setTxtfDireccionR(JTextField txtfDireccionR) {
@@ -1106,7 +1143,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfMuncipioR() {
-		return txtfMuncipioR.getText();
+		return txtfMuncipioR.getText().toUpperCase();
 	}
 
 	public void setTxtfMuncipioR(JTextField txtfMuncipioR) {
@@ -1114,7 +1151,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfCDR() {
-		return txtfCPR.getText();
+		return txtfCPR.getText().toUpperCase();
 	}
 
 	public void setTxtfCDR(JTextField txtfCDR) {
@@ -1122,7 +1159,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfEmailR() {
-		return txtfEmailR.getText();
+		return txtfEmailR.getText().toUpperCase();
 	}
 
 	public void setTxtfEmailR(JTextField txtfEmailR) {
@@ -1130,7 +1167,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfFaxR() {
-		return txtfFaxR.getText();
+		return txtfFaxR.getText().toUpperCase();
 	}
 
 	public void setTxtfFaxR(JTextField txtfFaxR) {
@@ -1138,7 +1175,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfMovilR() {
-		return txtfMovilR.getText();
+		return txtfMovilR.getText().toUpperCase();
 	}
 
 	public void setTxtfMovilR(JTextField txtfMovilR) {
@@ -1146,7 +1183,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfFijo() {
-		return txtfFijo.getText();
+		return txtfFijo.getText().toUpperCase();
 	}
 
 	public void setTxtfFijo(JTextField txtfFijo) {
@@ -1154,7 +1191,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfNombreI() {
-		return txtfNombreI.getText();
+		return txtfNombreI.getText().toUpperCase();
 	}
 
 	public void setTxtfNombreI(JTextField txtfNombreI) {
@@ -1162,7 +1199,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfApellidosI() {
-		return txtfApellidosI.getText();
+		return txtfApellidosI.getText().toUpperCase();
 	}
 
 	public void setTxtfApellidosI(JTextField txtfApellidosI) {
@@ -1170,7 +1207,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfMunicipio() {
-		return txtfMunicipio.getText();
+		return txtfMunicipio.getText().toUpperCase();
 	}
 
 	public void setTxtfMunicipio(JTextField txtfMunicipio) {
@@ -1178,7 +1215,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfCIFI() {
-		return txtfCIFI.getText();
+		return txtfCIFI.getText().toUpperCase();
 	}
 
 	public void setTxtfCIFI(JTextField txtfCIFI) {
@@ -1186,7 +1223,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfDireccionI() {
-		return txtfDireccionI.getText();
+		return txtfDireccionI.getText().toUpperCase();
 	}
 
 	public void setTxtfDireccionI(JTextField txtfDireccionI) {
@@ -1194,7 +1231,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfCDI() {
-		return txtfCDI.getText();
+		return txtfCDI.getText().toUpperCase();
 	}
 
 	public void setTxtfCDI(JTextField txtfCDI) {
@@ -1202,7 +1239,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfEmailI() {
-		return txtfEmailI.getText();
+		return txtfEmailI.getText().toUpperCase();
 	}
 
 	public void setTxtfEmailI(JTextField txtfEmailI) {
@@ -1210,7 +1247,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfFaxI() {
-		return txtfFaxI.getText();
+		return txtfFaxI.getText().toUpperCase();
 	}
 
 	public void setTxtfFaxI(JTextField txtfFaxI) {
@@ -1218,7 +1255,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfMovilI() {
-		return txtfMovilI.getText();
+		return txtfMovilI.getText().toUpperCase();
 	}
 
 	public void setTxtfMovilI(JTextField txtfMovilI) {
@@ -1226,7 +1263,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfFijoI() {
-		return txtfFijoI.getText();
+		return txtfFijoI.getText().toUpperCase();
 	}
 
 	public void setTxtfFijoI(JTextField txtfFijoI) {
@@ -1246,15 +1283,15 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String getTxtfRazonSocialBusquedaPJ() {
-		return txtfRazonSocialBusquedaPJ.getText();
+		return txtfRazonSocialBusquedaPJ.getText().toUpperCase();
 	}
 
 	public String getNIFBusquedaPJ() {
-		return NIFBusquedaPJ.getText();
+		return NIFBusquedaPJ.getText().toUpperCase();
 	}
 
 	public String getTxtfActBusqueda() {
-		return txtfActBusqueda.getText();
+		return txtfActBusqueda.getText().toUpperCase();
 	}
 
 	public void RellenarTabla(Object[][] aaa) {
@@ -1413,7 +1450,7 @@ public class VistaWB extends JFrame implements Vista {
 	}
 
 	public String gettxtfDescripcion() {
-		return txtDescripcion.getText();
+		return txtDescripcion.getText().toUpperCase();
 	}
 
 	public void vaciarAct() {

@@ -40,7 +40,7 @@ import javax.swing.JTable;
 import javax.swing.JEditorPane;
 import com.toedter.calendar.JDateChooser;
 
-import javafx.scene.control.TableColumn;
+
 
 import com.toedter.calendar.JCalendar;
 import java.awt.SystemColor;

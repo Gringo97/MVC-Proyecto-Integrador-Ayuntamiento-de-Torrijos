@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2017 a las 05:28:38
+-- Tiempo de generación: 02-06-2017 a las 08:35:43
 -- Versión del servidor: 10.1.22-MariaDB
 -- Versión de PHP: 7.1.4
 
@@ -30,9 +30,8 @@ USE `torrijos`;
 -- Estructura de tabla para la tabla `actividad`
 --
 
-DROP TABLE IF EXISTS `actividad`;
-CREATE TABLE `actividad` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `actividad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fotoLicenciaObra` tinyint(11) DEFAULT NULL,
   `fotoOtrasAutorizaciones` tinyint(11) DEFAULT NULL,
   `fotoJustificantePago` tinyint(11) DEFAULT NULL,
@@ -55,8 +54,9 @@ CREATE TABLE `actividad` (
   `certModelo1` tinyint(11) DEFAULT NULL,
   `certModelo2` tinyint(11) DEFAULT NULL,
   `FotocopiaDNI` tinyint(1) DEFAULT NULL,
-  `Estado` enum('Procesando','Aceptada','Archivada','') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Estado` enum('Procesando','Aceptada','Archivada','') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `actividad`
@@ -73,7 +73,14 @@ INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `f
 (26, 1, 0, 1, 1, 1, 1, 1, 1, 1, 'urbano', 'NO', 'CATERING RAM', 'COMERCIO', 'NO', '22/06/2017', '06/06/2017', 1000, 'ASDF', 0, 1, 1, 1, 'Aceptada'),
 (27, 1, 0, 0, 0, 0, 1, 0, 0, 1, 'rustico', 'SI¡¡nno', 'Ciber', 'BAR CIBER', 'SI', '03/06/2017', '01/06/2017', 5000, 'PRUEBA REALIZADA', 0, 1, 1, 0, 'Aceptada'),
 (28, 1, 0, 1, 0, 0, 0, 1, 0, 0, 'rustico', 'SI', 'BAR', 'CIBER', 'SI', '16/06/2017', '01/06/2017', 50, 'PRUEBA REALIZADA', 0, 0, 0, 1, 'Archivada'),
-(29, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'urbano', 'SI', 'BAR', 'COMICO', 'NO', '17/06/2017', '14/06/2017', 500, 'PRUEBA SOLICITUD', 0, 1, 0, 0, 'Procesando');
+(29, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'urbano', 'SI', 'BAR', 'COMICO', 'NO', '17/06/2017', '14/06/2017', 500, 'PRUEBA SOLICITUD', 0, 1, 0, 0, 'Procesando'),
+(30, 1, 0, 0, 0, 0, 0, 1, 0, 0, 'rustico', 'SI', 'BAR', 'PRUEBA', 'NO', '09/06/2017', '01/06/2017', 500, 'PRUEBA REALIZADA', 1, 1, 0, 0, 'Aceptada'),
+(31, 1, 0, 0, 0, 0, 1, 0, 0, 0, 'rustico', 'SI', 'PRUEBA', 'PRUEBA', 'SI', '15/06/2017', '01/06/2017', 100, 'ASD', 0, 0, 0, 0, 'Procesando'),
+(32, 0, 0, 1, 0, 0, 1, 0, 1, 0, 'urbano', 'SI', 'PEPE', 'BAR', 'NO', '10/06/2017', '08/06/2017', 500, 'PRUEBA REALIZADA', 0, 0, 0, 1, 'Archivada'),
+(33, 0, 0, 1, 0, 1, 0, 1, 0, 0, 'rustico', 'SI', 'PEEP', 'COMICO', 'SI', '16/06/2017', '09/06/2017', 50, 'PRUEBA', 0, 0, 0, 1, 'Aceptada'),
+(34, 0, 0, 1, 0, 0, 0, 1, 0, 0, 'urbano', 'SI', 'LOKE', 'BAR', 'SI', '10/06/2017', '08/06/2017', 50, 'REUBA', 0, 1, 0, 0, 'Archivada'),
+(35, 1, 0, 0, 0, 0, 1, 0, 0, 1, 'rustico', 'SI', 'PEPE', 'BAR', 'NO', '08/06/2017', '07/06/2017', 20, 'PREUBA', 0, 0, 1, 0, 'Aceptada'),
+(36, 1, 0, 0, 0, 0, 0, 1, 0, 1, 'urbano', 'SI', 'PEPE', 'BAR', 'SI', '24/06/2017', '15/06/2017', 55, 'PRUEBA', 0, 0, 0, 0, 'Archivada');
 
 -- --------------------------------------------------------
 
@@ -81,16 +88,17 @@ INSERT INTO `actividad` (`id`, `fotoLicenciaObra`, `fotoOtrasAutorizaciones`, `f
 -- Estructura de tabla para la tabla `cambiotitularidad`
 --
 
-DROP TABLE IF EXISTS `cambiotitularidad`;
-CREATE TABLE `cambiotitularidad` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cambiotitularidad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idLicenciaAnterior` int(11) NOT NULL,
   `numExpediente` tinyint(4) DEFAULT NULL,
   `escrituraPropiedad` tinyint(4) DEFAULT NULL,
   `contratoArrendamiento` tinyint(4) DEFAULT NULL,
   `documentacionJust` tinyint(4) DEFAULT NULL,
   `planosYPlanta` tinyint(4) DEFAULT NULL,
-  `fotoLicenciaAnterior` tinyint(4) NOT NULL
+  `fotoLicenciaAnterior` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idLicenciaAnterior` (`idLicenciaAnterior`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,9 +107,8 @@ CREATE TABLE `cambiotitularidad` (
 -- Estructura de tabla para la tabla `interesado`
 --
 
-DROP TABLE IF EXISTS `interesado`;
-CREATE TABLE `interesado` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `interesado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `cif` varchar(50) NOT NULL,
@@ -111,8 +118,9 @@ CREATE TABLE `interesado` (
   `telefonoFijo` int(12) DEFAULT NULL,
   `telefonoMovil` int(12) NOT NULL,
   `fax` int(12) DEFAULT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `interesado`
@@ -129,7 +137,14 @@ INSERT INTO `interesado` (`id`, `nombre`, `apellidos`, `cif`, `direccion`, `muni
 (36, 'RAMSES', 'DIEZ CAYETANO', '7534648K', 'CALLE CUESTA ARRIBA 4', 'HOYO DE MANZANARES', 25432, 912849374, 912849374, 912849374, 'RAM@GMAIL.COM'),
 (37, 'David', 'Perez', '54089658P', 'C/ LAS ROZAS', 'LAS ROZAS', 28411, 9158647, 61999587, 9184597, 'PEDRO@GMAIL.COM'),
 (38, 'Jaime', 'de la torre', '5879655P', 'LAS ROZAS', 'LAS ROZAS', 28411, 61991415, 61991416, 91589696, 'PEDRO@GMAIL.COM'),
-(39, 'Lafoz', 'GOMEZ', '548548Y', 'LAS ROZAS', 'LAS ROZAS', 28411, 6188787, 61999999, 9185588, 'ESTHER@GMAIL.COM');
+(39, 'Lafoz', 'GOMEZ', '548548Y', 'LAS ROZAS', 'LAS ROZAS', 28411, 6188787, 61999999, 9185588, 'ESTHER@GMAIL.COM'),
+(40, 'DELAFUENTE', 'GUILLERMOTUVILLA', '5458975X', 'POLI', 'MORALZARZAL', 28411, 61998874, 61999587, 91857896, 'OSCAR@TUVILLA.COM'),
+(41, 'alejandro', 'PACHECO', '1324542J', 'CALLE ALTA 5 ', 'MADRID', 23432, 918473847, 657483746, 91827483, 'OSCARBMX@GMAIL.COM'),
+(42, 'JESUS', 'GOYA', '28411', 'MORAL', 'MORALZARZAL', 28411, 619999, 619669, 91857894, 'GUILLE@GMAIL.COM'),
+(43, 'JJAIME', 'GOYAPE', '28411', 'MORALI', 'MORAL', 28411, 698748, 6197859, 91896578, 'JESUS@GMAIL.COM'),
+(44, 'SERGIO', 'PEPE', '5498787', 'MORLI', 'MORAL', 28411, 658888, 618888, 998998, 'PEPE@GMAIL.COM'),
+(45, 'holaaa', 'FUENTE', '548787', 'OSCARFFF', 'MORAL', 24844, 658985, 656598, 9595985, 'OSCARF@GMAIL.COM'),
+(46, 'alvaro', 'PEO', '658987', 'KOSER', 'MORALI', 528798, 619485, 6199598, 9198587, 'JOESE@GMAIL.COM');
 
 -- --------------------------------------------------------
 
@@ -137,12 +152,14 @@ INSERT INTO `interesado` (`id`, `nombre`, `apellidos`, `cif`, `direccion`, `muni
 -- Estructura de tabla para la tabla `relactper`
 --
 
-DROP TABLE IF EXISTS `relactper`;
-CREATE TABLE `relactper` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `relactper` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idInt` int(11) NOT NULL,
-  `idAct` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idAct` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idInt` (`idInt`),
+  KEY `idAct` (`idAct`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `relactper`
@@ -159,7 +176,14 @@ INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES
 (26, 36, 26),
 (27, 37, 27),
 (28, 38, 28),
-(29, 39, 29);
+(29, 39, 29),
+(30, 40, 30),
+(31, 41, 31),
+(32, 42, 32),
+(33, 43, 33),
+(34, 44, 34),
+(35, 45, 35),
+(36, 46, 36);
 
 -- --------------------------------------------------------
 
@@ -167,12 +191,14 @@ INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES
 -- Estructura de tabla para la tabla `relintrep`
 --
 
-DROP TABLE IF EXISTS `relintrep`;
-CREATE TABLE `relintrep` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `relintrep` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idInteresado` int(11) NOT NULL,
-  `idRepresentante` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idRepresentante` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idInteresado` (`idInteresado`,`idRepresentante`),
+  KEY `idRepresentante` (`idRepresentante`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `relintrep`
@@ -188,9 +214,8 @@ INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES
 -- Estructura de tabla para la tabla `representante`
 --
 
-DROP TABLE IF EXISTS `representante`;
-CREATE TABLE `representante` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `representante` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `documentoIdentidad` varchar(9) NOT NULL,
@@ -200,8 +225,9 @@ CREATE TABLE `representante` (
   `telefonoFijo` int(12) DEFAULT NULL,
   `telefonoMovil` int(12) NOT NULL,
   `fax` int(12) DEFAULT NULL,
-  `Email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `representante`
@@ -211,85 +237,6 @@ INSERT INTO `representante` (`id`, `nombre`, `apellidos`, `documentoIdentidad`, 
 (8, 'JUAN', 'LUIS', '12345678O', 'C/ lOS OLIVOS 2', 'SEGOVIA', 24567, 918437362, 918437362, 918437362, 'juanluis@gmail.com'),
 (9, 'GUILLERO', 'TUVILLA CALVO', '12345674K', 'C/ ENFERMO 2', 'MORALZARZAL', 28411, 918571827, 918571827, 918571827, 'shotual@gmail.com');
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `actividad`
---
-ALTER TABLE `actividad`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `cambiotitularidad`
---
-ALTER TABLE `cambiotitularidad`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idLicenciaAnterior` (`idLicenciaAnterior`);
-
---
--- Indices de la tabla `interesado`
---
-ALTER TABLE `interesado`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `relactper`
---
-ALTER TABLE `relactper`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idInt` (`idInt`),
-  ADD KEY `idAct` (`idAct`);
-
---
--- Indices de la tabla `relintrep`
---
-ALTER TABLE `relintrep`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idInteresado` (`idInteresado`,`idRepresentante`),
-  ADD KEY `idRepresentante` (`idRepresentante`);
-
---
--- Indices de la tabla `representante`
---
-ALTER TABLE `representante`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `actividad`
---
-ALTER TABLE `actividad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
---
--- AUTO_INCREMENT de la tabla `cambiotitularidad`
---
-ALTER TABLE `cambiotitularidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `interesado`
---
-ALTER TABLE `interesado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
---
--- AUTO_INCREMENT de la tabla `relactper`
---
-ALTER TABLE `relactper`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
---
--- AUTO_INCREMENT de la tabla `relintrep`
---
-ALTER TABLE `relintrep`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT de la tabla `representante`
---
-ALTER TABLE `representante`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Restricciones para tablas volcadas
 --

@@ -222,7 +222,7 @@ public class VistaWB extends JFrame implements Vista {
 			public void keyTyped(KeyEvent arg0) {
 				NIFBusquedaPJ.addKeyListener(new KeyAdapter() {
 			public void keyReleased(final KeyEvent arg0) {
-			repaint();
+		repaint();
 			filtroRegistro2();
 			
 			}
@@ -239,14 +239,11 @@ public class VistaWB extends JFrame implements Vista {
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controlador.refrescar();
+				trsfiltro = new TableRowSorter(table.getModel());
+				table.setRowSorter(trsfiltro);
 			}
 		});
-		btnRefresh.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-		});
+		
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(
 			gl_panel_3.createParallelGroup(Alignment.TRAILING)
@@ -695,7 +692,7 @@ public class VistaWB extends JFrame implements Vista {
 		Contenedor.add(inscActv, "name_29022094463246");
 
 		JLabel lblNewLabel = new JLabel("Fotocopia de licencia de obra");
-		lblNewLabel.setBounds(37, 38, 151, 14);
+		lblNewLabel.setBounds(37, 38, 166, 14);
 
 		JLabel lblNewLabel_1 = new JLabel("Justificante de pago");
 		lblNewLabel_1.setBounds(37, 79, 139, 14);
@@ -834,6 +831,8 @@ public class VistaWB extends JFrame implements Vista {
 					vaciarAct();
 					controlador.refrescar();
 				}
+				trsfiltro = new TableRowSorter(table.getModel());
+				table.setRowSorter(trsfiltro);
 
 			}
 		});

@@ -466,7 +466,7 @@ public class VistaAuxTabla extends JFrame {
 		checkActFotoEscritura.setBounds(552, 75, 21, 21);
 		
 		JLabel label_25 = new JLabel("Certificado Modelo 1");
-		label_25.setBounds(656, 79, 98, 14);
+		label_25.setBounds(656, 79, 137, 14);
 		
 		checkActCertModelo1 = new JCheckBox("");
 		checkActCertModelo1.setBounds(799, 76, 21, 21);

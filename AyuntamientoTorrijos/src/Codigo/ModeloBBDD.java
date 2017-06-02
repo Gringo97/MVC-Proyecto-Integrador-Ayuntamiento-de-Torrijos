@@ -45,7 +45,7 @@ public class ModeloBBDD implements Modelo {
 	}
 
 	public void Consulta(String Query) {
-		vista.clear_Table();
+		//vista.clear_Table();
 		String query = Query;
 
 		try {
@@ -97,6 +97,7 @@ public class ModeloBBDD implements Modelo {
 
 		this.Consulta(
 				"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id");
+		vista.setDatosTabla();
 		
 	}
 
@@ -112,7 +113,7 @@ public class ModeloBBDD implements Modelo {
 				System.out.println(tabla[i][j]);
 			}
 		}
-		return tabla2;
+		return tabla;
 	}
 
 	public void setTabla(String[][] tabla) {

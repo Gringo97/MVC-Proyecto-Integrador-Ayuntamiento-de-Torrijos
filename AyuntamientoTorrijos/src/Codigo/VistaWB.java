@@ -1034,10 +1034,10 @@ public class VistaWB extends JFrame implements Vista {
 	}
 	
 	public void filtroRegistro() {
-	trsfiltro.setRowFilter(RowFilter.regexFilter(txtfRazonSocialBusquedaPJ_1.getText(), 0));
+	trsfiltro.setRowFilter(RowFilter.regexFilter(txtfRazonSocialBusquedaPJ_1.getText().toUpperCase(), 0));
 	}
 	public void filtroRegistro2() {
-		trsfiltro.setRowFilter(RowFilter.regexFilter(NIFBusquedaPJ.getText(), 4));
+		trsfiltro.setRowFilter(RowFilter.regexFilter(NIFBusquedaPJ.getText().toUpperCase(), 4));
 		}
 
 	public String getTxtfLocal() {

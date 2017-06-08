@@ -24,6 +24,17 @@ public class ModeloBBDD implements Modelo {
 	public String tabla[][] = null;
 	public String tabla2[][] = null;
 	private String bd, login, pwd;
+	
+	
+	
+	///////////////////////////////////////////////////////////////
+	//---------------------CONEXION----------------------------///
+	///////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
 
 	public void Conexion(String bd, String login, String pwd) {
 		this.bd = bd;
@@ -40,9 +51,35 @@ public class ModeloBBDD implements Modelo {
 			return conexion;
 		} catch (Exception e) {
 			return null;
-			// TODO: handle exception
+
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public void refrescar() {
+
+		this.Consulta(
+				"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id");
+		vista.setDatosTabla();
+		
+	}
+	
+	
+	
+	
+	///////////////////////////////////////////////////////////////
+	//---------------------CONSULTAS----------------------------///
+	///////////////////////////////////////////////////////////////
+	
+	
+	
+	
 
 	public void Consulta(String Query) {
 		//vista.clear_Table();
@@ -82,7 +119,6 @@ public class ModeloBBDD implements Modelo {
 				cont2++;
 
 			}
-//			vista.RellenarTabla(tabla);
 			vista.setDatosTabla();
 			rset.close();
 			stmt.close();
@@ -90,15 +126,6 @@ public class ModeloBBDD implements Modelo {
 			s.printStackTrace();
 		}
 
-	}
-
-
-	public void refrescar() {
-
-		this.Consulta(
-				"SELECT * FROM actividad join relactper on actividad.id = relactper.idAct JOIN interesado on relactper.idInt = interesado.id");
-		vista.setDatosTabla();
-		
 	}
 
 	public String[][] getTabla() {
@@ -137,8 +164,11 @@ public class ModeloBBDD implements Modelo {
 	
 	
 	
-	/////////////////////////////////////////////////////INSERTS
-	/////////////////////////////////////////////////////
+	
+	
+	///////////////////////////////////////////////////////////////
+	//---------------------INNSERTS----------------------------///
+	///////////////////////////////////////////////////////////////
 	
 	
 	
@@ -178,7 +208,6 @@ public class ModeloBBDD implements Modelo {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return last_inserted_id;
@@ -224,18 +253,13 @@ public class ModeloBBDD implements Modelo {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
 		return last_inserted_id;
 
 	}
-	
-	
-	
-	
-	
 	
 	
 
@@ -289,30 +313,17 @@ public class ModeloBBDD implements Modelo {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-			// System.exit(-1);
+
 		}
 
 		return last_inserted_id;
-		// TODO Auto-generated method stub
+
 
 	}
-	// INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES
-	// (NULL, '3', NULL);
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	public void insertarTablaInter(int idPersona, int idActividad) {
@@ -336,16 +347,13 @@ public class ModeloBBDD implements Modelo {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-			// System.exit(-1);
+
 		}
 	}
 
 
-	
-	
-	
 	
 	public void insertarTablaInter2(int idPer, int idRep) {
 		Connection con = getConnection();
@@ -368,23 +376,18 @@ public class ModeloBBDD implements Modelo {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-			// System.exit(-1);
+
 		}
 
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	///////////////////////////////////////////////////////////////
+	//---------------------UPDATES----------------------------///
+	///////////////////////////////////////////////////////////////
 	
 	
 	
@@ -1008,9 +1011,9 @@ ActEstado = rset.getString("actividad.Estado");
 			
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-			// System.exit(-1);
+
 		}
 		String query2 = "UPDATE actividad SET fotoLicenciaObra= ?,fotoOtrasAutorizaciones= ?,fotoJustificantePago= ?,fotoEscritura= ?,fotomodelo036= ?,fotoPlanos= ?,fotoCD= ?,fotoMemoria= ?,fotoFotografia= ?,tipoSuelo= ?,referenciaCatastral=?,local=?,tipo=?,emplazamiento=?,fechaSolicitud=?,fechainicio=?,cuota=?,descripcion=?,certColegioOficial=?,certModelo1=?,certModelo2 = ?, FotocopiaDNI = ?, Estado = ? where id = ?";
 		try {
@@ -1051,9 +1054,9 @@ ActEstado = rset.getString("actividad.Estado");
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-			// System.exit(-1);
+
 		}
 		
 	}
@@ -1091,9 +1094,8 @@ ActEstado = rset.getString("actividad.Estado");
 				}
 
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-				// System.exit(-1);
+
 			}
 		}
 	}

@@ -13,6 +13,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -104,6 +106,12 @@ public class VistaFicheroIni extends JFrame implements Vista{
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controlador.GuardarDatos();
+				try {
+					controlador.reconectar();
+					controlador.refrescar();
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "No esta conectado con su base de datos, acceda a la configuracion para conectarla");
+				}
 				dispose();
 			}
 		});

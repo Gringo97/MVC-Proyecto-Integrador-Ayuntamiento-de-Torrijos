@@ -72,6 +72,8 @@ public class ControladorWB extends JFrame implements Controlador {
 	}
 
 	public void GuardarDatos(){
+
+		
 		
 		modeloFicheroIni.GuardarDatos(vistaFicheroIni.getTxtfBaseDatos(), vistaFicheroIni.getTxtfLogin(), vistaFicheroIni.getTxtfPassword(), vistaFicheroIni.getTxtfURL());
 	}
@@ -174,6 +176,18 @@ modelo2.recogerDatosParaCambioTitularidad(dato);
 
 	public void copiarInfor() {
 		modelo.copiarInfor(vista.getTxtfNombreI(),vista.getTxtfApellidosI(),vista.getTxtfCIFI(),vista.getTxtfDireccionI(),vista.getTxtfMunicipio(),vista.getTxtfCDI(),vista.getTxtfFijoI(),vista.getTxtfMovilI(),vista.getTxtfFaxI(),vista.getTxtfEmailI());
+		
+	}
+
+	public void reconectar() {
+		String url = vistaFicheroIni.getTxtfURL(); 
+		String bd = vistaFicheroIni.getTxtfBaseDatos();
+		
+		
+		
+		
+		modelo2.Conexion(url+bd, vistaFicheroIni.getTxtfLogin(), vistaFicheroIni.getTxtfPassword());
+		modelo2.getConnection();
 		
 	}
 

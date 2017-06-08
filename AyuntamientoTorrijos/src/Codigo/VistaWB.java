@@ -652,13 +652,13 @@ public class VistaWB extends JFrame implements Vista {
 							.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_PanelInteresado.createSequentialGroup()
 									.addComponent(checkRepresentante)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(btnCopiarInfo))
 								.addGroup(gl_PanelInteresado.createSequentialGroup()
 									.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
 									.addGap(8)
 									.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))))
-					.addContainerGap(47, Short.MAX_VALUE))
+					.addContainerGap(51, Short.MAX_VALUE))
 		);
 		gl_PanelInteresado.setVerticalGroup(
 			gl_PanelInteresado.createParallelGroup(Alignment.LEADING)

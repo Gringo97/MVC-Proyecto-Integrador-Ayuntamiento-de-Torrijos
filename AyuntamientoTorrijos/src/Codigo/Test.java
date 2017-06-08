@@ -1,5 +1,7 @@
 package Codigo;
 
+import javax.swing.JOptionPane;
+
 public class Test {
 	public static void main(String[] args) {
 		ModeloWB modelo = new ModeloWB();
@@ -27,7 +29,12 @@ public class Test {
 		controlador.setModelo3(modeloFicheroIni);
 
 		controlador.setVista(vista);
-		controlador.refrescar();
+		try {
+			controlador.refrescar();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "No esta conectado con su base de datos, acceda a la configuracion para conectarla");
+		}
+		
 		
 		vista.adirArr();
 

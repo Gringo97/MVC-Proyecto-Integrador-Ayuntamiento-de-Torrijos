@@ -42,7 +42,7 @@ public class ModeloFicheroIni implements Modelo {
 				login = datos.getProperty("login");
 				pwd = datos.getProperty("pwd");
 				url = datos.getProperty("url");
-				
+
 				System.out.println(url);
 
 			} else {
@@ -51,39 +51,49 @@ public class ModeloFicheroIni implements Modelo {
 			}
 		} catch (IOException ex) {
 			ex.printStackTrace();
+		} finally{
+			if(entrada != null){
+				try{
+					entrada.close();
+				}catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
 		}
 
 	}
-	
-	public void GuardarDatos(String bd,String login,String pwd,String url){
+
+	public void GuardarDatos(String bd, String login, String pwd, String url) {
 		OutputStream salida = null;
 		try {
 			miFichero = new File(FILE);
 			if (miFichero.exists()) {
-			salida = new FileOutputStream(miFichero);
-			// asignamos los valores a las propiedades
-			datos.setProperty("bd", bd);
-			datos.setProperty("login", login);
-			datos.setProperty("pwd", pwd);
-			datos.setProperty("url", url);
-			// guardamos el archivo de propiedades en la carpeta de aplicación
-			datos.store(salida, "Comentario para el fichero");
+				salida = new FileOutputStream(miFichero);
+				// asignamos los valores a las propiedades
+				datos.setProperty("bd", bd);
+				datos.setProperty("login", login);
+				datos.setProperty("pwd", pwd);
+				datos.setProperty("url", url);
+				// guardamos el archivo de propiedades en la carpeta de
+				// aplicación
+				datos.store(salida, "Comentario para el fichero");
 			} else
-			System.err.println("Fichero no encontrado");
-			} catch (IOException ex) {
+				System.err.println("Fichero no encontrado");
+		} catch (IOException ex) {
 			ex.printStackTrace();
-			} finally {
+		} finally {
 			if (salida != null) {
-			try {
-			salida.close();
-			} catch (IOException e) {
-			e.printStackTrace();
+				try {
+					salida.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-			}
-			}
+		}
 	}
 
 	public void setDatos() {
+
 		vista.setTxtfBaseDatos(bd);
 		vista.setTxtfLogin(login);
 		vista.setTxtfPassword(pwd);
@@ -92,9 +102,8 @@ public class ModeloFicheroIni implements Modelo {
 
 	public void setModeloBBDD(ModeloBBDD modeloBBDD) {
 		this.modeloBBDD = modeloBBDD;
-		modeloBBDD.Conexion(url+bd, login, pwd);
+		modeloBBDD.Conexion(url + bd, login, pwd);
 	}
-
 
 	public void setVista(Vista vista) {
 		this.vista = (VistaFicheroIni) vista;
@@ -124,6 +133,5 @@ public class ModeloFicheroIni implements Modelo {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-
 
 }

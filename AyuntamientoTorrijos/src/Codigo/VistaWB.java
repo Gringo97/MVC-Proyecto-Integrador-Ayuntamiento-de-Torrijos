@@ -134,6 +134,7 @@ public class VistaWB extends JFrame implements Vista {
 	private TableRowSorter trsfiltro;
 	private JButton btnRefresh;
 	private JButton btnConfiguracion;
+	private JButton btnCopiarInfo;
 
 	
 
@@ -423,83 +424,91 @@ public class VistaWB extends JFrame implements Vista {
 		JLabel label_13 = new JLabel("Telefono fijo");
 		label_13.setEnabled(false);
 		GroupLayout gl_Panelrepresentante = new GroupLayout(Panelrepresentante);
-		gl_Panelrepresentante.setHorizontalGroup(gl_Panelrepresentante.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_Panelrepresentante.createSequentialGroup().addContainerGap(70, Short.MAX_VALUE)
-						.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_Panelrepresentante.createSequentialGroup().addGap(41).addComponent(label_1,
-										GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE))
-								.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfNombreR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfApellidosR, GroupLayout.PREFERRED_SIZE, 180,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfDocumentoIdentidadR, GroupLayout.PREFERRED_SIZE, 180,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfDireccionR, GroupLayout.PREFERRED_SIZE, 180,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_8, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfMuncipioR, GroupLayout.PREFERRED_SIZE, 180,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfCPR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfEmailR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label_11, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfFaxR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_Panelrepresentante.createSequentialGroup()
-										.addComponent(label_12, GroupLayout.PREFERRED_SIZE, 84,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(10).addComponent(label_13, GroupLayout.PREFERRED_SIZE, 86,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_Panelrepresentante.createSequentialGroup()
-										.addComponent(txtfMovilR, GroupLayout.PREFERRED_SIZE, 86,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(8).addComponent(txtfFijo, GroupLayout.PREFERRED_SIZE, 86,
-												GroupLayout.PREFERRED_SIZE)))
-						.addGap(97)));
-		gl_Panelrepresentante.setVerticalGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panelrepresentante.createSequentialGroup().addContainerGap()
-						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE).addGap(9)
-						.addComponent(label_3).addGap(11)
-						.addComponent(txtfNombreR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_4).addGap(11)
-						.addComponent(txtfApellidosR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_5).addGap(11)
-						.addComponent(txtfDocumentoIdentidadR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_7).addGap(11)
-						.addComponent(txtfDireccionR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_8).addGap(11)
-						.addComponent(txtfMuncipioR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_9).addGap(11)
-						.addComponent(txtfCPR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_10).addGap(11)
-						.addComponent(txtfEmailR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11).addComponent(label_11).addGap(10)
-						.addComponent(txtfFaxR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(11)
-						.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING).addComponent(label_12)
-								.addComponent(label_13))
-						.addGap(11)
-						.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtfMovilR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfFijo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(65, Short.MAX_VALUE)));
+		gl_Panelrepresentante.setHorizontalGroup(
+			gl_Panelrepresentante.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_Panelrepresentante.createSequentialGroup()
+					.addContainerGap(70, Short.MAX_VALUE)
+					.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panelrepresentante.createSequentialGroup()
+							.addGap(41)
+							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE))
+						.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfNombreR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfApellidosR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfDocumentoIdentidadR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfDireccionR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_8, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfMuncipioR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfCPR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfEmailR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_11, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfFaxR, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_Panelrepresentante.createSequentialGroup()
+							.addComponent(label_12, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addComponent(label_13, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panelrepresentante.createSequentialGroup()
+							.addComponent(txtfMovilR, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+							.addGap(8)
+							.addComponent(txtfFijo, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))
+					.addGap(97))
+		);
+		gl_Panelrepresentante.setVerticalGroup(
+			gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panelrepresentante.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+					.addGap(9)
+					.addComponent(label_3)
+					.addGap(11)
+					.addComponent(txtfNombreR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_4)
+					.addGap(11)
+					.addComponent(txtfApellidosR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_5)
+					.addGap(11)
+					.addComponent(txtfDocumentoIdentidadR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_7)
+					.addGap(11)
+					.addComponent(txtfDireccionR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_8)
+					.addGap(11)
+					.addComponent(txtfMuncipioR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_9)
+					.addGap(11)
+					.addComponent(txtfCPR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_10)
+					.addGap(11)
+					.addComponent(txtfEmailR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(label_11)
+					.addGap(10)
+					.addComponent(txtfFaxR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_12)
+						.addComponent(label_13))
+					.addGap(11)
+					.addGroup(gl_Panelrepresentante.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtfMovilR, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfFijo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(65, Short.MAX_VALUE))
+		);
 		Panelrepresentante.setLayout(gl_Panelrepresentante);
 
 		JPanel PanelInteresado = new JPanel();
-		PanelInteresado.setBounds(0, 0, 316, 594);
+		PanelInteresado.setBounds(0, 0, 316, 655);
 		inscActvPers.add(PanelInteresado);
 
 		JLabel label_2 = new JLabel("Interesado");
@@ -560,18 +569,33 @@ public class VistaWB extends JFrame implements Vista {
 			public void actionPerformed(ActionEvent e) {
 
 				if (checkRepresentante.isSelected()) {
+					btnCopiarInfo.setEnabled(true);
 					controlador.ActivarRepre(Panelrepresentante, true);
+					
 				} else {
+					btnCopiarInfo.setEnabled(false);
 					controlador.ActivarRepre(Panelrepresentante, false);
 				}
+			}
+		});
+		
+		btnCopiarInfo = new JButton("Copy");
+		btnCopiarInfo.setEnabled(false);
+		btnCopiarInfo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				controlador.copiarInfor();
 			}
 		});
 		GroupLayout gl_PanelInteresado = new GroupLayout(PanelInteresado);
 		gl_PanelInteresado.setHorizontalGroup(
 			gl_PanelInteresado.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_PanelInteresado.createSequentialGroup()
-					.addContainerGap(67, Short.MAX_VALUE)
+					.addGap(67)
 					.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_PanelInteresado.createSequentialGroup()
+							.addGap(2)
+							.addComponent(label_18, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_PanelInteresado.createSequentialGroup()
 							.addGap(48)
 							.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
@@ -601,9 +625,6 @@ public class VistaWB extends JFrame implements Vista {
 							.addComponent(txtfCIFI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_PanelInteresado.createSequentialGroup()
 							.addGap(2)
-							.addComponent(label_18, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_PanelInteresado.createSequentialGroup()
-							.addGap(2)
 							.addComponent(txtfDireccionI, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_PanelInteresado.createSequentialGroup()
 							.addGap(2)
@@ -629,12 +650,15 @@ public class VistaWB extends JFrame implements Vista {
 						.addGroup(gl_PanelInteresado.createSequentialGroup()
 							.addGap(2)
 							.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
-								.addComponent(checkRepresentante)
+								.addGroup(gl_PanelInteresado.createSequentialGroup()
+									.addComponent(checkRepresentante)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(btnCopiarInfo))
 								.addGroup(gl_PanelInteresado.createSequentialGroup()
 									.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
 									.addGap(8)
 									.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))))
-					.addGap(65))
+					.addContainerGap(47, Short.MAX_VALUE))
 		);
 		gl_PanelInteresado.setVerticalGroup(
 			gl_PanelInteresado.createParallelGroup(Alignment.LEADING)
@@ -682,8 +706,10 @@ public class VistaWB extends JFrame implements Vista {
 						.addComponent(txtfMovilI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtfFijoI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
-					.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(31, Short.MAX_VALUE))
+					.addGroup(gl_PanelInteresado.createParallelGroup(Alignment.BASELINE)
+						.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnCopiarInfo))
+					.addContainerGap(22, Short.MAX_VALUE))
 		);
 		PanelInteresado.setLayout(gl_PanelInteresado);
 
@@ -1482,5 +1508,18 @@ public class VistaWB extends JFrame implements Vista {
 
 	public String getComboBoxEstado() {
 		return (String) comboBoxEstado.getSelectedItem();
+	}
+
+	public void copiarInfo(String txtfintNombre, String txtfintApellido, String txtfintCif, String txtfintDireccion, String txtfintMunicipio, String txtfintCP, String txtfintTlfF, String txtfintTlfM, String txtfintFax, String txtfintEmail) {
+		txtfNombreR.setText(txtfintNombre);
+		txtfApellidosR.setText(txtfintApellido);
+		txtfDocumentoIdentidadR.setText(txtfintCif);
+		txtfDireccionR.setText(txtfintDireccion);
+		txtfMuncipioR.setText(txtfintMunicipio);
+		txtfCPR.setText(txtfintCP);
+		txtfFijo.setText(txtfintTlfF);
+		txtfMovilR.setText(txtfintTlfM);
+		txtfFaxR.setText(txtfintFax);
+		txtfEmailR.setText(txtfintEmail);
 	}
 }

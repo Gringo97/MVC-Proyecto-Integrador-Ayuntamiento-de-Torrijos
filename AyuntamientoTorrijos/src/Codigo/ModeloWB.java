@@ -39,6 +39,15 @@ public class ModeloWB extends JFrame implements Modelo {
 	}
 
 
+	public void copiarInfor(String txtfintNombre, String txtfintApellido, String txtfintCif, String txtfintDireccion,
+			String txtfintMunicipio, String txtfintCP, String txtfintTlfF, String txtfintTlfM, String txtfintFax,
+			String txtfintEmail) {
+		
+		vistaP.copiarInfo(txtfintNombre,txtfintApellido,txtfintCif,txtfintDireccion,txtfintMunicipio,txtfintCP,txtfintTlfF,txtfintTlfM, txtfintFax,txtfintEmail);
+		
+	}
+
+
 
 
 	

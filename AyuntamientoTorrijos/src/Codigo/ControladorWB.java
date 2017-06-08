@@ -172,4 +172,9 @@ modelo2.recogerDatosParaCambioTitularidad(dato);
 		modelo2.realizarUpdate2(vista2.getTxtfrepNombre(),vista2.getTxtfrepApellidos(),vista2.getTxtfrepDocumentoIdentidad(),vista2.getTxtfrepDireccion(),vista2.getTxtfrepMunicipio(),vista2.getTxtfrepCP(),vista2.getTxtfrepTlfF(),vista2.getTxtfrepTlfM(),vista2.getTxtfrepFax(),vista2.getTxtfrepEmail());
 	}
 
+	public void copiarInfor() {
+		modelo.copiarInfor(vista.getTxtfNombreI(),vista.getTxtfApellidosI(),vista.getTxtfCIFI(),vista.getTxtfDireccionI(),vista.getTxtfMunicipio(),vista.getTxtfCDI(),vista.getTxtfFijoI(),vista.getTxtfMovilI(),vista.getTxtfFaxI(),vista.getTxtfEmailI());
+		
+	}
+
 }

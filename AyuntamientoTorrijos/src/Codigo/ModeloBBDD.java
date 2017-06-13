@@ -77,8 +77,7 @@ public class ModeloBBDD implements Modelo {
 	//---------------------CONSULTAS----------------------------///
 	///////////////////////////////////////////////////////////////
 	
-	
-	
+
 	
 
 	public void Consulta(String Query) {

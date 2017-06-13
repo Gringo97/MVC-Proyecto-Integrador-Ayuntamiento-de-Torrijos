@@ -84,7 +84,9 @@ public class ControladorWB extends JFrame implements Controlador {
 		vistaFichero.setModeloFich(modeloFicheroIni);
 		vistaFichero.setModeloBBDD(modelo2);
 		modeloFicheroIni.setVista(vistaFichero);
+		modeloFicheroIni.Conectar();
 		modeloFicheroIni.setDatos();
+		
 		setVistaFichero(vistaFichero);
 
 		
@@ -180,15 +182,14 @@ modelo2.recogerDatosParaCambioTitularidad(dato);
 	}
 
 	public void reconectar() {
+		
 		String url = vistaFicheroIni.getTxtfURL(); 
 		String bd = vistaFicheroIni.getTxtfBaseDatos();
 		
 		
 		
-		
 		modelo2.Conexion(url+bd, vistaFicheroIni.getTxtfLogin(), vistaFicheroIni.getTxtfPassword());
-		modelo2.getConnection();
-		
+	
 	}
 
 }

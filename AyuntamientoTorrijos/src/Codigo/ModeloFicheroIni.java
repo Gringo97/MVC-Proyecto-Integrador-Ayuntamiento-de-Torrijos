@@ -32,34 +32,7 @@ public class ModeloFicheroIni implements Modelo {
 	private JButton ok;
 
 	public ModeloFicheroIni() {
-		datos = new Properties();
-		try {
-			miFichero = new File(FILE);
-			if (miFichero.exists()) {
-				entrada = new FileInputStream(miFichero);
-				datos.load(entrada);
-				bd = datos.getProperty("bd");
-				login = datos.getProperty("login");
-				pwd = datos.getProperty("pwd");
-				url = datos.getProperty("url");
-
-				System.out.println(url);
-
-			} else {
-				System.err.println("Fichero no encontrado");
-				System.exit(1);
-			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally{
-			if(entrada != null){
-				try{
-					entrada.close();
-				}catch (IOException ex) {
-					ex.printStackTrace();
-				}
-			}
-		}
+		this.Conectar();
 
 	}
 
@@ -87,6 +60,36 @@ public class ModeloFicheroIni implements Modelo {
 					salida.close();
 				} catch (IOException e) {
 					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public void Conectar(){
+		datos = new Properties();
+		try {
+			miFichero = new File(FILE);
+			if (miFichero.exists()) {
+				entrada = new FileInputStream(miFichero);
+				datos.load(entrada);
+				bd = datos.getProperty("bd");
+				login = datos.getProperty("login");
+				pwd = datos.getProperty("pwd");
+				url = datos.getProperty("url");
+
+				System.out.println(url);
+
+			} else {
+				System.err.println("Fichero no encontrado");
+				System.exit(1);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally{
+			if(entrada != null){
+				try{
+					entrada.close();
+				}catch (IOException ex) {
+					ex.printStackTrace();
 				}
 			}
 		}
